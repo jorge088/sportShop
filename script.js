@@ -89,7 +89,6 @@ if(cart.find((product)=>product.price>8000)){ // Busca si está llevando un prod
         }
 }
 
-
 //Genera mensaje final
 var finalMessage=`COMPRA FINALIZADA \nUsted compró: \n`;
 cart.forEach(product => {

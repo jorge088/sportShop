@@ -1,0 +1,76 @@
+@import 'normalize';
+
+header{
+    width: 100%;
+    background-color: blue;
+    font-size: 1rem;
+    .navBar{
+        height: 75px;
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &__logo{
+            color: #fff;
+            font-size: 1.5em;
+            padding: 0 2em;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        &__menu{
+            display: flex;
+            list-style: none;
+            color: #fff;
+            & li{
+                margin: 0 1em;
+                border-radius: 8px;
+                transition: .8s ;
+                &:hover, &:active{
+                    background-color: rgba(0,0,0,.3);
+                }
+            }
+            & li a{
+                text-decoration: none;
+                color: #fff;
+                padding: .4em .8em;
+                display: block;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+.cart{
+    font-size: 1rem;
+    width: 90%;
+    min-height: 500px;
+    margin: 1em auto;
+    text-align: center;
+    background: rgba(0, 0, 0, .2);
+    padding: 1em;
+    
+    &__item{
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        margin: .5em auto;
+        font-size: 1.1em;
+        border-bottom: 1px solid gray;
+        &__name{
+            width: 40%;
+        }
+        &__amount{
+            width: 20%;
+        }
+        &__price{
+            width: 20%;
+        }
+    }
+    &__total{
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+}

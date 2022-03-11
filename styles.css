@@ -51,7 +51,7 @@ a {
   background: transparent;
 }
 a:focus {
-  outline: thin dotted;
+  outline: none;
 }
 a:hover, a:active {
   outline: 0;
@@ -233,9 +233,13 @@ input[type=checkbox], input[type=radio] {
   padding: 0;
 }
 
+body {
+  background: rgba(0, 0, 0, 0.12);
+}
+
 header {
   width: 100%;
-  background-color: blue;
+  background-color: #7f00b2;
   font-size: 1rem;
 }
 header .navBar {
@@ -256,10 +260,11 @@ header .navBar__logo {
 header .navBar__menu {
   display: flex;
   list-style: none;
+  align-items: center;
   color: #fff;
 }
 header .navBar__menu li {
-  margin: 0 1em;
+  margin: 0 0.5em;
   border-radius: 8px;
   transition: 0.8s;
 }
@@ -269,9 +274,48 @@ header .navBar__menu li:hover, header .navBar__menu li:active {
 header .navBar__menu li a {
   text-decoration: none;
   color: #fff;
-  padding: 0.4em 0.8em;
+  padding: 0.4em 0.5em;
   display: block;
   text-transform: uppercase;
+}
+header .navBar__menu form input {
+  padding: 8px;
+  background: transparent;
+  color: white;
+  font-size: 1.1em;
+  border: 1px solid #d8d8d8;
+}
+header .navBar__menu form input:focus {
+  outline: none;
+}
+
+.products {
+  width: 90%;
+  font-size: 1rem;
+  margin: 2em auto;
+  display: grid;
+  grid-template-columns: repeat(4, 270px);
+  gap: 2.5em;
+  justify-content: center;
+}
+.products__item {
+  background-color: #fff;
+  cursor: pointer;
+}
+.products__item img {
+  width: 270px;
+  height: 280px;
+}
+.products__item__info {
+  margin: 0.5em 1em;
+}
+.products__item__info__name {
+  margin: 0;
+  font-size: 1.1em;
+}
+.products__item__info__price {
+  margin: 0.5em 0;
+  font-size: 1.4em;
 }
 
 .cart {

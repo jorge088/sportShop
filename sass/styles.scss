@@ -1,8 +1,10 @@
 @import 'normalize';
-
+body{
+    background: rgba(0,0,0,.12);
+}
 header{
     width: 100%;
-    background-color: blue;
+    background-color: #7f00b2;
     font-size: 1rem;
     .navBar{
         height: 75px;
@@ -21,9 +23,10 @@ header{
         &__menu{
             display: flex;
             list-style: none;
+            align-items: center;
             color: #fff;
             & li{
-                margin: 0 1em;
+                margin: 0 .5em;
                 border-radius: 8px;
                 transition: .8s ;
                 &:hover, &:active{
@@ -33,14 +36,54 @@ header{
             & li a{
                 text-decoration: none;
                 color: #fff;
-                padding: .4em .8em;
+                padding: .4em .5em;
                 display: block;
                 text-transform: uppercase;
+            }
+            form{
+                input{
+                    padding: 8px;
+                    background: transparent;
+                    color: rgb(255, 255, 255);
+                    font-size: 1.1em;
+                    border: 1px solid rgb(216, 216, 216);
+                    &:focus{
+                        outline: none;
+                    }
+                }
             }
         }
     }
 }
-
+.products{
+    width: 90%;
+    font-size: 1rem;
+    margin: 2em auto;
+    display: grid;
+    grid-template-columns: repeat(4,270px);
+    gap: 2.5em;
+    justify-content: center;
+    &__item{
+        background-color: #fff;
+        cursor: pointer;
+        & img{
+            width: 270px;
+            height: 280px;
+        }
+        &__info{
+            margin: .5em 1em;
+            &__name{
+                margin: 0;
+                font-size: 1.1em;
+            }
+            &__price{
+                margin: .5em 0;
+                font-size: 1.4em;
+            }
+        }
+        
+    }
+}
 .cart{
     font-size: 1rem;
     width: 90%;

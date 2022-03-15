@@ -6,19 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>SportShop</title>
 </head>
 
 <body>
     <header>
         <nav class="navBar">
-            <a class="navBar__logo" href="#">ElectroShop</a>
+            <a class="navBar__logo" href="#">SportShop</a>
             <ul class="navBar__menu">
                 <li>
                     <a href="#">Catalogo</a>
                 </li>
                 <li>
-                    <a href="#">carrito</a>
+                    <a href="#cart">carrito</a>
                 </li>
                 <li>
                     <a href="#">Sobre Nosotros</a>
@@ -29,68 +31,27 @@
             </ul>
         </nav>
     </header>
-    <div class="products">
-        <div class="products__item">
-            <img src="./assets/images/camiseta1Front-AtleticoTucuman-2022.png" alt="">
-            <div class="products__item__info">
-                <p class="products__item__info__name">Camiseta</p>
-                <p class="products__item__info__price">$1000</p>
-            </div>
+    <!-- Aqui se listan los productos -->
+    <div class="products" id="products">
 
-        </div>
-        <div class="products__item">
-            <img src="./assets/images/camiseta1Front-Belgrano-2021.png" alt="">
-            <div class="products__item__info">
-                <p class="products__item__info__name">Camiseta</p>
-                <p class="products__item__info__price">$1000</p>
-            </div>
-        </div>
-        <div class="products__item">
-            <img src="./assets/images/camiseta1Front-BocaJuniors-2021.png" alt="">
-            <div class="products__item__info">
-                <p class="products__item__info__name">Camiseta</p>
-                <p class="products__item__info__price">$1000</p>
-            </div>
-        </div>
-        <div class="products__item">
-            <img src="./assets/images/camiseta1Front-Estudiantes-2021.png" alt="">
-            <div class="products__item__info">
-                <p class="products__item__info__name">Camiseta</p>
-                <p class="products__item__info__price">$1000</p>
-            </div>
-        </div>
-        <div class="products__item">
-            <img src="./assets/images/camiseta1Front-Independiente-2021.png" alt="">
-            <div class="products__item__info">
-                <p class="products__item__info__name">Camiseta</p>
-                <p class="products__item__info__price">$1000</p>
-            </div>
-        </div>
-        <div class="products__item">
-            <img src="./assets/images/camiseta1Front-RosarioCentral-2022.png" alt="">
-            <div class="products__item__info">
-                <p class="products__item__info__name">Camiseta</p>
-                <p class="products__item__info__price">$1000</p>
-            </div>
-        </div>
-        <div class="products__item">
-            <img src="./assets/images/camiseta1Front-Talleres-2021.png" alt="">
-            <div class="products__item__info">
-                <p class="products__item__info__name">Camiseta</p>
-                <p class="products__item__info__price">$1000</p>
-            </div>
-        </div>
-        <div class="products__item">
-            <img src="./assets/images/camiseta1Front-Velez-2021.png" alt="">
-            <div class="products__item__info">
-                <p class="products__item__info__name">Camiseta</p>
-                <p class="products__item__info__price">$1000</p>
-            </div>
-        </div>
     </div>
+
+    <!-- Template para cada producto -->
+    <template id="template-product">
+        <div class="products__item">
+            <div class="products__item__info">
+                <h3 class="products__item__info__name"></h3>
+                <p class="products__item__info__price"></p>
+            </div>
+            <button class="products__item__button">Agregar al carrito <i class="fas fa-solid fa-cart-arrow-down"></i>
+            </button>
+        </div>
+    </template>
+
+    <!-- Aqui se listan los elementos del carrito -->
     <div class="cart" id="cart">
     </div>
-    <!-- <script src="./script.js"></script> -->
+    <script src="./script.js"></script>
 </body>
 
 </html>

@@ -1,105 +1,96 @@
-class Product{
-        constructor (name,price){
-                this.name=name;
-                this.price=price;
-                this.amount = 1;
-        }
-}
-
-//Funcion calculo precio final
-const finalPrice = (cart) => { 
-        let price=0;
-        cart.forEach(product =>{
-                price+=product.price*product.amount;
-        });
-        return price;
-}
-
-//Ver si el producto ya está en el carrito
-function isInCart(name,price){
-        if(cart.some((product)=>product.name == name)){
-                cart.forEach(element => {
-                        if(element.name == name) //busco al producto en el array
-                                element.amount++;//le aumento a la cantidad
-                });
-        }else{
-                cart.push(new Product(name,price));
-        }
-}
-
-//actualiza la lista de productos en el dom
+//actualiza la lista de productos del carrito en el dom
 function updateProductList(){
         cartList.innerHTML='<h2> Carrito de compras</h2>';
+        let totalPrice=0;
         cart.forEach(product=>{
                 cartList.innerHTML += `
                 <div class="cart__item">
                         <p class="cart__item__name">${product.name}</p>
-                        <p class="cart__item__amount">${product.amount}</p>                
-                        <p class="cart__item__price">$${product.price}</p>
+                        <p class="cart__item__amount">${product.units}</p>                
+                        <p class="cart__item__price">${product.price}</p>
                 </div>
                 `;
+                totalPrice+= Number(product.price.slice(1))*product.units; //quita el $ de product.price y lo transforma a number
         });
+        cartList.innerHTML+=`
+        <div class="cart__total">
+                <p>Total: $${totalPrice} </p>
+        </div>
+`;
 }
+let cart=[];
+let cartList = document.getElementById('cart');
 
-var cart = []; //carrito
-var totalDiscount=0;
-var cartList = document.getElementById('cart');
-cartList.innerHTML='<h2> Carrito de compras</h2>';
+const products = document.getElementById('products'); //contenedor de productos
+const templateProducts = document.getElementById("template-product").content; //template para cada producto item
+const fragment = document.createDocumentFragment(); //fragmento para guardar cada item y luego insertarlo en el contenedor
 
-alert("¡Bienvenido a mi tienda de ropa!");
+document.addEventListener('DOMContentLoaded',()=>{ //pido los datos, luego de que se carguen todos los elementos del DOM
+        fetchData();
+});
 
-do{
-        
-    let option = prompt(`Elija entre los siguientes productos(ingrese numero de opción): 
-                        \n 1_ Zapatillas Nike: $11.000
-                        \n 2_ Campera de lluvia $8.000
-                        \n 3_ Remera selección Argentina $12.000
-                        \n 4_ Pelota de futbol Adidas $5.000
-                        \n 5_ Pantalon deportivo $7.000
-                        `);
-
-    switch(parseInt(option)){
-        case 1: isInCart("Zapatillas Nike",11000);
-                break;
-        case 2: isInCart("Campera de lluvia",8000);
-                break;
-        case 3: isInCart("Remera seleccion Argentina",12000);
-                break;
-        case 4: isInCart("Pelota de futbol Adidas",5000);
-                break;
-        case 5: isInCart("Pantalon deportivo",7000);
-                break;
-        default: alert("Opción inexistente, elija un numero de producto correcto");
-                continue;
-    };
-    updateProductList();
-    var answer = prompt("¿Quiere agregar otro producto? (Si-No)");
-} while (answer.toLowerCase() != "no");
-
-//aplica descuento
-if(cart.find((product)=>product.price>8000)){ // Busca si está llevando un producto > $8000
-        let discount = prompt(`¡Tenemos una oferta para usted! 
-                                \nLlevando un producto mayor a $8000, le ofrecemos un descuento del %10 sobre el precio de ese producto pagando con efectivo. 
-                                \n¿Paga de esta forma? (si/no)`);
-        if(discount.toLowerCase()=="si"){
-                cart.forEach(product => {
-                        if(product.price>8000) // Solo aplica descuento a productos > $8000
-                                totalDiscount+=product.price*0.1*product.amount;
-                });
+//Función que trae los datos del archivo json
+const fetchData = async () => {
+        try {
+                const res = await fetch('./assets/products.js');
+                const data = await res.json();
+                loadProducts(data);
+        } catch (error) {
+                console.log(error)
         }
 }
 
-//Genera mensaje final
-var finalMessage=`COMPRA FINALIZADA \nUsted compró: \n`;
-cart.forEach(product => {
-        finalMessage+=`* ${product.name} - $${product.price} \n`;
+//Carga los productos del json en la pantalla
+const loadProducts = (data) => {
+        data.forEach(product => {
+                const img =document.createElement('img'); //agrego la img y sus eventos por separado
+                img.setAttribute("src",`./assets/images/${product.imgFrontUrl}`);
+                //eventos de cambio de imagen
+                img.addEventListener('mouseover',()=>{
+                        img.setAttribute("src",`./assets/images/${product.imgBackUrl}`);
+                });
+                img.addEventListener('mouseout',()=>{
+                        img.setAttribute("src",`./assets/images/${product.imgFrontUrl}`);
+                });
+
+                templateProducts.querySelector('h3').textContent = `${product.name} ${product.year}`;
+                templateProducts.querySelector('p').textContent = `$${product.price}`;
+                templateProducts.querySelector('.products__item__button').dataset.id=product.id; //guardo en el button el id de ese producto
+
+                const clone = templateProducts.cloneNode(true);
+
+                clone.firstElementChild.insertBefore(img,clone.firstElementChild.firstElementChild); //agrego la imagen dentro del template, para que quede antes de la información del producto
+
+                fragment.appendChild(clone);//agrega ese item al fragment
+        })
+        products.appendChild(fragment); //luego de agregar todos los items al fragment, lo inserta en el DOM
+}
+
+//captura los clicks para agregar al carrito
+products.addEventListener("click",(e)=>{
+        addCart(e);
 });
 
-alert(`${finalMessage}\nDescuento: $${totalDiscount} \n EL TOTAL A PAGAR ES: $ ${finalPrice(cart)-totalDiscount}`);
-//Carga el precio final al dom
-cartList.innerHTML+=`
-        <div class="cart__total">
-                <p>Total: $${finalPrice(cart)-totalDiscount} </p>
-        </div>
-`;
+const addCart = e =>{
+        //verifica que se hizo click en el boton
+        if(e.target.classList.contains('products__item__button')){ 
+                setCart(e.target.parentElement); //Envia el item completo
+        }
+        e.stopPropagation();
+}
 
+//Agrega los datos del producto al carrito
+const setCart = (object) =>{
+        const product={
+                id: object.querySelector('.products__item__button').dataset.id,
+                name: object.querySelector('h3').textContent,
+                price: object.querySelector('p').textContent,
+                units: 1
+        }
+        //si ya existe ese id, le aumento la cantidad
+        if(cart.hasOwnProperty(product.id)){
+                product.units=cart[product.id].units+1;
+        }
+        cart[product.id] = {...product}
+        updateProductList()
+}

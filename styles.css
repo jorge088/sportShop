@@ -259,7 +259,7 @@ header .navBar {
 header .navBar__logo {
   color: #fff;
   font-size: 1.5em;
-  padding: 0 2em;
+  padding: 0;
   font-weight: bold;
   text-decoration: none;
 }
@@ -270,7 +270,7 @@ header .navBar__menu {
   color: #fff;
 }
 header .navBar__menu li {
-  margin: 0 0.5em;
+  margin: 0 0.4em;
   border-radius: 8px;
   transition: 0.8s;
 }
@@ -280,9 +280,8 @@ header .navBar__menu li:hover, header .navBar__menu li:active {
 header .navBar__menu li a {
   text-decoration: none;
   color: #fff;
-  padding: 0.4em 0.5em;
+  padding: 0.4em 0.4em;
   display: block;
-  text-transform: uppercase;
 }
 header .navBar__menu form input {
   padding: 8px;
@@ -294,14 +293,23 @@ header .navBar__menu form input {
 header .navBar__menu form input:focus {
   outline: none;
 }
+header .navBar__menu.show {
+  top: 75px;
+}
+header .btn__nav {
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
 
 .products {
-  width: 90%;
+  width: 100%;
   font-size: 1rem;
   margin: 2em auto;
   display: grid;
-  grid-template-columns: repeat(4, 270px);
-  gap: 2.5em;
+  grid-template-columns: repeat(5, 200px);
+  gap: 1.5em;
   justify-content: center;
 }
 .products__item {
@@ -316,8 +324,22 @@ header .navBar__menu form input:focus {
   box-shadow: 2px 2px 8px 5px rgba(0, 0, 0, 0.25);
 }
 .products__item img {
-  width: 270px;
-  height: 280px;
+  width: 200px;
+  height: 220px;
+  margin-bottom: 0.7em;
+}
+.products__item__info {
+  margin: 0 1em;
+}
+.products__item__info__name {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 1.1em;
+}
+.products__item__info__price {
+  margin: 0.4em 0;
+  font-size: 1.3em;
 }
 .products__item button {
   width: 100%;
@@ -333,19 +355,6 @@ header .navBar__menu form input:focus {
 .products__item button i {
   font-size: 1.3em;
   vertical-align: baseline;
-}
-.products__item__info {
-  margin: 0.5em 1em;
-}
-.products__item__info__name {
-  margin: 0;
-  padding: 0;
-  font-weight: 400;
-  font-size: 1.1 0.5em;
-}
-.products__item__info__price {
-  margin: 0.4em 0;
-  font-size: 1.3em;
 }
 
 .cart {
@@ -380,6 +389,164 @@ header .navBar__menu form input:focus {
   justify-content: center;
   font-weight: bold;
   font-size: 1.2em;
+}
+
+@media only screen and (max-width: 575px) {
+  header {
+    font-size: 0.9em;
+  }
+  header .navBar {
+    width: 100%;
+  }
+  header .navBar__logo {
+    margin-left: 2em;
+    padding: 0;
+  }
+  header .navBar__menu {
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #7f00b2;
+    top: -100vh;
+    text-align: center;
+    transition: all ease 0.8s;
+    flex-direction: column;
+  }
+  header .navBar__menu li {
+    width: 100%;
+    margin: 0.6em 0;
+  }
+  header .navBar__menu li a {
+    padding: 0.8em 1em;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  header .navBar__menu form input {
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+    font-size: 1.1em;
+  }
+  header .btn__nav {
+    display: block;
+    margin-right: 2em;
+  }
+  header .btn__nav i {
+    padding: 6px 10px;
+  }
+  header .btn__nav i:hover {
+    border: 1px solid #fff;
+  }
+  header .btn__nav.active i {
+    font-weight: bold;
+    border: 1px solid #fff;
+  }
+
+  .products {
+    grid-template-columns: repeat(1, 200px);
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  header {
+    font-size: 0.9em;
+  }
+  header .navBar {
+    width: 100%;
+  }
+  header .navBar__logo {
+    margin-left: 2em;
+    padding: 0;
+  }
+  header .navBar__menu {
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #7f00b2;
+    top: -100vh;
+    text-align: center;
+    transition: all ease 0.8s;
+    flex-direction: column;
+  }
+  header .navBar__menu li {
+    width: 100%;
+    margin: 0.6em 0;
+  }
+  header .navBar__menu li a {
+    padding: 0.8em 1em;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  header .navBar__menu form input {
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+    font-size: 1.1em;
+  }
+  header .btn__nav {
+    display: block;
+    margin-right: 2em;
+  }
+  header .btn__nav i {
+    padding: 6px 10px;
+  }
+  header .btn__nav i:hover {
+    border: 1px solid #fff;
+  }
+  header .btn__nav.active i {
+    font-weight: bold;
+    border: 1px solid #fff;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  header {
+    font-size: 0.9em;
+  }
+  header .navBar {
+    width: 100%;
+  }
+  header .navBar__logo {
+    margin-left: 2em;
+    padding: 0;
+  }
+  header .navBar__menu {
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #7f00b2;
+    top: -100vh;
+    text-align: center;
+    transition: all ease 0.8s;
+    flex-direction: column;
+  }
+  header .navBar__menu li {
+    width: 100%;
+    margin: 0.6em 0;
+  }
+  header .navBar__menu li a {
+    padding: 0.8em 1em;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  header .navBar__menu form input {
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+    font-size: 1.1em;
+  }
+  header .btn__nav {
+    display: block;
+    margin-right: 2em;
+  }
+  header .btn__nav i {
+    padding: 6px 10px;
+  }
+  header .btn__nav i:hover {
+    border: 1px solid #fff;
+  }
+  header .btn__nav.active i {
+    font-weight: bold;
+    border: 1px solid #fff;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

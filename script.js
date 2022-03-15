@@ -1,3 +1,14 @@
+const showNavResponsive = () =>{
+        const btn__nav = document.querySelector('.btn__nav');
+        if(btn__nav){
+                btn__nav.addEventListener('click',()=>{
+                        const nav__menu= document.querySelector('.navBar__menu');
+                        nav__menu.classList.toggle('show');
+                        btn__nav.classList.toggle('active');
+                })
+        }
+}
+
 //actualiza la lista de productos del carrito en el dom
 function updateProductList(){
         cartList.innerHTML='<h2> Carrito de compras</h2>';
@@ -27,6 +38,7 @@ const templateProducts = document.getElementById("template-product").content; //
 const fragment = document.createDocumentFragment(); //fragmento para guardar cada item y luego insertarlo en el contenedor
 
 document.addEventListener('DOMContentLoaded',()=>{ //pido los datos, luego de que se carguen todos los elementos del DOM
+        showNavResponsive();
         fetchData();
 });
 

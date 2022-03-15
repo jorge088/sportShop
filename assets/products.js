@@ -124,5 +124,14 @@
         "year":"2021",
         "imgFrontUrl":"camiseta2Front-CentralCordoba-2022.png",
         "imgBackUrl":"camiseta2Back-CentralCordoba-2022.png"
+    },
+    {
+        "id": 15,
+        "name":"Camiseta alternativa Boca Juniors",
+        "price":12000,
+        "category":"Boca Juniors",
+        "year":"2022",
+        "imgFrontUrl":"camiseta3Front-BocaJuniors-2022.png",
+        "imgBackUrl":"camiseta3Back-BocaJuniors-2022.png"
     }
 ]

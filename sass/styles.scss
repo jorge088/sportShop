@@ -21,7 +21,7 @@ header{
         &__logo{
             color: #fff;
             font-size: 1.5em;
-            padding: 0 2em;
+            padding: 0;
             font-weight: bold;
             text-decoration: none;
         }
@@ -31,9 +31,9 @@ header{
             align-items: center;
             color: #fff;
             & li{
-                margin: 0 .5em;
+                margin: 0 .4em;
                 border-radius: 8px;
-                transition: .8s ;
+                transition: .8s;
                 &:hover, &:active{
                     background-color: rgba(0,0,0,.3);
                 }
@@ -41,9 +41,8 @@ header{
             & li a{
                 text-decoration: none;
                 color: #fff;
-                padding: .4em .5em;
+                padding: .4em .4em;
                 display: block;
-                text-transform: uppercase;
             }
             form{
                 input{
@@ -57,16 +56,26 @@ header{
                     }
                 }
             }
+            &.show{
+                top:75px;
+            }
         }
+    }
+    .btn__nav{
+        font-size: 25px;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+        
     }
 }
 .products{
-    width: 90%;
+    width: 100%;
     font-size: 1rem;
     margin: 2em auto;
     display: grid;
-    grid-template-columns: repeat(4,270px);
-    gap: 2.5em;
+    grid-template-columns: repeat(5,200px);
+    gap: 1.5em;
     justify-content: center;
     &__item{
         background-color: #fff;
@@ -79,8 +88,23 @@ header{
             box-shadow: 2px 2px 8px 5px rgba(0, 0, 0, 0.25);
         }
         & img{
-            width: 270px;
-            height: 280px;
+            width: 200px;
+            height: 220px;
+            margin-bottom: .7em;
+        }
+        
+        &__info{
+            margin: 0 1em;
+            &__name{
+                margin: 0;
+                padding: 0;
+                font-weight: 400;
+                font-size: 1.1em;
+            }
+            &__price{
+                margin: .4em 0;
+                font-size: 1.3em;
+            }
         }
         & button {
             width: 100%;
@@ -96,19 +120,6 @@ header{
             & i{
                 font-size: 1.3em;
                 vertical-align: baseline;
-            }
-        }
-        &__info{
-            margin: .5em 1em;
-            &__name{
-                margin: 0;
-                padding: 0;
-                font-weight: 400;
-                font-size: 1.1.5em;
-            }
-            &__price{
-                margin: .4em 0;
-                font-size: 1.3em;
             }
         }
         
@@ -146,5 +157,173 @@ header{
         justify-content: center;
         font-weight: bold;
         font-size: 1.2em;
+    }
+}
+@media only screen and (max-width:575px){
+    header{
+        font-size: .9em;
+        .navBar{
+            width: 100%;
+            &__logo{
+                margin-left:2em;
+                padding: 0;
+            }
+            &__menu{
+                position: fixed;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background: #7f00b2;
+                top: -100vh;
+                text-align: center;
+                transition: all ease .8s;
+                flex-direction: column; 
+                & li{
+                    width: 100%;
+                    margin: .6em 0;
+                }
+                & li a{
+                    padding: .8em 1em;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                }
+                form{
+                    input{
+                        margin-top: 1em;
+                        margin-bottom: 1.5em;
+                        font-size: 1.1em;
+                    }
+                }
+            }
+        }
+        .btn__nav{
+            display: block;
+            margin-right: 2em;
+            i{
+                padding: 6px 10px;    
+                &:hover{
+                    border: 1px solid #fff;
+                }
+            }
+            &.active{
+                i{
+                    font-weight: bold;
+                    border: 1px solid #fff;
+                }
+            }
+        }
+    }
+    .products{
+        grid-template-columns: repeat(1,200px);
+    }
+}
+@media only screen and (min-width:576px) and (max-width:768px){
+    header{
+        font-size: .9em;
+        .navBar{
+            width: 100%;
+            &__logo{
+                margin-left:2em;
+                padding: 0;
+            }
+            &__menu{
+                position: fixed;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background: #7f00b2;
+                top: -100vh;
+                text-align: center;
+                transition: all ease .8s;
+                flex-direction: column; 
+                & li{
+                    width: 100%;
+                    margin: .6em 0;
+                }
+                & li a{
+                    padding: .8em 1em;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                }
+                form{
+                    input{
+                        margin-top: 1em;
+                        margin-bottom: 1.5em;
+                        font-size: 1.1em;
+                    }
+                }
+            }
+        }
+        .btn__nav{
+            display: block;
+            margin-right: 2em;
+            i{
+                padding: 6px 10px;    
+                &:hover{
+                    border: 1px solid #fff;
+                }
+            }
+            &.active{
+                i{
+                    font-weight: bold;
+                    border: 1px solid #fff;
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width:768px) and (max-width:992px){
+    header{
+        font-size: .9em;
+        .navBar{
+            width: 100%;
+            &__logo{
+                margin-left:2em;
+                padding: 0;
+            }
+            &__menu{
+                position: fixed;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background: #7f00b2;
+                top: -100vh;
+                text-align: center;
+                transition: all ease .8s;
+                flex-direction: column; 
+                & li{
+                    width: 100%;
+                    margin: .6em 0;
+                }
+                & li a{
+                    padding: .8em 1em;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                }
+                form{
+                    input{
+                        margin-top: 1em;
+                        margin-bottom: 1.5em;
+                        font-size: 1.1em;
+                    }
+                }
+            }
+        }
+        .btn__nav{
+            display: block;
+            margin-right: 2em;
+            i{
+                padding: 6px 10px;    
+                &:hover{
+                    border: 1px solid #fff;
+                }
+            }
+            &.active{
+                i{
+                    font-weight: bold;
+                    border: 1px solid #fff;
+                }
+            }
+        }
     }
 }

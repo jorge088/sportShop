@@ -110,7 +110,7 @@
     {
         "id": 13,
         "name":"Camiseta alternativa Rosario Central",
-        "price":10000,
+        "price":9500,
         "category":"Rosario Central",
         "year":"2021",
         "imgFrontUrl":"camiseta2Front-RosarioCentral-2022.png",

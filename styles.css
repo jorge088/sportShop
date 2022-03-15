@@ -341,11 +341,11 @@ header .navBar__menu form input:focus {
   margin: 0;
   padding: 0;
   font-weight: 400;
-  font-size: 1.25em;
+  font-size: 1.1 0.5em;
 }
 .products__item__info__price {
   margin: 0.4em 0;
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 
 .cart {

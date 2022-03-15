@@ -20,6 +20,7 @@ function updateProductList(){
 }
 let cart=[];
 let cartList = document.getElementById('cart');
+cartList.innerHTML='<h2> Carrito de compras</h2>';
 
 const products = document.getElementById('products'); //contenedor de productos
 const templateProducts = document.getElementById("template-product").content; //template para cada producto item

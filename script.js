@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded',()=>{ //pido los datos, luego de qu
 //Función que trae los datos del archivo json
 const fetchData = async () => {
         try {
-                const res = await fetch('./assets/products.js');
+                const res = await fetch('./assets/products.json');
                 const data = await res.json();
                 loadProducts(data);
         } catch (error) {

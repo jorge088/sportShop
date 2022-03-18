@@ -10,6 +10,7 @@ header{
     background-color: #7f00b2;
     font-size: 1rem;
     position: sticky;
+    z-index: 100;
     top: 0;
     .navBar{
         height: 75px;
@@ -80,12 +81,18 @@ header{
     &__item{
         background-color: #fff;
         display: flex;
+        position: relative;
         flex-direction: column;
         justify-content: space-between;
+        overflow: hidden;
         cursor: pointer;
         transition: .4s all ease;
         &:hover{
             box-shadow: 2px 2px 8px 5px rgba(0, 0, 0, 0.25);
+            & button{
+                bottom: 10px;
+                right: 20px;
+            }
         }
         & img{
             width: 200px;
@@ -98,28 +105,33 @@ header{
             &__name{
                 margin: 0;
                 padding: 0;
+                min-height: 3em;
                 font-weight: 400;
                 font-size: 1.1em;
             }
             &__price{
-                margin: .4em 0;
+                margin: .8em 0;
                 font-size: 1.3em;
             }
         }
         & button {
-            width: 100%;
-            font-size: 1.1em;
-            padding: .4em 0;
+            position:absolute;
+            bottom: -200px;
+            right: 20px;
+            font-size: 1em;
+            padding: 8px 20px;
+            border-radius: 8px;
             background-color: #7f00b2;
+            text-align: center;
             color: #fff;
             border: none;
+            transition: .8s all ease;
             &:hover{
                 background-color: #9c0ed4;
 
             }
             & i{
-                font-size: 1.3em;
-                vertical-align: baseline;
+                font-size: 1.5em;
             }
         }
         
@@ -215,6 +227,12 @@ header{
     }
     .products{
         grid-template-columns: repeat(1,200px);
+        &__item{
+            & button {
+                bottom: 10px;
+                right: 20px;
+            }
+        }
     }
 }
 @media only screen and (min-width:576px) and (max-width:768px){

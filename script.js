@@ -1,8 +1,8 @@
-const showNavResponsive = () =>{
+const showNavResponsive = () => {
         const btn__nav = document.querySelector('.btn__nav');
-        if(btn__nav){
-                btn__nav.addEventListener('click',()=>{
-                        const nav__menu= document.querySelector('.navBar__menu');
+        if (btn__nav) {
+                btn__nav.addEventListener('click', () => {
+                        const nav__menu = document.querySelector('.navBar__menu');
                         nav__menu.classList.toggle('show');
                         btn__nav.classList.toggle('active');
                 })
@@ -10,10 +10,10 @@ const showNavResponsive = () =>{
 }
 
 //actualiza la lista de productos del carrito en el dom
-function updateProductList(){
-        cartList.innerHTML='<h2> Carrito de compras</h2>';
-        let totalPrice=0;
-        cart.forEach(product=>{
+function updateProductList() {
+        cartList.innerHTML = '<h2> Carrito de compras</h2>';
+        let totalPrice = 0;
+        cart.forEach(product => {
                 cartList.innerHTML += `
                 <div class="cart__item">
                         <p class="cart__item__name">${product.name}</p>
@@ -21,23 +21,23 @@ function updateProductList(){
                         <p class="cart__item__price">${product.price}</p>
                 </div>
                 `;
-                totalPrice+= Number(product.price.slice(1))*product.units; //quita el $ de product.price y lo transforma a number
+                totalPrice += Number(product.price.slice(1)) * product.units; //quita el $ de product.price y lo transforma a number
         });
-        cartList.innerHTML+=`
+        cartList.innerHTML += `
         <div class="cart__total">
                 <p>Total: $${totalPrice} </p>
         </div>
 `;
 }
-let cart=[];
+let cart = [];
 let cartList = document.getElementById('cart');
-cartList.innerHTML='<h2> Carrito de compras</h2>';
+cartList.innerHTML = '<h2> Carrito de compras</h2>';
 
 const products = document.getElementById('products'); //contenedor de productos
 const templateProducts = document.getElementById("template-product").content; //template para cada producto item
 const fragment = document.createDocumentFragment(); //fragmento para guardar cada item y luego insertarlo en el contenedor
 
-document.addEventListener('DOMContentLoaded',()=>{ //pido los datos, luego de que se carguen todos los elementos del DOM
+document.addEventListener('DOMContentLoaded', () => { //pido los datos, luego de que se carguen todos los elementos del DOM
         showNavResponsive();
         fetchData();
 });
@@ -56,23 +56,23 @@ const fetchData = async () => {
 //Carga los productos del json en la pantalla
 const loadProducts = (data) => {
         data.forEach(product => {
-                const img =document.createElement('img'); //agrego la img y sus eventos por separado
-                img.setAttribute("src",`./assets/images/${product.imgFrontUrl}`);
+                const img = document.createElement('img'); //agrego la img y sus eventos por separado
+                img.setAttribute("src", `./assets/images/${product.imgFrontUrl}`);
                 //eventos de cambio de imagen
-                img.addEventListener('mouseover',()=>{
-                        img.setAttribute("src",`./assets/images/${product.imgBackUrl}`);
+                img.addEventListener('mouseover', () => {
+                        img.setAttribute("src", `./assets/images/${product.imgBackUrl}`);
                 });
-                img.addEventListener('mouseout',()=>{
-                        img.setAttribute("src",`./assets/images/${product.imgFrontUrl}`);
+                img.addEventListener('mouseout', () => {
+                        img.setAttribute("src", `./assets/images/${product.imgFrontUrl}`);
                 });
 
                 templateProducts.querySelector('h3').textContent = `${product.name} ${product.year}`;
                 templateProducts.querySelector('p').textContent = `$${product.price}`;
-                templateProducts.querySelector('.products__item__button').dataset.id=product.id; //guardo en el button el id de ese producto
+                templateProducts.querySelector('.products__item__button').dataset.id = product.id; //guardo en el button el id de ese producto
 
                 const clone = templateProducts.cloneNode(true);
 
-                clone.firstElementChild.insertBefore(img,clone.firstElementChild.firstElementChild); //agrego la imagen dentro del template, para que quede antes de la información del producto
+                clone.firstElementChild.insertBefore(img, clone.firstElementChild.firstElementChild); //agrego la imagen dentro del template, para que quede antes de la información del producto
 
                 fragment.appendChild(clone);//agrega ese item al fragment
         })
@@ -80,30 +80,35 @@ const loadProducts = (data) => {
 }
 
 //captura los clicks para agregar al carrito
-products.addEventListener("click",(e)=>{
+products.addEventListener("click", (e) => {
         addCart(e);
 });
 
-const addCart = e =>{
+const addCart = e => {
         //verifica que se hizo click en el boton
-        if(e.target.classList.contains('products__item__button')){ 
-                setCart(e.target.parentElement); //Envia el item completo
+        if (e.target.classList.contains('fa-cart-arrow-down')) { //si hace click en el icono
+                setCart(e.target.parentElement.parentElement);
+        } else {
+                if (e.target.classList.contains('products__item__button')) {
+                        setCart(e.target.parentElement); //Envia el item completo
+                }
         }
+
         e.stopPropagation();
 }
 
 //Agrega los datos del producto al carrito
-const setCart = (object) =>{
-        const product={
+const setCart = (object) => {
+        const product = {
                 id: object.querySelector('.products__item__button').dataset.id,
                 name: object.querySelector('h3').textContent,
                 price: object.querySelector('p').textContent,
                 units: 1
         }
         //si ya existe ese id, le aumento la cantidad
-        if(cart.hasOwnProperty(product.id)){
-                product.units=cart[product.id].units+1;
+        if (cart.hasOwnProperty(product.id)) {
+                product.units = cart[product.id].units + 1;
         }
-        cart[product.id] = {...product}
+        cart[product.id] = { ...product }
         updateProductList()
 }

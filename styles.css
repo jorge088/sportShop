@@ -324,11 +324,10 @@ header .btn__nav {
   transition: 0.4s all ease;
 }
 .products__item:hover {
-  box-shadow: 2px 2px 8px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.25);
 }
 .products__item:hover button {
-  bottom: 10px;
-  right: 20px;
+  opacity: 1;
 }
 .products__item img {
   width: 200px;
@@ -351,16 +350,16 @@ header .btn__nav {
 }
 .products__item button {
   position: absolute;
-  bottom: -200px;
-  right: 20px;
-  font-size: 1em;
+  bottom: 10px;
+  right: 15px;
+  opacity: 0;
   padding: 8px 20px;
   border-radius: 8px;
   background-color: #7f00b2;
   text-align: center;
   color: #fff;
   border: none;
-  transition: 0.8s all ease;
+  transition: 0.6s all ease;
 }
 .products__item button:hover {
   background-color: #9c0ed4;

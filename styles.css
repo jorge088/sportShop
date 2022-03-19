@@ -239,6 +239,7 @@ html {
 
 body {
   background: rgba(0, 0, 0, 0.12);
+  position: relative;
 }
 
 header {
@@ -307,7 +308,8 @@ header .btn__nav {
 .products {
   width: 100%;
   font-size: 1rem;
-  margin: 2em auto;
+  padding: 2em 0;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(5, 200px);
   gap: 1.5em;
@@ -369,15 +371,24 @@ header .btn__nav {
 }
 
 .cart {
-  font-size: 1rem;
-  width: 90%;
-  min-height: 500px;
-  margin: 1em auto;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.1);
-  padding: 1em;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.3);
 }
-.cart__item {
+.cart__container {
+  font-size: 1rem;
+  margin-left: auto;
+  width: 30%;
+  height: 100%;
+  background: red;
+}
+.cart__container h2 {
+  margin: 0;
+}
+.cart__container__item {
   width: 80%;
   display: flex;
   justify-content: center;
@@ -385,17 +396,17 @@ header .btn__nav {
   font-size: 1.1em;
   border-bottom: 1px solid #7f00b2;
 }
-.cart__item__name {
+.cart__container__item__name {
   width: 40%;
 }
-.cart__item__amount {
+.cart__container__item__amount {
   width: 20%;
 }
-.cart__item__price {
+.cart__container__item__price {
   font-weight: 700;
   width: 20%;
 }
-.cart__total {
+.cart__container__total {
   display: flex;
   justify-content: center;
   font-weight: bold;

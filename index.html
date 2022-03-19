@@ -19,25 +19,31 @@
                 <li>
                     <a href="#">CATALOGO</a>
                 </li>
-                <li>
-                    <a href="#cart">CARRITO</a>
-                </li>
+                
                 <li>
                     <a href="#">SOBRE NOSOTROS</a>
                 </li>
                 <form action="" id="searchForm">
                     <input type="text" placeholder="Busca producto">
                 </form>
+                <li>
+                    <a href="#cart"><i class=" fas fa-solid fa-cart-arrow-down"></i> CARRITO</a>
+                </li>
             </ul>
-            <span class="btn__nav">
+            <span class="btn__nav" id="btn__cartView">
                 <i class="fas fa-solid fa-bars"></i>
             </span>
+            
         </nav>
-        
     </header>
+
+    <div class="cart" >
+        <div class="cart__container" id="cart__container">
+        </div>
+    </div>
     <!-- Aqui se listan los productos -->
     <div class="products" id="products">
-
+        
     </div>
 
     <!-- Template para cada producto -->
@@ -47,14 +53,13 @@
                 <h3 class="products__item__info__name"></h3>
                 <p class="products__item__info__price"></p>
             </div>
-            <button class="products__item__button"><i class="fas fa-solid fa-cart-arrow-down"></i>
+            <button class="products__item__button"><i class="fas fa-solid fa-cart-plus"></i>
             </button>
         </div>
     </template>
 
     <!-- Aqui se listan los elementos del carrito -->
-    <div class="cart" id="cart">
-    </div>
+    
     <script src="./script.js"></script>
 </body>
 

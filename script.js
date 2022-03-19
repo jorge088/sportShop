@@ -30,7 +30,7 @@ function updateProductList() {
 `;
 }
 let cart = [];
-let cartList = document.getElementById('cart');
+let cartList = document.getElementById('cart__container');
 cartList.innerHTML = '<h2> Carrito de compras</h2>';
 
 const products = document.getElementById('products'); //contenedor de productos
@@ -86,7 +86,7 @@ products.addEventListener("click", (e) => {
 
 const addCart = e => {
         //verifica que se hizo click en el boton
-        if (e.target.classList.contains('fa-cart-arrow-down')) { //si hace click en el icono
+        if (e.target.classList.contains('fa-cart-plus')) { //si hace click en el icono
                 setCart(e.target.parentElement.parentElement);
         } else {
                 if (e.target.classList.contains('products__item__button')) {

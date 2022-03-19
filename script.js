@@ -11,32 +11,31 @@ const showNavResponsive = () => {
 
 //actualiza la lista de productos del carrito en el dom
 function updateProductList() {
-        cartList.innerHTML = '<h2> Carrito de compras</h2>';
         let totalPrice = 0;
+        cartList.innerHTML = '';
         cart.forEach(product => {
                 cartList.innerHTML += `
-                <div class="cart__container__item">
-                        <p class="cart__container__item__name">${product.name}</p>
-                        <p class="cart__container__item__amount">${product.units}</p>                
-                        <p class="cart__container__item__price">${product.price}</p>
+                <div class="cart__sideContainer__items__item">
+                        <p class="cart__sideContainer__items__item__name">${product.name}</p>
+                        <p class="cart__sideContainer__items__item__amount">${product.units}</p>                
+                        <p class="cart__sideContainer__items__item__price">${product.price}</p>
                 </div>
                 `;
                 totalPrice += Number(product.price.slice(1)) * product.units; //quita el $ de product.price y lo transforma a number
         });
-        cartList.innerHTML += `
-        <div class="cart__container__total">
+        cart__resume.innerHTML = `
+        <div class="cart__sideContainer__resume__total">
                 <p>Total: $${totalPrice} </p>
         </div>
 `;
 }
 let cart = [];
-let cartList = document.getElementById('cart__container');
-cartList.innerHTML = '<h2> Carrito de compras</h2>';
+let cartList = document.getElementById('cart__items');
 
 const products = document.getElementById('products'); //contenedor de productos
 const templateProducts = document.getElementById("template-product").content; //template para cada producto item
 const fragment = document.createDocumentFragment(); //fragmento para guardar cada item y luego insertarlo en el contenedor
-
+const cart__resume = document.querySelector('.cart__sideContainer__resume');
 document.addEventListener('DOMContentLoaded', () => { //pido los datos, luego de que se carguen todos los elementos del DOM
         showNavResponsive();
         addBtnShowCart();
@@ -44,9 +43,16 @@ document.addEventListener('DOMContentLoaded', () => { //pido los datos, luego de
 });
 const addBtnShowCart = () =>{
         const btnCart = document.getElementById('btn__cartView');
+        const cartView = document.querySelector('.cart');
         btnCart.addEventListener('click',()=>{
                 document.querySelector('.cart').classList.toggle('show');
         });
+        cartView.addEventListener('click',(e)=>{
+                if(e.target.classList.contains('cart')){
+                        cartView.classList.toggle('show');
+                }
+                
+        })
 }
 //Función que trae los datos del archivo json
 const fetchData = async () => {

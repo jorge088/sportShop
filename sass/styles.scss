@@ -150,52 +150,69 @@ header{
     right: -100%;
     z-index: 50;
     background: rgba(0,0,0,.2);
+    font-size: 1rem;
     transition: .4s ease all;
+    cursor: pointer;
     &.show{
         right: 0px;
-        & .cart__container{
+        & .cart__sideContainer{
             right: 0;
         }
     }
-    &__container{
+    &__sideContainer{
+        
         font-size: 1rem;
         position: fixed;
         right: -100%;
         width: 30%;
         height: 100%;
         padding: 1.5em 0;
-        background: #d8d8d8;
+        background: #e7e7e7;
         transition: .4s ease all;
-        & h2{
-            margin: 0;
-            text-align: center;
+        cursor: auto;
+        &__title{
+            margin-bottom: 1em ;
+            & h2{
+                margin: 0;
+                text-align: center;
+            }
         }
-        &__item{
-            width: 95%;
+        &__items{
+            width: 90%;
+            max-height: 60%;
+            margin: 0 auto;
             display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            margin: .8em auto;
-            font-size: 1em;
-            text-align: center;
-            border-bottom: 1px solid #7f00b2;
-            &__name{
-                width: 50%;
-            }
-            &__amount{
-                width: 10%;
-            }
-            &__price{
-                font-weight: 700;
-                width: 30%;
+            flex-direction: column;
+            overflow: hidden;
+            overflow-y: auto;
+            &__item{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                margin: .8em auto;
+                font-size: 1em;
+                text-align: center;
+                border-bottom: 1px solid #7f00b2;
+                &__name{
+                    width: 50%;
+                }
+                &__amount{
+                    width: 10%;
+                }
+                &__price{
+                    font-weight: 700;
+                    width: 30%;
+                }
             }
         }
-        &__total{
-            display: flex;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2em;
+        &__resume{
+            &__total{
+                font-weight: bold;
+                font-size: 1.2em;
+                text-align: center;
+            }
         }
+        
     }
     
 }

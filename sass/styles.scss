@@ -4,6 +4,7 @@ html{
 }
 body{
     background: rgba(0,0,0,.12);
+    position: relative;
 }
 header{
     width: 100%;
@@ -73,7 +74,8 @@ header{
 .products{
     width: 100%;
     font-size: 1rem;
-    margin: 2em auto;
+    padding: 2em 0;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(5,200px);
     gap: 1.5em;
@@ -138,38 +140,47 @@ header{
     }
 }
 .cart{
-    font-size: 1rem;
-    width: 90%;
-    min-height: 500px;
-    margin: 1em auto;
-    text-align: center;
-    background: rgba(0, 0, 0, .1);
-    padding: 1em;
+    position:absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 50;
+    background: rgba(0,0,0,.3);
+    &__container{
+        font-size: 1rem;
+        margin-left: auto;
+        width: 30%;
+        height: 100%;
+        background: red;
+        & h2{
+            margin: 0;
+        }
+        &__item{
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            margin: .8em auto;
+            font-size: 1.1em;
+            border-bottom: 1px solid #7f00b2;
+            &__name{
+                width: 40%;
+            }
+            &__amount{
+                width: 20%;
+            }
+            &__price{
+                font-weight: 700;
+                width: 20%;
+            }
+        }
+        &__total{
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    }
     
-    &__item{
-        width: 80%;
-        display: flex;
-        justify-content: center;
-        margin: .8em auto;
-        font-size: 1.1em;
-        border-bottom: 1px solid #7f00b2;
-        &__name{
-            width: 40%;
-        }
-        &__amount{
-            width: 20%;
-        }
-        &__price{
-            font-weight: 700;
-            width: 20%;
-        }
-    }
-    &__total{
-        display: flex;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 1.2em;
-    }
 }
 @media only screen and (max-width:575px){
     header{

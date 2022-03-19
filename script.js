@@ -15,16 +15,16 @@ function updateProductList() {
         let totalPrice = 0;
         cart.forEach(product => {
                 cartList.innerHTML += `
-                <div class="cart__item">
-                        <p class="cart__item__name">${product.name}</p>
-                        <p class="cart__item__amount">${product.units}</p>                
-                        <p class="cart__item__price">${product.price}</p>
+                <div class="cart__container__item">
+                        <p class="cart__container__item__name">${product.name}</p>
+                        <p class="cart__container__item__amount">${product.units}</p>                
+                        <p class="cart__container__item__price">${product.price}</p>
                 </div>
                 `;
                 totalPrice += Number(product.price.slice(1)) * product.units; //quita el $ de product.price y lo transforma a number
         });
         cartList.innerHTML += `
-        <div class="cart__total">
+        <div class="cart__container__total">
                 <p>Total: $${totalPrice} </p>
         </div>
 `;
@@ -39,9 +39,15 @@ const fragment = document.createDocumentFragment(); //fragmento para guardar cad
 
 document.addEventListener('DOMContentLoaded', () => { //pido los datos, luego de que se carguen todos los elementos del DOM
         showNavResponsive();
+        addBtnShowCart();
         fetchData();
 });
-
+const addBtnShowCart = () =>{
+        const btnCart = document.getElementById('btn__cartView');
+        btnCart.addEventListener('click',()=>{
+                document.querySelector('.cart').classList.toggle('show');
+        });
+}
 //Función que trae los datos del archivo json
 const fetchData = async () => {
         try {

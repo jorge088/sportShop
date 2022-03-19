@@ -27,24 +27,26 @@
                     <input type="text" placeholder="Busca producto">
                 </form>
                 <li>
-                    <a href="#cart"><i class=" fas fa-solid fa-cart-arrow-down"></i> CARRITO</a>
+                    <a href="#cart" id="btn__cartView"><i class=" fas fa-solid fa-cart-arrow-down"></i> CARRITO</a>
                 </li>
             </ul>
-            <span class="btn__nav" id="btn__cartView">
+            <span class="btn__nav">
                 <i class="fas fa-solid fa-bars"></i>
             </span>
             
         </nav>
     </header>
-
-    <div class="cart" >
-        <div class="cart__container" id="cart__container">
+    <div class="container">
+        <div class="cart" >
+            <div class="cart__container" id="cart__container">
+            </div>
+        </div>
+        <!-- Aqui se listan los productos -->
+        <div class="products" id="products">
+            
         </div>
     </div>
-    <!-- Aqui se listan los productos -->
-    <div class="products" id="products">
-        
-    </div>
+    
 
     <!-- Template para cada producto -->
     <template id="template-product">

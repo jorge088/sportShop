@@ -14,7 +14,12 @@
 <body>
     <header>
         <nav class="navBar">
-            <a class="navBar__logo" href="#">SportShop</a>
+            <div>
+                <span class="btn__nav">
+                    <i class="fas fa-solid fa-bars"></i>
+                </span>
+                <a class="navBar__logo" href="#">SportShop</a>
+            </div>
             <ul class="navBar__menu">
                 <li>
                     <a href="#">CATALOGO</a>
@@ -27,12 +32,15 @@
                     <input type="text" placeholder="Busca producto">
                 </form>
                 <li>
-                    <a href="#cart" id="btn__cartView"><i class=" fas fa-solid fa-cart-arrow-down"></i> CARRITO</a>
+                    <span class="navBar__menu__btnCart" id="btnCartView">
+                        <i class=" fas fa-solid fa-cart-arrow-down"></i> CARRITO
+                    </span>
                 </li>
             </ul>
-            <span class="btn__nav">
-                <i class="fas fa-solid fa-bars"></i>
+            <span class="navBar__btnCartResponsive" id="btnCartViewResponsive">
+                <i class=" fas fa-solid fa-cart-arrow-down"></i> CARRITO
             </span>
+           
             
         </nav>
     </header>
@@ -43,7 +51,8 @@
         <div class="cart" >
             <div class="cart__sideContainer" >
                 <div class="cart__sideContainer__title">
-                    <h2> Carrito de compras</h2>
+                    <span class="cart__sideContainer__title__exit"><i class="fas fa-solid fa-angle-right"></i></span>
+                    <h2><i class=" fas fa-solid fa-cart-arrow-down"></i> Carrito</h2>
                 </div>
                 <div class="cart__sideContainer__items" id="cart__items">
 

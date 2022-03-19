@@ -24,6 +24,10 @@ header{
         display: flex;
         align-items: center;
         justify-content: space-between;
+        & div{
+            display: flex;
+            align-items: center;
+        }
         &__logo{
             color: #fff;
             font-size: 1.5em;
@@ -39,10 +43,6 @@ header{
             & li{
                 margin: 0 .4em;
                 border-radius: 8px;
-                transition: .8s;
-                &:hover, &:active{
-                    background-color: rgba(0,0,0,.3);
-                }
             }
             & li a{
                 text-decoration: none;
@@ -62,9 +62,24 @@ header{
                     }
                 }
             }
+            &__btnCart{
+                font-size: 1em;
+                color: #fff;
+                padding: .4em .4em;
+                margin: 0 .4em;
+                cursor: pointer;
+            }
             &.show{
                 top:75px;
             }
+        }
+        &__btnCartResponsive{
+                font-size: 1em;
+                color: #fff;
+                padding: .4em .4em;
+                margin: 0 .4em;
+                cursor: pointer;
+                display: none;
         }
     }
     .btn__nav{
@@ -152,7 +167,6 @@ header{
     background: rgba(0,0,0,.2);
     font-size: 1rem;
     transition: .4s ease all;
-    cursor: pointer;
     &.show{
         right: 0px;
         & .cart__sideContainer{
@@ -160,21 +174,32 @@ header{
         }
     }
     &__sideContainer{
-        
         font-size: 1rem;
         position: fixed;
         right: -100%;
-        width: 30%;
         height: 100%;
-        padding: 1.5em 0;
+        width: 30%;
+        padding: 1.5em 1em;
         background: #e7e7e7;
         transition: .4s ease all;
-        cursor: auto;
-        &__title{
+        &__title{ 
             margin-bottom: 1em ;
+            &__exit{
+                display: inline-block;
+                padding: 8px;
+                vertical-align: middle;
+                cursor: pointer;
+                & i {
+                    font-size: 1.8em;
+                }
+            }
             & h2{
+                font-size: 1.5em;
+                display: inline-block;
                 margin: 0;
+                vertical-align: middle;
                 text-align: center;
+                font-weight: 500;
             }
         }
         &__items{
@@ -222,8 +247,8 @@ header{
         .navBar{
             width: 100%;
             &__logo{
-                margin-left:2em;
                 padding: 0;
+                margin: 0;
             }
             &__menu{
                 position: fixed;
@@ -252,10 +277,13 @@ header{
                     }
                 }
             }
+            &__btnCartResponsive{
+                display: block;
+            }
         }
         .btn__nav{
             display: block;
-            margin-right: 2em;
+            margin-left: .5em;
             i{
                 padding: 6px 10px;    
                 &:hover{
@@ -286,7 +314,7 @@ header{
         .navBar{
             width: 100%;
             &__logo{
-                margin-left:2em;
+                margin: 0;
                 padding: 0;
             }
             &__menu{
@@ -319,7 +347,6 @@ header{
         }
         .btn__nav{
             display: block;
-            margin-right: 2em;
             i{
                 padding: 6px 10px;    
                 &:hover{

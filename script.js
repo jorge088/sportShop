@@ -42,17 +42,24 @@ document.addEventListener('DOMContentLoaded', () => { //pido los datos, luego de
         fetchData();
 });
 const addBtnShowCart = () =>{
-        const btnCart = document.getElementById('btn__cartView');
+        const btnCart = document.getElementById('btnCartView');
         const cartView = document.querySelector('.cart');
+        const btnCloseCartView = document.querySelector('.cart__sideContainer__title__exit');
+        const btnCartViewResponsive = document.querySelector('#btnCartViewResponsive');
         btnCart.addEventListener('click',()=>{
-                document.querySelector('.cart').classList.toggle('show');
+                cartView.classList.toggle('show');
         });
         cartView.addEventListener('click',(e)=>{
                 if(e.target.classList.contains('cart')){
                         cartView.classList.toggle('show');
                 }
-                
-        })
+        });
+        btnCloseCartView.addEventListener('click',()=>{
+                cartView.classList.toggle('show');
+        });
+        btnCartViewResponsive.addEventListener('click',()=>{
+                cartView.classList.toggle('show');
+        });
 }
 //Función que trae los datos del archivo json
 const fetchData = async () => {

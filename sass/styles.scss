@@ -166,7 +166,7 @@ header{
     z-index: 50;
     background: rgba(0,0,0,.2);
     font-size: 1rem;
-    transition: .4s ease all;
+    transition: .4s linear all;
     &.show{
         right: 0px;
         & .cart__sideContainer{
@@ -178,10 +178,10 @@ header{
         position: fixed;
         right: -100%;
         height: 100%;
-        width: 30%;
+        width: 25%;
         padding: 1.5em 1em;
         background: #e7e7e7;
-        transition: .4s ease all;
+        transition: .4s linear all;
         &__title{ 
             margin-bottom: 1em ;
             &__exit{
@@ -203,7 +203,7 @@ header{
             }
         }
         &__items{
-            width: 90%;
+            width: 100%;
             max-height: 60%;
             margin: 0 auto;
             display: flex;
@@ -216,6 +216,7 @@ header{
                 align-items: center;
                 margin: .8em auto;
                 font-size: 1em;
+                width: 100%;
                 text-align: center;
                 border-bottom: 1px solid #7f00b2;
                 &__name{
@@ -307,6 +308,34 @@ header{
             }
         }
     }
+    .cart{
+        right: -300vw;
+        z-index: 50;
+        width: 0px;
+        font-size: 1rem;
+        &.show{
+            right: 0px;
+            & .cart__sideContainer{
+                right: 0px;
+            }
+        }
+        &__sideContainer{
+            right: -300vw;
+            width: 100vw;
+            padding: 0;
+            transition: .6s linear all;
+            &__title{ 
+                margin: .5em 2em;
+            }
+            &__items{
+                margin: 0 2em;
+                width: auto;
+            }
+            &__resume{
+                margin: 0 2em;
+            }
+        }
+    }
 }
 @media only screen and (min-width:576px) and (max-width:768px){
     header{
@@ -344,6 +373,9 @@ header{
                     }
                 }
             }
+            &__btnCartResponsive{
+                display: block;
+            }
         }
         .btn__nav{
             display: block;
@@ -358,6 +390,34 @@ header{
                     font-weight: bold;
                     border: 1px solid #fff;
                 }
+            }
+        }
+    }
+    .cart{
+        right: -300vw;
+        z-index: 50;
+        width: 0px;
+        font-size: 1rem;
+        &.show{
+            right: 0px;
+            & .cart__sideContainer{
+                right: 0px;
+            }
+        }
+        &__sideContainer{
+            right: -300vw;
+            width: 100vw;
+            padding: 0;
+            transition: .6s linear all;
+            &__title{ 
+                margin: .5em 2em;
+            }
+            &__items{
+                margin: 0 2em;
+                width: auto;
+            }
+            &__resume{
+                margin: 0 2em;
             }
         }
     }
@@ -398,6 +458,9 @@ header{
                     }
                 }
             }
+            &__btnCartResponsive{
+                display: block;
+            }
         }
         .btn__nav{
             display: block;
@@ -413,6 +476,34 @@ header{
                     font-weight: bold;
                     border: 1px solid #fff;
                 }
+            }
+        }
+    }
+    .cart{
+        right: -300vw;
+        z-index: 50;
+        width: 0px;
+        font-size: 1rem;
+        &.show{
+            right: 0px;
+            & .cart__sideContainer{
+                right: 0px;
+            }
+        }
+        &__sideContainer{
+            right: -300vw;
+            width: 100vw;
+            padding: 0;
+            transition: .6s linear all;
+            &__title{ 
+                margin: .5em 2em;
+            }
+            &__items{
+                margin: 0 2em;
+                width: auto;
+            }
+            &__resume{
+                margin: 0 2em;
             }
         }
     }

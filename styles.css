@@ -341,7 +341,6 @@ header .btn__nav {
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  cursor: pointer;
   transition: 0.4s all ease;
 }
 .products__item:hover {
@@ -354,6 +353,7 @@ header .btn__nav {
   width: 200px;
   height: 220px;
   margin-bottom: 0.7em;
+  cursor: pointer;
 }
 .products__item__info {
   margin: 0 1em;

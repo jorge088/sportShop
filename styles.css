@@ -268,7 +268,7 @@ header .navBar div {
 }
 header .navBar__logo {
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1.4em;
   padding: 0;
   font-weight: bold;
   text-decoration: none;
@@ -472,7 +472,7 @@ header .btn__nav {
 
 @media only screen and (max-width: 575px) {
   header {
-    font-size: 0.9em;
+    font-size: 0.8rem;
   }
   header .navBar {
     width: 100%;
@@ -507,6 +507,8 @@ header .btn__nav {
     font-size: 1.1em;
   }
   header .navBar__btnCartResponsive {
+    font-size: 1.1em;
+    margin-right: 1em;
     display: block;
   }
   header .btn__nav {

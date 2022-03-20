@@ -46,6 +46,7 @@ const addBtnShowCart = () =>{
         const cartView = document.querySelector('.cart');
         const btnCloseCartView = document.querySelector('.cart__sideContainer__title__exit');
         const btnCartViewResponsive = document.querySelector('#btnCartViewResponsive');
+        const btnCartViewMenu = document.querySelector('.navBar__menu__btnCartMenu');
         btnCart.addEventListener('click',()=>{
                 cartView.classList.toggle('show');
         });

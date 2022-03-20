@@ -482,6 +482,7 @@ header .btn__nav {
   header .navBar__logo {
     padding: 0;
     margin: 0;
+    margin-left: 0.5em;
   }
   header .navBar__menu {
     position: fixed;
@@ -508,6 +509,9 @@ header .btn__nav {
     margin-bottom: 1.5em;
     font-size: 1.1em;
   }
+  header .navBar__menu .navBar__menu__btnCartMenu {
+    display: none;
+  }
   header .navBar__btnCartResponsive {
     font-size: 1.1em;
     font-weight: bold;
@@ -519,14 +523,14 @@ header .btn__nav {
     margin-left: 1em;
   }
   header .btn__nav i {
-    padding: 6px 10px;
+    padding: 4px 8px;
   }
   header .btn__nav i:hover {
-    border: 1px solid #fff;
+    outline: 1px solid #fff;
   }
   header .btn__nav.active i {
     font-weight: bold;
-    border: 1px solid #fff;
+    outline: 1px solid #fff;
   }
 
   .products {
@@ -577,6 +581,7 @@ header .btn__nav {
   header .navBar__logo {
     padding: 0;
     margin: 0;
+    margin-left: 0.5em;
   }
   header .navBar__menu {
     position: fixed;
@@ -614,14 +619,14 @@ header .btn__nav {
     margin-left: 1em;
   }
   header .btn__nav i {
-    padding: 6px 10px;
+    padding: 4px 8px;
   }
   header .btn__nav i:hover {
-    border: 1px solid #fff;
+    outline: 1px solid #fff;
   }
   header .btn__nav.active i {
     font-weight: bold;
-    border: 1px solid #fff;
+    outline: 1px solid #fff;
   }
 
   .cart {
@@ -664,6 +669,7 @@ header .btn__nav {
   header .navBar__logo {
     padding: 0;
     margin: 0;
+    margin-left: 0.5em;
   }
   header .navBar__menu {
     position: fixed;
@@ -701,14 +707,14 @@ header .btn__nav {
     margin-left: 1em;
   }
   header .btn__nav i {
-    padding: 6px 10px;
+    padding: 4px 8px;
   }
   header .btn__nav i:hover {
-    border: 1px solid #fff;
+    outline: 1px solid #fff;
   }
   header .btn__nav.active i {
     font-weight: bold;
-    border: 1px solid #fff;
+    outline: 1px solid #fff;
   }
 
   .cart {

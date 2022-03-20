@@ -1,3 +1,18 @@
+let cart = [];
+let cartList = document.getElementById('cart__items');
+
+const products = document.getElementById('products'); //contenedor de productos
+const templateProducts = document.getElementById("template-product").content; //template para cada producto item
+const fragment = document.createDocumentFragment(); //fragmento para guardar cada item y luego insertarlo en el contenedor
+const cart__resume = document.querySelector('.cart__sideContainer__resume'); //div con resumen del carrito
+
+document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el DOM
+        showNavResponsive();
+        addBtnShowCart();
+        fetchData();
+});
+
+//Mostrar el menu en navbar para dispositivos mobiles
 const showNavResponsive = () => {
         const btn__nav = document.querySelector('.btn__nav');
         if (btn__nav) {
@@ -9,38 +24,6 @@ const showNavResponsive = () => {
         }
 }
 
-//actualiza la lista de productos del carrito en el dom
-function updateProductList() {
-        let totalPrice = 0;
-        cartList.innerHTML = '';
-        cart.forEach(product => {
-                cartList.innerHTML += `
-                <div class="cart__sideContainer__items__item">
-                        <p class="cart__sideContainer__items__item__name">${product.name}</p>
-                        <p class="cart__sideContainer__items__item__amount">${product.units}</p>                
-                        <p class="cart__sideContainer__items__item__price">${product.price}</p>
-                </div>
-                `;
-                totalPrice += Number(product.price.slice(1)) * product.units; //quita el $ de product.price y lo transforma a number
-        });
-        cart__resume.innerHTML = `
-        <div class="cart__sideContainer__resume__total">
-                <p>Total: $${totalPrice} </p>
-        </div>
-`;
-}
-let cart = [];
-let cartList = document.getElementById('cart__items');
-
-const products = document.getElementById('products'); //contenedor de productos
-const templateProducts = document.getElementById("template-product").content; //template para cada producto item
-const fragment = document.createDocumentFragment(); //fragmento para guardar cada item y luego insertarlo en el contenedor
-const cart__resume = document.querySelector('.cart__sideContainer__resume');
-document.addEventListener('DOMContentLoaded', () => { //pido los datos, luego de que se carguen todos los elementos del DOM
-        showNavResponsive();
-        addBtnShowCart();
-        fetchData();
-});
 const addBtnShowCart = () =>{
         const btnCart = document.getElementById('btnCartView');
         const cartView = document.querySelector('.cart');
@@ -62,7 +45,8 @@ const addBtnShowCart = () =>{
                 cartView.classList.toggle('show');
         });
 }
-//Función que trae los datos del archivo json
+
+//Trae y lee los datos del archivo json
 const fetchData = async () => {
         try {
                 const res = await fetch('./assets/products.json');
@@ -99,11 +83,12 @@ const loadProducts = (data) => {
         products.appendChild(fragment); //luego de agregar todos los items al fragment, lo inserta en el DOM
 }
 
-//captura los clicks para agregar al carrito
+//captura los clicks para agregar un producto al carrito
 products.addEventListener("click", (e) => {
         addCart(e);
 });
 
+//filtra el producto seleccionado.
 const addCart = e => {
         //verifica que se hizo click en el boton
         if (e.target.classList.contains('fa-cart-plus')) { //si hace click en el icono
@@ -131,4 +116,25 @@ const setCart = (object) => {
         }
         cart[product.id] = { ...product }
         updateProductList()
+}
+
+//actualiza la lista de productos del carrito en el dom
+function updateProductList() {
+        let totalPrice = 0;
+        cartList.innerHTML = '';
+        cart.forEach(product => {
+                cartList.innerHTML += `
+                <div class="cart__sideContainer__items__item">
+                        <p class="cart__sideContainer__items__item__name">${product.name}</p>
+                        <p class="cart__sideContainer__items__item__amount">${product.units}</p>                
+                        <p class="cart__sideContainer__items__item__price">${product.price}</p>
+                </div>
+                `;
+                totalPrice += Number(product.price.slice(1)) * product.units; //quita el $ de product.price y lo transforma a number
+        });
+        cart__resume.innerHTML = `
+        <div class="cart__sideContainer__resume__total">
+                <p>Total: $${totalPrice} </p>
+        </div>
+`;
 }

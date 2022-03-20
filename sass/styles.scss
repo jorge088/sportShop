@@ -313,6 +313,7 @@ header{
             & button {
                 bottom: 10px;
                 right: 20px;
+                opacity: 1;
             }
         }
     }
@@ -408,6 +409,15 @@ header{
             }
         }
     }
+    .products{
+        &__item{
+            & button {
+                bottom: 10px;
+                right: 20px;
+                opacity: 1;
+            }
+        }
+    }
     .cart{
         right: -300vw;
         z-index: 50;
@@ -496,6 +506,15 @@ header{
                     font-weight: bold;
                     outline: 1px solid #fff;
                 }
+            }
+        }
+    }
+    .products{
+        &__item{
+            & button {
+                bottom: 10px;
+                right: 20px;
+                opacity: 1;
             }
         }
     }

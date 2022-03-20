@@ -539,6 +539,7 @@ header .btn__nav {
   .products__item button {
     bottom: 10px;
     right: 20px;
+    opacity: 1;
   }
 
   .cart {
@@ -629,6 +630,12 @@ header .btn__nav {
     outline: 1px solid #fff;
   }
 
+  .products__item button {
+    bottom: 10px;
+    right: 20px;
+    opacity: 1;
+  }
+
   .cart {
     right: -300vw;
     z-index: 50;
@@ -715,6 +722,12 @@ header .btn__nav {
   header .btn__nav.active i {
     font-weight: bold;
     outline: 1px solid #fff;
+  }
+
+  .products__item button {
+    bottom: 10px;
+    right: 20px;
+    opacity: 1;
   }
 
   .cart {

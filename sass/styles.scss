@@ -30,7 +30,7 @@ header{
         }
         &__logo{
             color: #fff;
-            font-size: 1.5em;
+            font-size: 1.4em;
             padding: 0;
             font-weight: bold;
             text-decoration: none;
@@ -244,7 +244,7 @@ header{
 }
 @media only screen and (max-width:575px){
     header{
-        font-size: .9em;
+        font-size: .8rem;
         .navBar{
             width: 100%;
             &__logo{
@@ -279,6 +279,8 @@ header{
                 }
             }
             &__btnCartResponsive{
+                font-size: 1.1em;
+                margin-right: 1em;
                 display: block;
             }
         }

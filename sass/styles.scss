@@ -85,7 +85,6 @@ header{
         flex-direction: column;
         justify-content: space-between;
         overflow: hidden;
-        cursor: pointer;
         transition: .4s all ease;
         &:hover{
             box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.25);
@@ -97,6 +96,7 @@ header{
             width: 200px;
             height: 220px;
             margin-bottom: .7em;
+            cursor: pointer;
         }
         
         &__info{

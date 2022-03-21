@@ -9,7 +9,7 @@ body{
 .container{
     position: relative;
     overflow: hidden;
-    min-height: calc(500vh - 65px);
+    min-height: calc(100vh - 65px);
 }
 header{
     width: 100%;
@@ -222,6 +222,9 @@ header{
                 
             }
         }
+    }
+    &__indicadores .glider-dots{
+        display: none;
     }
 }
 .carousel__before, .carousel__next{

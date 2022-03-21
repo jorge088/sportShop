@@ -90,13 +90,38 @@ const loadProducts = (data) => {
         carousel.appendChild(fragment);
         
         new Glider(document.querySelector('.productsCarousel__container__elements'), {
-		slidesToShow: 5,
-		slidesToScroll: 2,
-		dots: '.carousel__indicadores',
+		slidesToShow: 1,
+		slidesToScroll: 1,
+                duration:1,
 		arrows: {
 			prev: '.carousel__before',
 			next: '.carousel__next'
-		}
+		},
+                responsive: [
+			{
+			  // screens greater than >= 775px
+			  breakpoint: 575,
+			  settings: {
+				// Set to `auto` and provide item width to adjust to viewport
+				slidesToShow: 2,
+				slidesToScroll: 2
+			  }
+			},{
+			  // screens greater than >= 1024px
+			  breakpoint: 765,
+			  settings: {
+				slidesToShow: 3,
+				slidesToScroll: 3
+			  }
+			},{
+                                // screens greater than >= 1024px
+                                breakpoint: 1100,
+                                settings: {
+                                      slidesToShow: 5,
+                                      slidesToScroll: 5
+                                }
+                              }
+		]
 	});
         
         

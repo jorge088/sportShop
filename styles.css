@@ -244,7 +244,7 @@ body {
 .container {
   position: relative;
   overflow: hidden;
-  min-height: calc(500vh - 65px);
+  min-height: calc(100vh - 65px);
 }
 
 header {
@@ -449,6 +449,9 @@ header .btn__nav {
 }
 .productsCarousel__container__elements__item button i {
   font-size: 1.5em;
+}
+.productsCarousel__indicadores .glider-dots {
+  display: none;
 }
 
 .carousel__before, .carousel__next {

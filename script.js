@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el D
         addBtnShowCart();
         fetchData();
 
-        
-        
+
+
 });
 //Mostrar el menu en navbar para dispositivos mobiles
 const showNavResponsive = () => {
@@ -28,24 +28,24 @@ const showNavResponsive = () => {
         }
 }
 
-const addBtnShowCart = () =>{
+const addBtnShowCart = () => {
         const btnCart = document.getElementById('btnCartView');
         const cartView = document.querySelector('.cart');
         const btnCloseCartView = document.querySelector('.cart__sideContainer__title__exit');
         const btnCartViewResponsive = document.querySelector('#btnCartViewResponsive');
         const btnCartViewMenu = document.querySelector('.navBar__menu__btnCartMenu');
-        btnCart.addEventListener('click',()=>{
+        btnCart.addEventListener('click', () => {
                 cartView.classList.toggle('show');
         });
-        cartView.addEventListener('click',(e)=>{
-                if(e.target.classList.contains('cart')){
+        cartView.addEventListener('click', (e) => {
+                if (e.target.classList.contains('cart')) {
                         cartView.classList.toggle('show');
                 }
         });
-        btnCloseCartView.addEventListener('click',()=>{
+        btnCloseCartView.addEventListener('click', () => {
                 cartView.classList.toggle('show');
         });
-        btnCartViewResponsive.addEventListener('click',()=>{
+        btnCartViewResponsive.addEventListener('click', () => {
                 cartView.classList.toggle('show');
         });
 }
@@ -63,7 +63,7 @@ const fetchData = async () => {
 
 //Carga los productos del json en la pantalla
 const loadProducts = (data) => {
-        
+
         data.forEach(product => {
                 const img = document.createElement('img'); //agrego la img y sus eventos por separado
                 img.setAttribute("src", `./assets/images/${product.imgFrontUrl}`);
@@ -86,45 +86,22 @@ const loadProducts = (data) => {
                 fragment.appendChild(clone);//agrega ese item al fragment
         })
         //products.appendChild(fragment); //luego de agregar todos los items al fragment, lo inserta en el DOM
-        
+
         carousel.appendChild(fragment);
-        
+
         new Glider(document.querySelector('.productsCarousel__container__elements'), {
-		slidesToShow: 1,
-		slidesToScroll: 1,
-                duration:1,
-		arrows: {
-			prev: '.carousel__before',
-			next: '.carousel__next'
-		},
-                responsive: [
-			{
-			  // screens greater than >= 775px
-			  breakpoint: 575,
-			  settings: {
-				// Set to `auto` and provide item width to adjust to viewport
-				slidesToShow: 2,
-				slidesToScroll: 2
-			  }
-			},{
-			  // screens greater than >= 1024px
-			  breakpoint: 765,
-			  settings: {
-				slidesToShow: 3,
-				slidesToScroll: 3
-			  }
-			},{
-                                // screens greater than >= 1024px
-                                breakpoint: 1100,
-                                settings: {
-                                      slidesToShow: 5,
-                                      slidesToScroll: 5
-                                }
-                              }
-		]
-	});
-        
-        
+                exactWidth:true,
+                itemWidth:220,
+                slidesToShow:5,
+                slidesToScroll: 1,
+                duration: 2,
+                dots:'.carousel__indicadores',
+                draggable:true,
+                dragVelocity:.6,
+                
+        });
+
+
 }
 
 //captura los clicks para agregar un producto al carrito

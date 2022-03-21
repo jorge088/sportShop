@@ -1,0 +1,278 @@
+header{
+    width: 100%;
+    background-color: #7f00b2;
+    font-size: 1rem;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    .navBar{
+        height: 65px;
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        & div{
+            display: flex;
+            align-items: center;
+        }
+        &__logo{
+            color: #fff;
+            font-size: 1.5em;
+            padding: 0;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        &__menu{
+            display: flex;
+            list-style: none;
+            align-items: center;
+            color: #fff;
+            & li{
+                margin: 0 .4em;
+                border-radius: 8px;
+            }
+            & li a{
+                text-decoration: none;
+                color: #fff;
+                padding: .4em .4em;
+                display: block;
+            }
+            form{
+                input{
+                    padding: 8px;
+                    background: transparent;
+                    color: rgb(255, 255, 255);
+                    font-size: 1.1em;
+                    border: 1px solid rgb(216, 216, 216);
+                    &:focus{
+                        outline: none;
+                    }
+                }
+            }
+            &__btnCart{
+                font-size: 1em;
+                color: #fff;
+                padding: .4em .4em;
+                margin: 0 .4em;
+                cursor: pointer;
+            }
+            &.show{
+                top:55px;
+            }
+        }
+        &__btnCartResponsive{
+                font-size: 1em;
+                color: #fff;
+                padding: .4em .4em;
+                margin: 0 .4em;
+                cursor: pointer;
+                display: none;
+                i{
+                    margin-right: .2em;
+                }
+        }
+    }
+    .btn__nav{
+        font-size: 25px;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+        
+    }
+}
+@media only screen and (max-width:575px){
+    header{
+        font-size: .8rem;
+        .navBar{
+            width: 100%;
+            height: 55px;
+            &__logo{
+                padding: 0;
+                margin: 0;
+                margin-left: .5em;
+            }
+            &__menu{
+                position: fixed;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background: #7f00b2;
+                top: -100vh;
+                text-align: center;
+                transition: all ease .8s;
+                flex-direction: column; 
+                & li{
+                    width: 100%;
+                    margin: .6em 0;
+                }
+                & li a{
+                    padding: .8em 1em;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                }
+                form{
+                    input{
+                        margin-top: 1em;
+                        margin-bottom: 1.5em;
+                        font-size: 1.1em;
+                    }
+                }
+                & .navBar__menu__btnCartMenu{
+                    display: none;
+                }
+            }
+            &__btnCartResponsive{
+                font-size: 1.1em;
+                font-weight: bold;
+                margin-right: 2em;
+                display: block;
+            }
+        }
+        .btn__nav{
+            display: block;
+            margin-left: 1em;
+            i{
+                padding: 4px 8px;    
+                &:hover{
+                    outline: 1px solid #fff;
+                }
+            }
+            &.active{
+                i{
+                    font-weight: bold;
+                    outline: 1px solid #fff;
+                }
+            }
+        }
+    }
+    
+}
+@media only screen and (min-width:576px) and (max-width:768px){
+    header{
+        font-size: .8rem;
+        .navBar{
+            width: 100%;
+            height: 55px;
+            &__logo{
+                padding: 0;
+                margin: 0;
+                margin-left: .5em;
+            }
+            &__menu{
+                position: fixed;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background: #7f00b2;
+                top: -100vh;
+                text-align: center;
+                transition: all ease .8s;
+                flex-direction: column; 
+                & li{
+                    width: 100%;
+                    margin: .6em 0;
+                }
+                & li a{
+                    padding: .8em 1em;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                }
+                form{
+                    input{
+                        margin-top: 1em;
+                        margin-bottom: 1.5em;
+                        font-size: 1.1em;
+                    }
+                }
+
+            }
+            &__btnCartResponsive{
+                font-size: 1.1em;
+                font-weight: bold;
+                margin-right: 2em;
+                display: block;
+            }
+        }
+        .btn__nav{
+            display: block;
+            margin-left: 1em;
+            i{
+                padding: 4px 8px;    
+                &:hover{
+                    outline: 1px solid #fff;
+                }
+            }
+            &.active{
+                i{
+                    font-weight: bold;
+                    outline: 1px solid #fff;
+                }
+            }
+        }
+    }
+   
+}
+@media only screen and (min-width:768px) and (max-width:992px){
+    header{
+        font-size: .8rem;
+        .navBar{
+            width: 100%;
+            height: 55px;
+            &__logo{
+                padding: 0;
+                margin: 0;
+                margin-left: .5em;
+            }
+            &__menu{
+                position: fixed;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background: #7f00b2;
+                top: -100vh;
+                text-align: center;
+                transition: all ease .8s;
+                flex-direction: column; 
+                & li{
+                    width: 100%;
+                    margin: .6em 0;
+                }
+                & li a{
+                    padding: .8em 1em;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                }
+                form{
+                    input{
+                        margin-top: 1em;
+                        margin-bottom: 1.5em;
+                        font-size: 1.1em;
+                    }
+                }
+            }
+            &__btnCartResponsive{
+                font-size: 1.1em;
+                font-weight: bold;
+                margin-right: 2em;
+                display: block;
+            }
+        }
+        .btn__nav{
+            display: block;
+            margin-left: 1em;
+            i{
+                padding: 4px 8px;    
+                &:hover{
+                    outline: 1px solid #fff;
+                }
+            }
+            &.active{
+                i{
+                    font-weight: bold;
+                    outline: 1px solid #fff;
+                }
+            }
+        }
+    }
+}

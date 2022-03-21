@@ -2,16 +2,20 @@ let cart = [];
 let cartList = document.getElementById('cart__items');
 
 const products = document.getElementById('products'); //contenedor de productos
-const templateProducts = document.getElementById("template-product").content; //template para cada producto item
+const templateProducts = document.getElementById("template-carouselProducts").content; //template para cada producto item
 const fragment = document.createDocumentFragment(); //fragmento para guardar cada item y luego insertarlo en el contenedor
 const cart__resume = document.querySelector('.cart__sideContainer__resume'); //div con resumen del carrito
+const carousel = document.querySelector('.productsCarousel__container__elements');
+
 
 document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el DOM
         showNavResponsive();
         addBtnShowCart();
         fetchData();
-});
 
+        
+        
+});
 //Mostrar el menu en navbar para dispositivos mobiles
 const showNavResponsive = () => {
         const btn__nav = document.querySelector('.btn__nav');
@@ -59,6 +63,7 @@ const fetchData = async () => {
 
 //Carga los productos del json en la pantalla
 const loadProducts = (data) => {
+        
         data.forEach(product => {
                 const img = document.createElement('img'); //agrego la img y sus eventos por separado
                 img.setAttribute("src", `./assets/images/${product.imgFrontUrl}`);
@@ -72,7 +77,7 @@ const loadProducts = (data) => {
 
                 templateProducts.querySelector('h3').textContent = `${product.name} ${product.year}`;
                 templateProducts.querySelector('p').textContent = `$${product.price}`;
-                templateProducts.querySelector('.products__item__button').dataset.id = product.id; //guardo en el button el id de ese producto
+                templateProducts.querySelector('.productsCarousel__container__elements__item__button').dataset.id = product.id; //guardo en el button el id de ese producto
 
                 const clone = templateProducts.cloneNode(true);
 
@@ -80,11 +85,25 @@ const loadProducts = (data) => {
 
                 fragment.appendChild(clone);//agrega ese item al fragment
         })
-        products.appendChild(fragment); //luego de agregar todos los items al fragment, lo inserta en el DOM
+        //products.appendChild(fragment); //luego de agregar todos los items al fragment, lo inserta en el DOM
+        
+        carousel.appendChild(fragment);
+        
+        new Glider(document.querySelector('.productsCarousel__container__elements'), {
+		slidesToShow: 5,
+		slidesToScroll: 2,
+		dots: '.carousel__indicadores',
+		arrows: {
+			prev: '.carousel__before',
+			next: '.carousel__next'
+		}
+	});
+        
+        
 }
 
 //captura los clicks para agregar un producto al carrito
-products.addEventListener("click", (e) => {
+carousel.addEventListener("click", (e) => {
         addCart(e);
 });
 
@@ -94,7 +113,7 @@ const addCart = e => {
         if (e.target.classList.contains('fa-cart-plus')) { //si hace click en el icono
                 setCart(e.target.parentElement.parentElement);
         } else {
-                if (e.target.classList.contains('products__item__button')) {
+                if (e.target.classList.contains('productsCarousel__container__elements__item__button')) {
                         setCart(e.target.parentElement); //Envia el item completo
                 }
         }
@@ -105,7 +124,7 @@ const addCart = e => {
 //Agrega los datos del producto al carrito
 const setCart = (object) => {
         const product = {
-                id: object.querySelector('.products__item__button').dataset.id,
+                id: object.querySelector('.productsCarousel__container__elements__item__button').dataset.id,
                 name: object.querySelector('h3').textContent,
                 price: object.querySelector('p').textContent,
                 units: 1

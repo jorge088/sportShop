@@ -244,6 +244,7 @@ body {
 .container {
   position: relative;
   overflow: hidden;
+  min-height: calc(500vh - 65px);
 }
 
 header {
@@ -327,12 +328,7 @@ header .btn__nav {
 .products {
   width: 100%;
   font-size: 1rem;
-  padding: 2em 0;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(5, 200px);
-  gap: 1.5em;
-  justify-content: center;
 }
 .products__item {
   background-color: #fff;
@@ -387,6 +383,101 @@ header .btn__nav {
 }
 .products__item button i {
   font-size: 1.5em;
+}
+
+.productsCarousel {
+  width: 90%;
+  font-size: 1rem;
+  margin: 2em auto;
+  position: relative;
+}
+.productsCarousel__container__elements {
+  overflow: hidden;
+}
+.productsCarousel__container__elements__item {
+  margin: 0.5em;
+  background-color: #fff;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.4s all ease;
+  z-index: 400;
+}
+.productsCarousel__container__elements__item:hover {
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.25);
+}
+.productsCarousel__container__elements__item:hover button {
+  opacity: 1;
+}
+.productsCarousel__container__elements__item img {
+  width: 200px;
+  height: 220px;
+  margin: 0 auto;
+  margin-bottom: 0.7em;
+  cursor: pointer;
+}
+.productsCarousel__container__elements__item__info {
+  margin: 0 1em;
+}
+.productsCarousel__container__elements__item__info__name {
+  margin: 0;
+  padding: 0;
+  min-height: 3em;
+  font-weight: 400;
+  font-size: 1.1em;
+}
+.productsCarousel__container__elements__item__info__price {
+  margin: 0.8em 0;
+  font-size: 1.3em;
+}
+.productsCarousel__container__elements__item button {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  opacity: 0;
+  padding: 8px 20px;
+  border-radius: 8px;
+  background-color: #7f00b2;
+  text-align: center;
+  color: #fff;
+  border: none;
+  transition: 0.6s all ease;
+}
+.productsCarousel__container__elements__item button:hover {
+  background-color: #9c0ed4;
+}
+.productsCarousel__container__elements__item button i {
+  font-size: 1.5em;
+}
+
+.carousel__before, .carousel__next {
+  position: absolute;
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: none;
+  top: calc(50% - 35px);
+  cursor: pointer;
+  text-align: center;
+  background: none;
+  color: #000;
+  opacity: 0.5;
+  z-index: 40;
+}
+.carousel__before i, .carousel__next i {
+  font-size: 2em;
+}
+.carousel__before:hover, .carousel__next:hover {
+  opacity: 0.8;
+}
+
+.carousel__before {
+  left: -30px;
+}
+
+.carousel__next {
+  right: -30px;
 }
 
 .cart {

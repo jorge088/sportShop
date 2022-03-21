@@ -9,6 +9,7 @@ body{
 .container{
     position: relative;
     overflow: hidden;
+    min-height: calc(500vh - 65px);
 }
 header{
     width: 100%;
@@ -93,12 +94,7 @@ header{
 .products{
     width: 100%;
     font-size: 1rem;
-    padding: 2em 0;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(5,200px);
-    gap: 1.5em;
-    justify-content: center;
     &__item{
         background-color: #fff;
         display: flex;
@@ -155,6 +151,104 @@ header{
         }
         
     }
+}
+
+.productsCarousel{
+    width: 90%;
+    font-size: 1rem;
+    margin: 2em auto;
+    position: relative;
+    
+    &__container{
+        &__elements{
+            overflow: hidden;
+            &__item{
+                margin:.5em;
+                background-color: #fff;
+                display: flex;
+                position: relative;
+                flex-direction: column;
+                justify-content: space-between;
+                transition: .4s all ease;
+                z-index: 400;
+                &:hover{
+                    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.25);
+                    & button{
+                        opacity: 1;
+                    }
+                }
+                & img{
+                    width: 200px;
+                    height: 220px;
+                    margin: 0 auto;
+                    margin-bottom: .7em;
+                    cursor: pointer;
+                }
+                
+                &__info{
+                    margin: 0 1em;
+                    
+                    &__name{
+                        margin: 0;
+                        padding: 0;
+                        min-height: 3em;
+                        font-weight: 400;
+                        font-size: 1.1em;
+                    }
+                    &__price{
+                        margin: .8em 0;
+                        font-size: 1.3em;
+                    }
+                }
+                & button {
+                    position:absolute;
+                    bottom: 10px;
+                    right: 15px;
+                    opacity: 0;
+                    padding: 8px 20px;
+                    border-radius: 8px;
+                    background-color: #7f00b2;
+                    text-align: center;
+                    color: #fff;
+                    border: none;
+                    transition: .6s all ease;
+                    &:hover{
+                        background-color: #9c0ed4;
+                    }
+                    & i{
+                        font-size: 1.5em;
+                    }
+                }
+                
+            }
+        }
+    }
+}
+.carousel__before, .carousel__next{
+    position: absolute;
+	display: block;
+	width: 30px;
+	height: 30px;
+	border: none;
+	top: calc(50% - 35px);
+	cursor: pointer;
+	text-align: center;
+    background: none;
+	color: #000;
+    opacity: .5;
+    z-index: 40;
+    i{
+        font-size: 2em;
+    }
+    &:hover{
+        opacity: .8;
+    }
+}
+.carousel__before{
+    left: -30px;
+}
+.carousel__next{
+    right: -30px;
 }
 
 .cart{

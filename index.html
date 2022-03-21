@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./glider.min.css">
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -67,21 +68,39 @@
         <div class="products" id="products">
             
         </div>
+        <div class="productsCarousel">
+			<div class="productsCarousel__container">
+				<button aria-label="Anterior" class="carousel__before">
+					<i class="fas fa-chevron-left"></i>
+				</button>
+
+				<div class="productsCarousel__container__elements products">
+					
+				</div>
+
+				<button aria-label="Siguiente" class="carousel__next">
+					<i class="fas fa-chevron-right"></i>
+				</button>
+			</div>
+
+			<div role="tablist" class="carousel__indicadores"></div>
+		</div>
     </div>
     
     <!-- Template para cada producto -->
-    <template id="template-product">
-        <div class="products__item">
-            <div class="products__item__info">
-                <h3 class="products__item__info__name"></h3>
-                <p class="products__item__info__price"></p>
+    <template id="template-carouselProducts">
+        <div class="productsCarousel__container__elements__item">
+            <div class="productsCarousel__container__elements__item__info">
+                <h3 class="productsCarousel__container__elements__item__info__name"></h3>
+                <p class="productsCarousel__container__elements__item__info__price"></p>
             </div>
-            <button class="products__item__button"><i class="fas fa-solid fa-cart-plus"></i>
+            <button class="productsCarousel__container__elements__item__button"><i class="fas fa-solid fa-cart-plus"></i>
             </button>
         </div>
     </template>
-
     <script src="./script.js"></script>
+    <script src="./glider.min.js"></script>
+
 </body>
 
 </html>

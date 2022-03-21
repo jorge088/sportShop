@@ -91,13 +91,16 @@ const loadProducts = (data) => {
 
         new Glider(document.querySelector('.productsCarousel__container__elements'), {
                 exactWidth:true,
-                itemWidth:220,
+                itemWidth:180,
                 slidesToShow:5,
                 slidesToScroll: 1,
-                duration: 2,
+                duration: 2.5,
+                rewind:true,
                 dots:'.carousel__indicadores',
-                draggable:true,
-                dragVelocity:.6,
+                arrows: {
+                        prev: '.carousel__before',
+                        next: '.carousel__next'
+                      },
                 
         });
 

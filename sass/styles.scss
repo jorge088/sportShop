@@ -22,10 +22,10 @@ body{
     font-size: 1rem;
     margin: 2em auto;
     position: relative;
-    
     &__container{
         &__elements{
             overflow: hidden;
+            
             &__item{
                 margin:.5em;
                 background-color: #fff;
@@ -34,7 +34,7 @@ body{
                 flex-direction: column;
                 justify-content: space-between;
                 transition: .4s all ease;
-                z-index: 400;
+                
                 &:hover{
                     box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.25);
                     & button{
@@ -42,8 +42,8 @@ body{
                     }
                 }
                 & img{
-                    width: 200px;
-                    height: 220px;
+                    width: 180px;
+                    height: 190px;
                     margin: 0 auto;
                     margin-bottom: .7em;
                     cursor: pointer;
@@ -51,17 +51,16 @@ body{
                 
                 &__info{
                     margin: 0 1em;
-                    
                     &__name{
                         margin: 0;
                         padding: 0;
-                        min-height: 3em;
+                        min-height: 4em;
                         font-weight: 400;
-                        font-size: 1.1em;
+                        font-size: 1em;
                     }
                     &__price{
                         margin: .8em 0;
-                        font-size: 1.3em;
+                        font-size: 1.2em;
                     }
                 }
                 & button {
@@ -69,7 +68,7 @@ body{
                     bottom: 10px;
                     right: 15px;
                     opacity: 0;
-                    padding: 8px 20px;
+                    padding: 6px 15px;
                     border-radius: 8px;
                     background-color: #7f00b2;
                     text-align: center;
@@ -80,7 +79,7 @@ body{
                         background-color: #9c0ed4;
                     }
                     & i{
-                        font-size: 1.5em;
+                        font-size: 1.3em;
                     }
                 }
                 
@@ -102,103 +101,52 @@ body{
 	cursor: pointer;
 	text-align: center;
     background: none;
-	color: #000;
+	color: #7f00b2;
     opacity: .5;
     z-index: 40;
     i{
         font-size: 2em;
     }
     &:hover{
-        opacity: .8;
+        opacity: 1;
     }
 }
 .carousel__before{
-    left: -30px;
+    left: 10px;
 }
 .carousel__next{
-    right: -30px;
+    right:5px;
 }
 
 @media only screen and (max-width:575px){
     .productsCarousel{
-        width: 95%;
-        font-size: 1rem;
-        margin: 2em auto;
-        position: relative;
-        
+        font-size: .9rem;
         &__container{
             &__elements{
-                overflow: hidden;
+                
                 &__item{
-                    width: 100px;
-                    margin:.5em;
-                    background-color: #fff;
-                    display: flex;
-                    position: relative;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    transition: .4s all ease;
-                    background: red;
-                    z-index: 400;
-                    &:hover{
-                        box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.25);
-                        & button{
-                            opacity: 1;
-                        }
-                    }
-                    & img{
-                        width: 200px;
-                        height: 220px;
-                        margin: 0 auto;
-                        margin-bottom: .7em;
-                        cursor: pointer;
-                    }
-                    
-                    &__info{
-                        margin: 0 1em;
-                        
-                        &__name{
-                            margin: 0;
-                            padding: 0;
-                            min-height: 3em;
-                            font-weight: 400;
-                            font-size: 1.1em;
-                        }
-                        &__price{
-                            margin: .8em 0;
-                            font-size: 1.3em;
-                        }
-                    }
                     & button {
-                        position:absolute;
-                        bottom: 10px;
-                        right: 15px;
-                        opacity: 0;
-                        padding: 8px 20px;
-                        border-radius: 8px;
-                        background-color: #7f00b2;
-                        text-align: center;
-                        color: #fff;
-                        border: none;
-                        transition: .6s all ease;
-                        &:hover{
-                            background-color: #9c0ed4;
-                        }
-                        & i{
-                            font-size: 1.5em;
-                        }
+                        opacity: 1;
                     }
-                    
                 }
             }
-        }
-        &__indicadores .glider-dots{
-            display: none;
         }
     }
 }
 @media only screen and (min-width:576px) and (max-width:768px){
-    
+    .productsCarousel{
+        font-size: .9rem;
+        &__container{
+            &__elements{
+                
+                &__item{
+                    & button {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
 }
 @media only screen and (min-width:768px) and (max-width:992px){
    

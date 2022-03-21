@@ -697,7 +697,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   transition: 0.4s all ease;
-  z-index: 400;
 }
 .productsCarousel__container__elements__item:hover {
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.25);
@@ -706,8 +705,8 @@ body {
   opacity: 1;
 }
 .productsCarousel__container__elements__item img {
-  width: 200px;
-  height: 220px;
+  width: 180px;
+  height: 190px;
   margin: 0 auto;
   margin-bottom: 0.7em;
   cursor: pointer;
@@ -718,20 +717,20 @@ body {
 .productsCarousel__container__elements__item__info__name {
   margin: 0;
   padding: 0;
-  min-height: 3em;
+  min-height: 4em;
   font-weight: 400;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 .productsCarousel__container__elements__item__info__price {
   margin: 0.8em 0;
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 .productsCarousel__container__elements__item button {
   position: absolute;
   bottom: 10px;
   right: 15px;
   opacity: 0;
-  padding: 8px 20px;
+  padding: 6px 15px;
   border-radius: 8px;
   background-color: #7f00b2;
   text-align: center;
@@ -743,7 +742,7 @@ body {
   background-color: #9c0ed4;
 }
 .productsCarousel__container__elements__item button i {
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 .productsCarousel__indicadores .glider-dots {
   display: none;
@@ -759,7 +758,7 @@ body {
   cursor: pointer;
   text-align: center;
   background: none;
-  color: #000;
+  color: #7f00b2;
   opacity: 0.5;
   z-index: 40;
 }
@@ -767,87 +766,31 @@ body {
   font-size: 2em;
 }
 .carousel__before:hover, .carousel__next:hover {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .carousel__before {
-  left: -30px;
+  left: 10px;
 }
 
 .carousel__next {
-  right: -30px;
+  right: 5px;
 }
 
 @media only screen and (max-width: 575px) {
   .productsCarousel {
-    width: 95%;
-    font-size: 1rem;
-    margin: 2em auto;
-    position: relative;
-  }
-  .productsCarousel__container__elements {
-    overflow: hidden;
-  }
-  .productsCarousel__container__elements__item {
-    width: 100px;
-    margin: 0.5em;
-    background-color: #fff;
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: 0.4s all ease;
-    background: red;
-    z-index: 400;
-  }
-  .productsCarousel__container__elements__item:hover {
-    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.25);
-  }
-  .productsCarousel__container__elements__item:hover button {
-    opacity: 1;
-  }
-  .productsCarousel__container__elements__item img {
-    width: 200px;
-    height: 220px;
-    margin: 0 auto;
-    margin-bottom: 0.7em;
-    cursor: pointer;
-  }
-  .productsCarousel__container__elements__item__info {
-    margin: 0 1em;
-  }
-  .productsCarousel__container__elements__item__info__name {
-    margin: 0;
-    padding: 0;
-    min-height: 3em;
-    font-weight: 400;
-    font-size: 1.1em;
-  }
-  .productsCarousel__container__elements__item__info__price {
-    margin: 0.8em 0;
-    font-size: 1.3em;
+    font-size: 0.9rem;
   }
   .productsCarousel__container__elements__item button {
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
-    opacity: 0;
-    padding: 8px 20px;
-    border-radius: 8px;
-    background-color: #7f00b2;
-    text-align: center;
-    color: #fff;
-    border: none;
-    transition: 0.6s all ease;
+    opacity: 1;
   }
-  .productsCarousel__container__elements__item button:hover {
-    background-color: #9c0ed4;
+}
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .productsCarousel {
+    font-size: 0.9rem;
   }
-  .productsCarousel__container__elements__item button i {
-    font-size: 1.5em;
-  }
-  .productsCarousel__indicadores .glider-dots {
-    display: none;
+  .productsCarousel__container__elements__item button {
+    opacity: 1;
   }
 }
 

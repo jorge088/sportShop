@@ -133,5 +133,59 @@
         "year":"2022",
         "imgFrontUrl":"camiseta3Front-BocaJuniors-2022.png",
         "imgBackUrl":"camiseta3Back-BocaJuniors-2022.png"
+    },
+    {
+        "id": 16,
+        "name":"Camiseta alternativa Estudiantes",
+        "price":8000,
+        "category":"Estudiantes",
+        "year":"2021",
+        "imgFrontUrl":"camiseta2Front-Estudiantes-2021.png",
+        "imgBackUrl":"camiseta2Back-Estudiantes-2021.png"
+    },
+    {
+        "id": 17,
+        "name":"Camiseta alternativa Independiente",
+        "price":11500,
+        "category":"Independiente",
+        "year":"2021",
+        "imgFrontUrl":"camiseta2Front-Independiente-2021.png",
+        "imgBackUrl":"camiseta2Back-Independiente-2021.png"
+    },
+    {
+        "id": 18,
+        "name":"Camiseta alternativa Newells Old Boys",
+        "price":9000,
+        "category":"Newells Old Boys",
+        "year":"2022",
+        "imgFrontUrl":"camiseta2Front-Newells-2022.png",
+        "imgBackUrl":"camiseta2Back-Newells-2022.png"
+    },
+    {
+        "id": 19,
+        "name":"Camiseta alternativa Racing",
+        "price":10500,
+        "category":"Racing",
+        "year":"2021",
+        "imgFrontUrl":"camiseta2Front-Racing-2021.png",
+        "imgBackUrl":"camiseta2Back-Racing-2021.png"
+    },
+    {
+        "id": 20,
+        "name":"Camiseta alternativa River Plate",
+        "price":11000,
+        "category":"River Plate",
+        "year":"2021",
+        "imgFrontUrl":"camiseta2Front-RiverPlate-2021.png",
+        "imgBackUrl":"camiseta2Back-RiverPlate-2021.png"
+    },
+    {
+        "id": 21,
+        "name":"Camiseta alternativa River Plate",
+        "price":11000,
+        "category":"River Plate",
+        "year":"2021",
+        "imgFrontUrl":"camiseta3Front-RiverPlate-2021.png",
+        "imgBackUrl":"camiseta3Back-RiverPlate-2021.png"
     }
 ]

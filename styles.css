@@ -240,6 +240,8 @@ header {
   position: sticky;
   z-index: 100;
   top: 0;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 600;
 }
 header .navBar {
   height: 65px;
@@ -503,6 +505,7 @@ header .btn__nav {
   z-index: 50;
   background: rgba(0, 0, 0, 0.2);
   font-size: 1rem;
+  font-family: "Signika Negative", sans-serif;
   transition: 0.4s linear all;
 }
 .cart.show {
@@ -523,6 +526,7 @@ header .btn__nav {
 }
 .cart__sideContainer__title {
   margin-bottom: 1em;
+  font-family: "Gothic A1", sans-serif;
 }
 .cart__sideContainer__title__exit {
   display: inline-block;
@@ -531,7 +535,8 @@ header .btn__nav {
   cursor: pointer;
 }
 .cart__sideContainer__title__exit i {
-  font-size: 1.8em;
+  color: #7f00b2;
+  font-size: 2em;
 }
 .cart__sideContainer__title h2 {
   font-size: 1.5em;
@@ -562,12 +567,14 @@ header .btn__nav {
 }
 .cart__sideContainer__items__item__name {
   width: 50%;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 400;
 }
 .cart__sideContainer__items__item__amount {
   width: 10%;
 }
 .cart__sideContainer__items__item__price {
-  font-weight: 700;
+  font-weight: 600;
   width: 30%;
 }
 .cart__sideContainer__resume__total {
@@ -720,9 +727,11 @@ body {
   min-height: 4em;
   font-weight: 400;
   font-size: 1em;
+  font-family: "Gothic A1", sans-serif;
 }
 .productsCarousel__container__elements__item__info__price {
   margin: 0.8em 0;
+  font-family: "Signika Negative", sans-serif;
   font-size: 1.2em;
 }
 .productsCarousel__container__elements__item button {
@@ -786,6 +795,14 @@ body {
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 768px) {
+  .productsCarousel {
+    font-size: 0.9rem;
+  }
+  .productsCarousel__container__elements__item button {
+    opacity: 1;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
   .productsCarousel {
     font-size: 0.9rem;
   }

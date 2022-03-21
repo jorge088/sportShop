@@ -7,6 +7,8 @@
     z-index: 50;
     background: rgba(0,0,0,.2);
     font-size: 1rem;
+    font-family: 'Signika Negative', sans-serif;
+
     transition: .4s linear all;
     &.show{
         right: 0px;
@@ -25,13 +27,16 @@
         transition: .4s linear all;
         &__title{ 
             margin-bottom: 1em ;
+            font-family: 'Gothic A1', sans-serif;
+            
             &__exit{
                 display: inline-block;
                 padding: 8px;
                 vertical-align: middle;
                 cursor: pointer;
                 & i {
-                    font-size: 1.8em;
+                    color: #7f00b2;
+                    font-size: 2em;
                 }
             }
             & h2{
@@ -62,12 +67,14 @@
                 border-bottom: 1px solid #7f00b2;
                 &__name{
                     width: 50%;
+                    font-family: 'Gothic A1', sans-serif;
+                    font-weight: 400;
                 }
                 &__amount{
                     width: 10%;
                 }
                 &__price{
-                    font-weight: 700;
+                    font-weight: 600;
                     width: 30%;
                 }
             }

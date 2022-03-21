@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200;400;500;600;700&display=swap" rel="stylesheet">     
     <title>SportShop</title>
 </head>
 
@@ -24,11 +29,7 @@
             <ul class="navBar__menu">
                 <li>
                     <a href="#">CATALOGO</a>
-                </li>
-                
-                <li>
-                    <a href="#">SOBRE NOSOTROS</a>
-                </li>
+                </li>   
                 <form action="" id="searchForm">
                     <input type="text" placeholder="Busca producto">
                 </form>
@@ -41,16 +42,16 @@
             <span class="navBar__btnCartResponsive" id="btnCartViewResponsive">
                 <i class=" fas fa-solid fa-cart-arrow-down"></i> CARRITO
             </span>
-           
-            
+
+
         </nav>
     </header>
 
     <div class="container">
-        
+
         <!-- Aqui se listan los elementos del carrito -->
-        <div class="cart" >
-            <div class="cart__sideContainer" >
+        <div class="cart">
+            <div class="cart__sideContainer">
                 <div class="cart__sideContainer__title">
                     <span class="cart__sideContainer__title__exit"><i class="fas fa-solid fa-angle-right"></i></span>
                     <h2><i class=" fas fa-solid fa-cart-arrow-down"></i> Carrito</h2>
@@ -66,27 +67,27 @@
 
         <!-- Aqui se listan los productos -->
         <div class="products" id="products">
-            
+
         </div>
         <div class="productsCarousel">
-			<div class="productsCarousel__container">
-				<button aria-label="Anterior" class="carousel__before">
-					<i class="fas fa-chevron-left"></i>
-				</button>
+            <div class="productsCarousel__container">
+                <button aria-label="Anterior" class="carousel__before">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
 
-				<div class="productsCarousel__container__elements products">
-					
-				</div>
+                <div class="productsCarousel__container__elements products">
 
-				<button aria-label="Siguiente" class="carousel__next">
-					<i class="fas fa-chevron-right"></i>
-				</button>
-			</div>
+                </div>
 
-			<div role="tablist" class="carousel__indicadores"></div>
-		</div>
+                <button aria-label="Siguiente" class="carousel__next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div role="tablist" class="carousel__indicadores"></div>
+        </div>
     </div>
-    
+
     <!-- Template para cada producto -->
     <template id="template-carouselProducts">
         <div class="productsCarousel__container__elements__item">
@@ -94,7 +95,8 @@
                 <h3 class="productsCarousel__container__elements__item__info__name"></h3>
                 <p class="productsCarousel__container__elements__item__info__price"></p>
             </div>
-            <button class="productsCarousel__container__elements__item__button"><i class="fas fa-solid fa-cart-plus"></i>
+            <button class="productsCarousel__container__elements__item__button"><i
+                    class="fas fa-solid fa-cart-plus"></i>
             </button>
         </div>
     </template>

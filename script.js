@@ -96,7 +96,6 @@ const loadProducts = (data) => {
                 slidesToScroll: 1,
                 duration: 2.5,
                 rewind:true,
-                dots:'.carousel__indicadores',
                 arrows: {
                         prev: '.carousel__before',
                         next: '.carousel__next'

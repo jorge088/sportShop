@@ -22,7 +22,6 @@ const checkCartLocalStorage = () => {
         if (cartStorage) {
                 cart = JSON.parse(cartStorage);
                 updateCartProductView()
-                console.log(cart);
         }
 };
 
@@ -175,7 +174,6 @@ const setCart = (object) => {
 //actualiza la vista de los productos en el carrito
 function updateCartProductView() {
         let totalPrice = 0;
-        console.log(cart)
         cartList.innerHTML = '';
         cart.forEach(product => {
                 if (product) {//si no es null

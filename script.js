@@ -1,50 +1,65 @@
 let cart = [];
-let cartList = document.getElementById('cart__items');
 
-const products = document.getElementById('products'); //contenedor de productos
+const cartList = document.getElementById('cart__items'); //contenedor de productos en el carrito
+
+const carouselProducts = document.querySelector('.productsCarousel__container__elements'); //carrusel de productos
+
 const templateProducts = document.getElementById("template-carouselProducts").content; //template para cada producto item
-const fragment = document.createDocumentFragment(); //fragmento para guardar cada item y luego insertarlo en el contenedor
-const cart__resume = document.querySelector('.cart__sideContainer__resume'); //div con resumen del carrito
-const carousel = document.querySelector('.productsCarousel__container__elements');
+const fragment = document.createDocumentFragment(); //fragmento para guardar cada item y luego insertarlo en el carrusel
 
+const cart__resume = document.querySelector('.cart__sideContainer__resume'); //div con resumen del carrito
 
 document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el DOM
         showNavResponsive();
-        addBtnShowCart();
+        addEventShowCart();
         fetchData();
-
-
-
+        checkCartLocalStorage();
 });
+
+//Verifica si hay productos cargados en el carrito y los actualiza en la vista
+const checkCartLocalStorage = () => {
+        const cartStorage = localStorage.getItem('cart');
+        if (cartStorage) {
+                cart = JSON.parse(cartStorage);
+                updateCartProductView()
+                console.log(cart);
+        }
+};
+
 //Mostrar el menu en navbar para dispositivos mobiles
 const showNavResponsive = () => {
         const btn__nav = document.querySelector('.btn__nav');
-        if (btn__nav) {
-                btn__nav.addEventListener('click', () => {
-                        const nav__menu = document.querySelector('.navBar__menu');
-                        nav__menu.classList.toggle('show');
-                        btn__nav.classList.toggle('active');
-                })
-        }
+        btn__nav.addEventListener('click', () => {
+                const nav__menu = document.querySelector('.navBar__menu');
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        })
 }
 
-const addBtnShowCart = () => {
+//Agrega eventos a los botones para mostrar y ocultar la vista del carrito
+const addEventShowCart = () => {
+        //evento para boton carrito en el nav bar.
         const btnCart = document.getElementById('btnCartView');
-        const cartView = document.querySelector('.cart');
-        const btnCloseCartView = document.querySelector('.cart__sideContainer__title__exit');
-        const btnCartViewResponsive = document.querySelector('#btnCartViewResponsive');
-        const btnCartViewMenu = document.querySelector('.navBar__menu__btnCartMenu');
         btnCart.addEventListener('click', () => {
                 cartView.classList.toggle('show');
         });
+
+        //evento para cuando se haga click en el sector opaco se cierre la vista
+        const cartView = document.querySelector('.cart');
         cartView.addEventListener('click', (e) => {
                 if (e.target.classList.contains('cart')) {
                         cartView.classList.toggle('show');
                 }
         });
+
+        //evento para el boton cerrar, dentro de la vista del carrito
+        const btnCloseCartView = document.querySelector('.cart__sideContainer__title__exit');
         btnCloseCartView.addEventListener('click', () => {
                 cartView.classList.toggle('show');
         });
+
+        //evento para boton carrito responsive del nav bar
+        const btnCartViewResponsive = document.querySelector('#btnCartViewResponsive');
         btnCartViewResponsive.addEventListener('click', () => {
                 cartView.classList.toggle('show');
         });
@@ -61,12 +76,12 @@ const fetchData = async () => {
         }
 }
 
-//Carga los productos del json en la pantalla
+//Carga los productos del json en el fragment y luego los carga en el carrusel
 const loadProducts = (data) => {
-
         data.forEach(product => {
                 const img = document.createElement('img'); //agrego la img y sus eventos por separado
                 img.setAttribute("src", `./assets/images/${product.imgFrontUrl}`);
+                img.setAttribute("alt", `${product.name}`);
                 //eventos de cambio de imagen
                 img.addEventListener('mouseover', () => {
                         img.setAttribute("src", `./assets/images/${product.imgBackUrl}`);
@@ -85,45 +100,39 @@ const loadProducts = (data) => {
 
                 fragment.appendChild(clone);//agrega ese item al fragment
         })
-        //products.appendChild(fragment); //luego de agregar todos los items al fragment, lo inserta en el DOM
 
-        carousel.appendChild(fragment);
+        carouselProducts.appendChild(fragment);
 
+        //Crea el carrusel usando la libreria glider.js
         new Glider(document.querySelector('.productsCarousel__container__elements'), {
                 exactWidth: true,
                 itemWidth: 180,
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 duration: 2.5,
-                rewind: true,
+                rewind: true,   //llega al final y vuelva al principio
                 arrows: {
                         prev: '.carousel__before',
                         next: '.carousel__next'
                 },
                 responsive: [
                         {
-                                // screens greater than >= 775px
-                                breakpoint: 575,
+                                breakpoint: 575, //>=575px
                                 settings: {
                                         itemWidth: 180,
-
                                         slidesToShow: 3,
-                                        dots:'.carousel__indicadores'
+                                        dots: '.carousel__indicadores'
                                 }
                         }, {
-                                // screens greater than >= 1024px
                                 breakpoint: 800,
                                 settings: {
                                         itemWidth: 200,
                                         slidesToShow: 6,
-                                        dots:'.carousel__indicadores'
+                                        dots: '.carousel__indicadores'
                                 }
                         }
                 ]
-
         });
-
-
 }
 
 //captura los clicks para agregar un producto al carrito
@@ -145,7 +154,7 @@ const addCart = e => {
         e.stopPropagation();
 }
 
-//Agrega los datos del producto al carrito
+//Agrega los datos del producto a un objeto y lo agrega al array cart,luego actualiza en localstorage
 const setCart = (object) => {
         const product = {
                 id: object.querySelector('.productsCarousel__container__elements__item__button').dataset.id,
@@ -158,22 +167,28 @@ const setCart = (object) => {
                 product.units = cart[product.id].units + 1;
         }
         cart[product.id] = { ...product }
-        updateProductList()
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartProductView()
 }
 
-//actualiza la lista de productos del carrito en el dom
-function updateProductList() {
+//actualiza la vista de los productos en el carrito
+function updateCartProductView() {
         let totalPrice = 0;
+        console.log(cart)
         cartList.innerHTML = '';
         cart.forEach(product => {
-                cartList.innerHTML += `
-                <div class="cart__sideContainer__items__item">
-                        <p class="cart__sideContainer__items__item__name">${product.name}</p>
-                        <p class="cart__sideContainer__items__item__amount">${product.units}</p>                
+                if (product) {//si no es null
+                        cartList.innerHTML += `
+                        <div class="cart__sideContainer__items__item">
+                                <p class="cart__sideContainer__items__item__name">${product.name}</p>
+                                <p class="cart__sideContainer__items__item__amount">${product.units}</p>                
                         <p class="cart__sideContainer__items__item__price">${product.price}</p>
-                </div>
-                `;
-                totalPrice += Number(product.price.slice(1)) * product.units; //quita el $ de product.price y lo transforma a number
+                        </div>
+                        `;
+                        totalPrice += Number(product.price.slice(1)) * product.units; //quita el $ de product.price y lo transforma a number
+                }
+
         });
         cart__resume.innerHTML = `
         <div class="cart__sideContainer__resume__total">

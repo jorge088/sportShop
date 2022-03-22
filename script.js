@@ -136,7 +136,7 @@ const loadProducts = (data) => {
 }
 
 //captura los clicks para agregar un producto al carrito
-carousel.addEventListener("click", (e) => {
+carouselProducts.addEventListener("click", (e) => {
         addCart(e);
 });
 

@@ -67,7 +67,7 @@ const addEventShowCart = () => {
 //Trae y lee los datos del archivo json
 const fetchData = async () => {
         try {
-                const res = await fetch('./assets/products.json');
+                const res = await fetch('./../assets/products.json');
                 const data = await res.json();
                 loadProducts(data);
         } catch (error) {

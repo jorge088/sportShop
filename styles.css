@@ -786,6 +786,10 @@ body {
   right: 5px;
 }
 
+.cartAlert {
+  background: #7f00b2;
+}
+
 @media only screen and (max-width: 575px) {
   .productsCarousel {
     font-size: 0.9rem;

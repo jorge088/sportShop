@@ -168,7 +168,14 @@ const setCart = (object) => {
         cart[product.id] = { ...product }
 
         localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartProductView()
+        updateCartProductView();
+
+        Toastify({
+                text: "Se agregó al carrito",
+                position:"right",
+                gravity:"bottom",
+                className: "cartAlert",
+        }).showToast();
 }
 
 //actualiza la vista de los productos en el carrito

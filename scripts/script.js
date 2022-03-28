@@ -7,7 +7,11 @@ const carouselProducts = document.querySelector('.productsCarousel__container__e
 const templateProducts = document.getElementById("template-carouselProducts").content; //template para cada producto item
 const fragment = document.createDocumentFragment(); //fragmento para guardar cada item y luego insertarlo en el carrusel
 
+const templateCartProducts = document.getElementById("template-CartProducts").content; //template para cargar los items en el carrito
+const fragmentCart = document.createDocumentFragment();//fragmento para guardar cada item y luego insertarlo en el carrito
+
 const cart__resume = document.querySelector('.cart__sideContainer__resume'); //div con resumen del carrito
+
 
 document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el DOM
         showNavResponsive();
@@ -74,7 +78,6 @@ const fetchData = async () => {
                 console.log(error)
         }
 }
-
 //Carga los productos del json en el fragment y luego los carga en el carrusel
 const loadProducts = (data) => {
         data.forEach(product => {
@@ -159,10 +162,11 @@ const setCart = (object) => {
                 id: object.querySelector('.productsCarousel__container__elements__item__button').dataset.id,
                 name: object.querySelector('h3').textContent,
                 price: object.querySelector('p').textContent,
+                img : object.querySelector('img').getAttribute('src'),
                 units: 1
         }
         //si ya existe ese id, le aumento la cantidad
-        if (cart.hasOwnProperty(product.id)) {
+        if (cart[product.id]) {
                 product.units = cart[product.id].units + 1;
         }
         cart[product.id] = { ...product }
@@ -170,6 +174,7 @@ const setCart = (object) => {
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartProductView();
 
+        //Muestra alerta, usando libreria
         Toastify({
                 text: "Se agregó al carrito",
                 position:"right",
@@ -184,20 +189,82 @@ function updateCartProductView() {
         cartList.innerHTML = '';
         cart.forEach(product => {
                 if (product) {//si no es null
-                        cartList.innerHTML += `
-                        <div class="cart__sideContainer__items__item">
-                                <p class="cart__sideContainer__items__item__name">${product.name}</p>
-                                <p class="cart__sideContainer__items__item__amount">${product.units}</p>                
-                        <p class="cart__sideContainer__items__item__price">${product.price}</p>
-                        </div>
-                        `;
+                        templateCartProducts.querySelector(".cart__sideContainer__items__item__main__name").textContent = product.name;
+                        templateCartProducts.querySelector("img").setAttribute("src",`${product.img}`);
+                        templateCartProducts.querySelector(".cart__sideContainer__items__item__description__units__number").textContent = product.units;
+                        templateCartProducts.querySelector(".cart__sideContainer__items__item__description__price").textContent =`$${Number(product.price.slice(1)) * product.units}`;
+                        templateCartProducts.querySelector(".cart__sideContainer__items__item__main__btnDelete").dataset.id = product.id;
+                        templateCartProducts.querySelector(".cart__sideContainer__items__item__description__units__btn__add").dataset.id = product.id;
+                        templateCartProducts.querySelector(".cart__sideContainer__items__item__description__units__btn__rest").dataset.id = product.id;
+                        
                         totalPrice += Number(product.price.slice(1)) * product.units; //quita el $ de product.price y lo transforma a number
+                        const clone = templateCartProducts.cloneNode(true);
+                        fragmentCart.appendChild(clone);
                 }
-
         });
+        cartList.appendChild(fragmentCart);
+
         cart__resume.innerHTML = `
         <div class="cart__sideContainer__resume__total">
                 <p>Total: $${totalPrice} </p>
         </div>
 `;
+}
+//Agrego eventos a los botones en el carrito
+cartList.addEventListener('click',(e) =>{
+        cartProductsModify(e);
+});
+const cartProductsModify = (e) =>{
+        //Agregar un producto
+        if (e.target.classList.contains('fa-plus')) { //click en el icono
+                plusProductCart(e.target.parentElement.dataset.id);
+        } else {
+                if (e.target.classList.contains('cart__sideContainer__items__item__description__units__btn__add')) { //click en boton
+                        plusProductCart(e.target.dataset.id);
+                }
+        }
+
+        //Quitar un producto
+        if (e.target.classList.contains('fa-minus')) { //click en el icono
+                //console.log(e.target.parentElement.dataset.id);
+                minusProductCart(e.target.parentElement.dataset.id);
+        } else {
+                if (e.target.classList.contains('cart__sideContainer__items__item__description__units__btn__rest')) {//click en boton
+                        minusProductCart(e.target.dataset.id);
+                }
+        }
+
+        //Eliminar producto 
+        if(e.target.classList.contains('fa-trash')){//click en icono
+                deleteProductCart(e.target.parentElement.dataset.id);
+        }else{
+                if(e.target.classList.contains('cart__sideContainer__items__item__main__btnDelete')){//click en boton
+                        deleteProductCart(e.target.dataset.id);
+                }
+        }
+        e.stopPropagation();
+};
+
+const plusProductCart = (id)=>{
+        const product= cart[id];
+        product.units++;
+        cart[id]={...product};
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartProductView();
+};
+
+const minusProductCart = (id) =>{
+        const product = cart[id];
+        product.units--;
+        if(product.units === 0){
+                delete cart[id];
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartProductView();
+};
+
+const deleteProductCart = (id) => {
+        delete cart[id];
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartProductView();
 }

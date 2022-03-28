@@ -12,7 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200;400;500;600;700&display=swap"
+        rel="stylesheet">
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/9eb45967b7.js" crossorigin="anonymous"></script>
 
@@ -20,7 +21,7 @@
 </head>
 
 <body>
-    <script src="./toastify.js"></script>
+    <script src="./scripts/toastify.js"></script>
     <header>
         <nav class="navBar">
             <div>
@@ -32,7 +33,7 @@
             <ul class="navBar__menu">
                 <li>
                     <a href="#">CATALOGO</a>
-                </li>   
+                </li>
                 <form action="" id="searchForm">
                     <input type="text" placeholder="Busca producto">
                 </form>
@@ -100,8 +101,33 @@
             </button>
         </div>
     </template>
+    <template id="template-CartProducts">
+        <div class="cart__sideContainer__items__item">
+            <div class="cart__sideContainer__items__item__main">
+                <p class="cart__sideContainer__items__item__main__name"></p>
+                <button class="cart__sideContainer__items__item__main__btnDelete">
+                    <i class="fas fa-solid fa-trash"></i>
+                </button>
+            </div>
+            <div class="cart__sideContainer__items__item__description">
+                <img src="" alt="">
+                <div class="cart__sideContainer__items__item__description__units">
+                    <p class="cart__sideContainer__items__item__description__units__number"></p>
+                    <div class="cart__sideContainer__items__item__description__units__btn">
+                        <button class="cart__sideContainer__items__item__description__units__btn__add">
+                            <i class="fas fa-solid fa-plus"></i>
+                        </button>
+                        <button class="cart__sideContainer__items__item__description__units__btn__rest">
+                            <i class="fas fa-solid fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <p class="cart__sideContainer__items__item__description__price"></p>
+            </div>
+        </div>
+    </template>
 
-    
+
     <script src="./scripts/script.js"></script>
     <script src="./scripts/glider.min.js"></script>
 

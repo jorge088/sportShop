@@ -44,14 +44,16 @@ const carouselProducts = new Glider(document.querySelector('.productsCarousel__c
                         settings: {
                                 itemWidth: 180,
                                 slidesToShow: 3,
-                                dots: '.carousel__indicadores'
+                                dots: '.carousel__indicadores',
+                                rewind: true,
                         }
                 }, {
                         breakpoint: 800,
                         settings: {
                                 itemWidth: 200,
                                 slidesToShow: 6,
-                                dots: '.carousel__indicadores'
+                                dots: '.carousel__indicadores',
+                                rewind: true,
                         }
                 }
         ]
@@ -195,7 +197,7 @@ const addEventShowCart = () => {
 //Leer los datos del archivo json
 const fetchData = async () => {
         try {
-                const res = await fetch('./../assets/products.json');
+                const res = await fetch("./assets/products.json");
                 const data = await res.json();
                 products = data; //almaceno los datos del archivo en un array
                 loadRandomProducts(products)

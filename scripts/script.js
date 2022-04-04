@@ -1,35 +1,90 @@
 let cart = [];
+let products = []; //productos leidos desde el json
 
 const cartList = document.getElementById('cart__items'); //contenedor de productos en el carrito
 
-const carouselProducts = document.querySelector('.productsCarousel__container__elements'); //carrusel de productos
-
 const templateProducts = document.getElementById("template-carouselProducts").content; //template para cada producto item
-const fragment = document.createDocumentFragment(); //fragmento para guardar cada item y luego insertarlo en el carrusel
 
 const templateCartProducts = document.getElementById("template-CartProducts").content; //template para cargar los items en el carrito
 const fragmentCart = document.createDocumentFragment();//fragmento para guardar cada item y luego insertarlo en el carrito
-
 const cart__resume = document.querySelector('.cart__sideContainer__resume'); //div con resumen del carrito
 
 
+const inputSearch = document.querySelector('#inputSearch');
+inputSearch.value='';
+
+const carouselProductsElements =document.querySelector('.productsCarousel__container__elements')
+
+//Carruseles
+const info = new Glider(document.querySelector('.informationCarousel__container__elements'), {//carrusel con imagenes
+        duration: 2,
+        draggable:true,
+        dragVelocity:1,
+        rewind: true,
+});
+
+const carouselProducts = new Glider(document.querySelector('.productsCarousel__container__elements'), {
+        exactWidth: true,
+        itemWidth: 180,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        duration: 2.5,
+        rewind: true,   //llega al final y vuelva al principio
+        arrows: {
+                prev: '.carousel__before',
+                next: '.carousel__next'
+        },
+        responsive: [
+                {
+                        breakpoint: 575, //>=575px
+                        settings: {
+                                itemWidth: 180,
+                                slidesToShow: 3,
+                                dots: '.carousel__indicadores'
+                        }
+                }, {
+                        breakpoint: 800,
+                        settings: {
+                                itemWidth: 200,
+                                slidesToShow: 6,
+                                dots: '.carousel__indicadores'
+                        }
+                }
+        ]
+});
 
 document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el DOM
         showNavResponsive();
         addEventShowCart();
         fetchData();
         checkCartLocalStorage();
-        const info = new Glider(document.querySelector('.informationCarousel__container__elements'), {//carrusel con imagenes
-                duration: 2,
-                rewind: true,
-                dots: '.carousel-information__indicadores'
-        
-        });
-        
-        carouselAuto(info, 3000)
+        carouselAuto(info, 3500);
 });
 
-//hace el scroll automatico a algun carrusel
+//Input buscar producto 
+inputSearch.addEventListener("keyup", (e) => {
+        if (e.keyCode == 13 || e.keyCode == 'Enter') {
+                let resul = [];
+                resul = products.filter(product =>
+                        product.category.toLowerCase().includes(inputSearch.value.toLowerCase())
+                )
+
+                if (resul.length == 0) {
+                        cleanCarousel(carouselProducts);
+                        loadCarouselProducts(products);
+
+                } else {
+                        cleanCarousel(carouselProducts);
+                        loadCarouselProducts(resul)
+                }
+        }
+        if(inputSearch.value==0){
+                cleanCarousel(carouselProducts);
+                loadCarouselProducts(products);
+        }
+})
+
+//Scroll automatico a algun carrusel
 const carouselAuto = (slider, miliseconds) => {
         const slidesCount = slider.track.childElementCount;
         let slideTimeout = null;
@@ -46,16 +101,22 @@ const carouselAuto = (slider, miliseconds) => {
                         miliseconds
                 );
         }
-
         slider.ele.addEventListener('glider-animated', function () {
                 window.clearInterval(slideTimeout);
                 slide();
         });
-
         slide();
 }
 
-//Verifica si hay productos cargados en el carrito y los actualiza en la vista
+//Limpiar carrusel
+const cleanCarousel = (carousel) => {
+        const slidesCount = carousel.track.childElementCount;
+        for (let i = 0; i < slidesCount; i++)
+                carousel.removeItem(0);
+        carousel.updateControls()
+}
+
+//Carrito en localstorage
 const checkCartLocalStorage = () => {
         const cartStorage = localStorage.getItem('cart');
         if (cartStorage) {
@@ -64,7 +125,7 @@ const checkCartLocalStorage = () => {
         }
 };
 
-//Mostrar el menu en navbar para dispositivos mobiles
+//Mostrar el menu en navbar, para dispositivos mobiles
 const showNavResponsive = () => {
         const btn__nav = document.querySelector('.btn__nav');
         btn__nav.addEventListener('click', () => {
@@ -103,18 +164,20 @@ const addEventShowCart = () => {
         });
 }
 
-//Trae y lee los datos del archivo json
+//Leer los datos del archivo json
 const fetchData = async () => {
         try {
                 const res = await fetch('./../assets/products.json');
                 const data = await res.json();
-                loadProducts(data);
+                loadCarouselProducts(data);
+                products = data;
         } catch (error) {
                 console.log(error)
         }
 }
-//Carga los productos del json en el fragment y luego los carga en el carrusel
-const loadProducts = (data) => {
+
+//Carga carrusel de productos con elementos en un array
+const loadCarouselProducts = (data) => {
         data.forEach(product => {
                 templateProducts.querySelectorAll('img')[0].setAttribute('src', `./assets/images/${product.imgFrontUrl}`);
                 templateProducts.querySelectorAll('img')[1].setAttribute('src', `./assets/images/${product.imgBackUrl}`);
@@ -123,46 +186,12 @@ const loadProducts = (data) => {
                 templateProducts.querySelector('.productsCarousel__container__elements__item__button').dataset.id = product.id; //guardo en el button el id de ese producto
 
                 const clone = templateProducts.cloneNode(true);
-                fragment.appendChild(clone);//agrega ese item al fragment
+                carouselProducts.addItem(clone);
         })
-
-        carouselProducts.appendChild(fragment);
-
-        //Crea el carrusel usando la libreria glider.js
-        new Glider(document.querySelector('.productsCarousel__container__elements'), {
-                exactWidth: true,
-                itemWidth: 180,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                duration: 2.5,
-                rewind: true,   //llega al final y vuelva al principio
-                arrows: {
-                        prev: '.carousel__before',
-                        next: '.carousel__next'
-                },
-                responsive: [
-                        {
-                                breakpoint: 575, //>=575px
-                                settings: {
-                                        itemWidth: 180,
-                                        slidesToShow: 3,
-                                        dots: '.carousel__indicadores'
-                                }
-                        }, {
-                                breakpoint: 800,
-                                settings: {
-                                        itemWidth: 200,
-                                        slidesToShow: 6,
-                                        dots: '.carousel__indicadores'
-                                }
-                        }
-                ]
-        });
 }
 
-
 //captura los clicks para agregar un producto al carrito
-carouselProducts.addEventListener("click", (e) => {
+carouselProductsElements.addEventListener("click", (e) => {
         addCart(e);
 });
 
@@ -177,7 +206,6 @@ const addCart = e => {
                         setCart(e.target.parentElement); //Envia el item completo
                 }
         }
-
         e.stopPropagation();
 }
 
@@ -235,10 +263,12 @@ function updateCartProductView() {
         </div>
 `;
 }
+
 //Agrego eventos a los botones en el carrito
 cartList.addEventListener('click', (e) => {
         cartProductsModify(e);
 });
+
 const cartProductsModify = (e) => {
         //Agregar un producto
         if (e.target.classList.contains('fa-plus')) { //click en el icono

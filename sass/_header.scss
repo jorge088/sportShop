@@ -8,7 +8,7 @@ header{
     font-family: 'Gothic A1', sans-serif;
     font-weight: 600;
     .navBar{
-        height: 65px;
+        height: 55px;
         width: 80%;
         margin: 0 auto;
         display: flex;
@@ -37,12 +37,13 @@ header{
             & li a{
                 text-decoration: none;
                 color: #fff;
-                padding: .4em .4em;
+                padding: .3em .3em;
                 display: block;
             }
             form{
                 input{
-                    padding: 8px;
+                    padding: 6px;
+                    width: 300px;
                     background: transparent;
                     color: rgb(255, 255, 255);
                     font-size: 1.1em;

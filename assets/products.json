@@ -39,7 +39,7 @@
         "id": 5,
         "name":"Camiseta titular Independiente",
         "price":11500,
-        "category":"Independiente",
+        "category":"Independiente ",
         "year":"2021",
         "imgFrontUrl":"camiseta1Front-Independiente-2021.png",
         "imgBackUrl":"camiseta1Back-Independiente-2021.png"

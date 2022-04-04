@@ -187,5 +187,95 @@
         "year":"2021",
         "imgFrontUrl":"camiseta3Front-RiverPlate-2021.png",
         "imgBackUrl":"camiseta3Back-RiverPlate-2021.png"
+    },
+    {
+        "id": 22,
+        "name":"Camiseta alternativa San Martin de Tucuman",
+        "price":4000,
+        "category":"San Martin de Tucuman Primera Nacional",
+        "year":"2020",
+        "imgFrontUrl":"camiseta2Front-SanMartinTucuman-2020.png",
+        "imgBackUrl":"camiseta2Back-SanMartinTucuman-2020.png"
+    },
+    {
+        "id": 23,
+        "name":"Camiseta titular Instituto de Córdoba",
+        "price":6000,
+        "category":"Instituto de Cordoba Primera Nacional",
+        "year":"2022",
+        "imgFrontUrl":"camiseta1Front-Instituto-2022.png",
+        "imgBackUrl":"camiseta1Back-Instituto-2022.png"
+    },
+    {
+        "id": 24,
+        "name":"Camiseta titular Almirante Brown",
+        "price":6500,
+        "category":"Almirante Brown Primera Nacional",
+        "year":"2022",
+        "imgFrontUrl":"camiseta1Front-AlmiranteBrown-2022.png",
+        "imgBackUrl":"camiseta1Back-AlmiranteBrown-2022.png"
+    },
+    {
+        "id": 25,
+        "name":"Camiseta titular Gimnasia de Jujuy",
+        "price":5500,
+        "category":"Gimnasia de Jujuy Primera Nacional",
+        "year":"2022",
+        "imgFrontUrl":"camiseta1Front-GimnasiaJujuy-2022.png",
+        "imgBackUrl":"camiseta1Back-GimnasiaJujuy-2022.png"
+    },
+    {
+        "id": 26,
+        "name":"Camiseta alternativa Gimnasia de Jujuy",
+        "price":5500,
+        "category":"Gimnasia de Jujuy Primera Nacional",
+        "year":"2022",
+        "imgFrontUrl":"camiseta3Front-GimnasiaJujuy-2022.png",
+        "imgBackUrl":"camiseta3Back-GimnasiaJujuy-2022.png"
+    },
+    {
+        "id": 27,
+        "name":"Camiseta titular Ferrocarril Oeste",
+        "price":7500,
+        "category":"Ferrocarril Oeste Primera Nacional",
+        "year":"2021",
+        "imgFrontUrl":"camiseta1Front-Ferro-2021.png",
+        "imgBackUrl":"camiseta1Back-Ferro-2021.png"
+    },
+    {
+        "id": 28,
+        "name":"Camiseta titular Nueva Chicago",
+        "price":6500,
+        "category":"Nueva Chicago Primera Nacional",
+        "year":"2021",
+        "imgFrontUrl":"camiseta1Front-NuevaChicago-2021.png",
+        "imgBackUrl":"camiseta1Back-NuevaChicago-2021.png"
+    },
+    {
+        "id": 29,
+        "name":"Camiseta titular Atlanta",
+        "price":7000,
+        "category":"Atlanta Primera Nacional",
+        "year":"2022",
+        "imgFrontUrl":"camiseta1Front-Atlanta-2022.png",
+        "imgBackUrl":"camiseta1Back-Atlanta-2022.png"
+    },
+    {
+        "id": 30,
+        "name":"Camiseta titular Estudiantes de Rio Cuarto",
+        "price":6000,
+        "category":"Estudiantes de Rio Cuarto Primera Nacional",
+        "year":"2021",
+        "imgFrontUrl":"camiseta1Front-EstudiantesRioCuarto-2021.png",
+        "imgBackUrl":"camiseta1Back-EstudiantesRioCuarto-2021.png"
+    },
+    {
+        "id": 31,
+        "name":"Camiseta titular Temperley",
+        "price":6000,
+        "category":"Temperley Primera Nacional",
+        "year":"2020",
+        "imgFrontUrl":"camiseta1Front-Temperley-2020.png",
+        "imgBackUrl":"camiseta1Back-Temperley-2020.png"
     }
 ]

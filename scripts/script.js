@@ -13,6 +13,10 @@ const cart__resume = document.querySelector('.cart__sideContainer__resume'); //d
 const inputSearch = document.querySelector('#inputSearch');
 inputSearch.value='';
 
+const navCategoryLigaProf = document.querySelector('#navCategoryLigaProf');
+const navCategoryPrimeraNac = document.querySelector('#navCategoryPrimeraNac');
+const navCategoryTodosProduct = document.querySelector('#navCategoryTodosProduct');
+
 const carouselProductsElements =document.querySelector('.productsCarousel__container__elements')
 
 //Carruseles
@@ -64,10 +68,8 @@ document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el D
 //Input buscar producto 
 inputSearch.addEventListener("keyup", (e) => {
         if (e.keyCode == 13 || e.keyCode == 'Enter') {
-                let resul = [];
-                resul = products.filter(product =>
-                        product.category.toLowerCase().includes(inputSearch.value.toLowerCase())
-                )
+                let search = [];
+                search = filterProducts(inputSearch.value);
 
                 if (resul.length == 0) {
                         cleanCarousel(carouselProducts);
@@ -82,7 +84,33 @@ inputSearch.addEventListener("keyup", (e) => {
                 cleanCarousel(carouselProducts);
                 loadCarouselProducts(products);
         }
+        e.stopPropagation();
 })
+//Eventos para botones de categorias en NAV
+navCategoryLigaProf.addEventListener('click', ()=>{
+        let filter = [];
+        filter = filterProducts ('Liga Profesional');
+        cleanCarousel(carouselProducts);
+        loadCarouselProducts(filter);
+});
+navCategoryPrimeraNac.addEventListener('click', ()=>{
+        let filter = [];
+        filter = filterProducts ('Primera Nacional');
+        cleanCarousel(carouselProducts);
+        loadCarouselProducts(filter);
+})
+navCategoryTodosProduct.addEventListener('click',()=>{
+        cleanCarousel(carouselProducts);
+        loadCarouselProducts(products);
+});
+
+//Filtrar productos según su categoria
+const filterProducts = (parameter) =>{
+        resul = products.filter(product =>
+                product.category.toLowerCase().includes(parameter.toLowerCase())
+        )
+        return resul;
+}
 
 //Scroll automatico a algun carrusel
 const carouselAuto = (slider, miliseconds) => {
@@ -169,11 +197,26 @@ const fetchData = async () => {
         try {
                 const res = await fetch('./../assets/products.json');
                 const data = await res.json();
-                loadCarouselProducts(data);
-                products = data;
+                products = data; //almaceno los datos del archivo en un array
+                loadRandomProducts(products)
         } catch (error) {
                 console.log(error)
         }
+}
+
+//Carga en el carrusel 12 productos de la lista
+const loadRandomProducts = (data)=>{
+        let randomProducts=[];
+        for(let i=0;i<12;i++){
+                index = Math.floor(Math.random() * data.length);
+                if (randomProducts[index]) {
+                        if(index!=data.length){
+                                index++;
+                        }
+                }
+                randomProducts[index] = { ...data[index] }
+        }
+        loadCarouselProducts(randomProducts);
 }
 
 //Carga carrusel de productos con elementos en un array
@@ -198,7 +241,6 @@ carouselProductsElements.addEventListener("click", (e) => {
 //filtra el producto seleccionado.
 const addCart = e => {
         //verifica que se hizo click en el boton
-        console.log(e)
         if (e.target.classList.contains('fa-cart-plus')) { //si hace click en el icono
                 setCart(e.target.parentElement.parentElement);
         } else {

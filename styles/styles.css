@@ -244,7 +244,7 @@ header {
   font-weight: 600;
 }
 header .navBar {
-  height: 55px;
+  height: 50px;
   width: 80%;
   margin: 0 auto;
   display: flex;
@@ -257,7 +257,7 @@ header .navBar div {
 }
 header .navBar__logo {
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1.4em;
   padding: 0;
   font-weight: bold;
   text-decoration: none;
@@ -270,12 +270,41 @@ header .navBar__menu {
 }
 header .navBar__menu li {
   margin: 0 0.4em;
-  border-radius: 8px;
+  position: relative;
 }
 header .navBar__menu li a {
   text-decoration: none;
   color: #fff;
-  padding: 0.3em 0.3em;
+  padding: 0.5em;
+  display: block;
+}
+header .navBar__menu li a:hover, header .navBar__menu li a:focus {
+  background-color: #a400e6;
+}
+header .navBar__menu li ul {
+  left: 0;
+  top: 35px;
+  padding: 0.5em 0;
+  text-align: left;
+  display: none;
+  min-width: 240px;
+  position: absolute;
+  background-color: #7f00b2;
+}
+header .navBar__menu li ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+header .navBar__menu li ul li a {
+  margin: 0.3em 0;
+  padding: 0.5em 1em;
+}
+header .navBar__menu li ul li a:hover, header .navBar__menu li ul li a:focus {
+  background-color: #a400e6;
+}
+header .navBar__menu li:hover ul {
   display: block;
 }
 header .navBar__menu form input {
@@ -290,14 +319,15 @@ header .navBar__menu form input:focus {
   outline: none;
 }
 header .navBar__menu__btnCart {
-  font-size: 1em;
   color: #fff;
-  padding: 0.4em 0.4em;
-  margin: 0 0.4em;
+  padding: 0.6em;
   cursor: pointer;
 }
+header .navBar__menu__btnCart:hover {
+  background-color: #a400e6;
+}
 header .navBar__menu.show {
-  top: 55px;
+  top: 50px;
 }
 header .navBar__btnCartResponsive {
   font-size: 1em;

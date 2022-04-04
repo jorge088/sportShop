@@ -3,7 +3,7 @@
         "id": 1,
         "name":"Camiseta titular Boca Juniors",
         "price":11000,
-        "category":"Boca Juniors",
+        "category":"Boca Juniors Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta1Front-BocaJuniors-2021.png",
         "imgBackUrl":"camiseta1Back-BocaJuniors-2021.png"
@@ -12,7 +12,7 @@
         "id": 2,
         "name":"Camiseta titular Atletico Tucuman",
         "price":8000,
-        "category":"Atletico Tucuman",
+        "category":"Atletico Tucuman Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta1Front-AtleticoTucuman-2022.png",
         "imgBackUrl":"camiseta1Back-AtleticoTucuman-2022.png"
@@ -21,7 +21,7 @@
         "id": 3,
         "name":"Camiseta titular Belgrano",
         "price":7500,
-        "category":"Belgrano Córdoba",
+        "category":"Belgrano Córdoba Primera Nacional",
         "year":"2021",
         "imgFrontUrl":"camiseta1Front-Belgrano-2021.png",
         "imgBackUrl":"camiseta1Back-Belgrano-2021.png"
@@ -30,7 +30,7 @@
         "id": 4,
         "name":"Camiseta titular Estudiantes",
         "price":8000,
-        "category":"Estudiantes",
+        "category":"Estudiantes Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta1Front-Estudiantes-2021.png",
         "imgBackUrl":"camiseta1Back-Estudiantes-2021.png"
@@ -39,7 +39,7 @@
         "id": 5,
         "name":"Camiseta titular Independiente",
         "price":11500,
-        "category":"Independiente ",
+        "category":"Independiente Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta1Front-Independiente-2021.png",
         "imgBackUrl":"camiseta1Back-Independiente-2021.png"
@@ -48,7 +48,7 @@
         "id": 6,
         "name":"Camiseta titular Newells Old Boys",
         "price":9000,
-        "category":"Newells Old Boys",
+        "category":"Newells Old Boys Liga Profesional",
         "year":"2022",
         "imgFrontUrl":"camiseta1Front-Newells-2022.png",
         "imgBackUrl":"camiseta1Back-Newells-2022.png"
@@ -57,7 +57,7 @@
         "id": 7,
         "name":"Camiseta titular Racing",
         "price":10500,
-        "category":"Racing",
+        "category":"Racing Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta1Front-Racing-2021.png",
         "imgBackUrl":"camiseta1Back-Racing-2021.png"
@@ -66,7 +66,7 @@
         "id": 8,
         "name":"Camiseta titular River Plate",
         "price":11000,
-        "category":"River Plate",
+        "category":"River Plate Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta1Front-RiverPlate-2021.png",
         "imgBackUrl":"camiseta1Back-RiverPlate-2021.png"
@@ -75,7 +75,7 @@
         "id": 9,
         "name":"Camiseta titular Rosario Central",
         "price":9500,
-        "category":"Rosario Central",
+        "category":"Rosario Central Liga Profesional",
         "year":"2022",
         "imgFrontUrl":"camiseta1Front-RosarioCentral-2022.png",
         "imgBackUrl":"camiseta1Back-RosarioCentral-2022.png"
@@ -84,14 +84,14 @@
         "id": 10,
         "name":"Camiseta titular Talleres",
         "price":9000,
-        "category":"Talleres",
+        "category":"Talleres Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta1Front-Talleres-2021.png",
         "imgBackUrl":"camiseta1Back-Talleres-2021.png"
     },
     {
         "id": 11,
-        "name":"Camiseta titular Velez",
+        "name":"Camiseta titular Velez Liga Profesional",
         "price":10000,
         "category":"Velez",
         "year":"2021",
@@ -102,7 +102,7 @@
         "id": 12,
         "name":"Camiseta alternativa Boca Juniors",
         "price":11000,
-        "category":"Boca Juniors",
+        "category":"Boca Juniors Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta2Front-BocaJuniors-2021.png",
         "imgBackUrl":"camiseta2Back-BocaJuniors-2021.png"
@@ -111,7 +111,7 @@
         "id": 13,
         "name":"Camiseta alternativa Rosario Central",
         "price":9500,
-        "category":"Rosario Central",
+        "category":"Rosario Central Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta2Front-RosarioCentral-2022.png",
         "imgBackUrl":"camiseta2Back-RosarioCentral-2022.png"
@@ -120,7 +120,7 @@
         "id": 14,
         "name":"Camiseta alternativa Central Córdoba",
         "price":10000,
-        "category":"Central Córdoba",
+        "category":"Central Córdoba Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta2Front-CentralCordoba-2022.png",
         "imgBackUrl":"camiseta2Back-CentralCordoba-2022.png"
@@ -129,7 +129,7 @@
         "id": 15,
         "name":"Camiseta alternativa Boca Juniors",
         "price":12000,
-        "category":"Boca Juniors",
+        "category":"Boca Juniors Liga Profesional",
         "year":"2022",
         "imgFrontUrl":"camiseta3Front-BocaJuniors-2022.png",
         "imgBackUrl":"camiseta3Back-BocaJuniors-2022.png"
@@ -138,7 +138,7 @@
         "id": 16,
         "name":"Camiseta alternativa Estudiantes",
         "price":8000,
-        "category":"Estudiantes",
+        "category":"Estudiantes Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta2Front-Estudiantes-2021.png",
         "imgBackUrl":"camiseta2Back-Estudiantes-2021.png"
@@ -147,7 +147,7 @@
         "id": 17,
         "name":"Camiseta alternativa Independiente",
         "price":11500,
-        "category":"Independiente",
+        "category":"Independiente Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta2Front-Independiente-2021.png",
         "imgBackUrl":"camiseta2Back-Independiente-2021.png"
@@ -156,7 +156,7 @@
         "id": 18,
         "name":"Camiseta alternativa Newells Old Boys",
         "price":9000,
-        "category":"Newells Old Boys",
+        "category":"Newells Old Boys Liga Profesional",
         "year":"2022",
         "imgFrontUrl":"camiseta2Front-Newells-2022.png",
         "imgBackUrl":"camiseta2Back-Newells-2022.png"
@@ -165,7 +165,7 @@
         "id": 19,
         "name":"Camiseta alternativa Racing",
         "price":10500,
-        "category":"Racing",
+        "category":"Racing Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta2Front-Racing-2021.png",
         "imgBackUrl":"camiseta2Back-Racing-2021.png"
@@ -174,7 +174,7 @@
         "id": 20,
         "name":"Camiseta alternativa River Plate",
         "price":11000,
-        "category":"River Plate",
+        "category":"River Plate Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta2Front-RiverPlate-2021.png",
         "imgBackUrl":"camiseta2Back-RiverPlate-2021.png"
@@ -183,7 +183,7 @@
         "id": 21,
         "name":"Camiseta alternativa River Plate",
         "price":11000,
-        "category":"River Plate",
+        "category":"River Plate Liga Profesional",
         "year":"2021",
         "imgFrontUrl":"camiseta3Front-RiverPlate-2021.png",
         "imgBackUrl":"camiseta3Back-RiverPlate-2021.png"

@@ -13,12 +13,47 @@ const fragmentCart = document.createDocumentFragment();//fragmento para guardar 
 const cart__resume = document.querySelector('.cart__sideContainer__resume'); //div con resumen del carrito
 
 
+
 document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el DOM
         showNavResponsive();
         addEventShowCart();
         fetchData();
         checkCartLocalStorage();
+        const info = new Glider(document.querySelector('.informationCarousel__container__elements'), {//carrusel con imagenes
+                duration: 2,
+                rewind: true,
+                dots: '.carousel-information__indicadores'
+        
+        });
+        
+        carouselAuto(info, 3000)
 });
+
+//hace el scroll automatico a algun carrusel
+const carouselAuto = (slider, miliseconds) => {
+        const slidesCount = slider.track.childElementCount;
+        let slideTimeout = null;
+        let nextIndex = 1;
+
+        function slide() {
+                slideTimeout = setTimeout(
+                        function () {
+                                if (nextIndex >= slidesCount) {
+                                        nextIndex = 0;
+                                }
+                                slider.scrollItem(nextIndex++);
+                        },
+                        miliseconds
+                );
+        }
+
+        slider.ele.addEventListener('glider-animated', function () {
+                window.clearInterval(slideTimeout);
+                slide();
+        });
+
+        slide();
+}
 
 //Verifica si hay productos cargados en el carrito y los actualiza en la vista
 const checkCartLocalStorage = () => {
@@ -81,25 +116,13 @@ const fetchData = async () => {
 //Carga los productos del json en el fragment y luego los carga en el carrusel
 const loadProducts = (data) => {
         data.forEach(product => {
-                const img = document.createElement('img'); //agrego la img y sus eventos por separado
-                img.setAttribute("src", `./assets/images/${product.imgFrontUrl}`);
-                img.setAttribute("alt", `${product.name}`);
-                //eventos de cambio de imagen
-                img.addEventListener('mouseover', () => {
-                        img.setAttribute("src", `./assets/images/${product.imgBackUrl}`);
-                });
-                img.addEventListener('mouseout', () => {
-                        img.setAttribute("src", `./assets/images/${product.imgFrontUrl}`);
-                });
-
+                templateProducts.querySelectorAll('img')[0].setAttribute('src', `./assets/images/${product.imgFrontUrl}`);
+                templateProducts.querySelectorAll('img')[1].setAttribute('src', `./assets/images/${product.imgBackUrl}`);
                 templateProducts.querySelector('h3').textContent = `${product.name} ${product.year}`;
                 templateProducts.querySelector('p').textContent = `$${product.price}`;
                 templateProducts.querySelector('.productsCarousel__container__elements__item__button').dataset.id = product.id; //guardo en el button el id de ese producto
 
                 const clone = templateProducts.cloneNode(true);
-
-                clone.firstElementChild.insertBefore(img, clone.firstElementChild.firstElementChild); //agrego la imagen dentro del template, para que quede antes de la información del producto
-
                 fragment.appendChild(clone);//agrega ese item al fragment
         })
 
@@ -137,6 +160,7 @@ const loadProducts = (data) => {
         });
 }
 
+
 //captura los clicks para agregar un producto al carrito
 carouselProducts.addEventListener("click", (e) => {
         addCart(e);
@@ -145,6 +169,7 @@ carouselProducts.addEventListener("click", (e) => {
 //filtra el producto seleccionado.
 const addCart = e => {
         //verifica que se hizo click en el boton
+        console.log(e)
         if (e.target.classList.contains('fa-cart-plus')) { //si hace click en el icono
                 setCart(e.target.parentElement.parentElement);
         } else {
@@ -162,7 +187,7 @@ const setCart = (object) => {
                 id: object.querySelector('.productsCarousel__container__elements__item__button').dataset.id,
                 name: object.querySelector('h3').textContent,
                 price: object.querySelector('p').textContent,
-                img : object.querySelector('img').getAttribute('src'),
+                img: object.querySelector('img').getAttribute('src'),
                 units: 1
         }
         //si ya existe ese id, le aumento la cantidad
@@ -177,8 +202,8 @@ const setCart = (object) => {
         //Muestra alerta, usando libreria
         Toastify({
                 text: "Se agregó al carrito",
-                position:"right",
-                gravity:"bottom",
+                position: "right",
+                gravity: "bottom",
                 className: "cartAlert",
         }).showToast();
 }
@@ -190,13 +215,13 @@ function updateCartProductView() {
         cart.forEach(product => {
                 if (product) {//si no es null
                         templateCartProducts.querySelector(".cart__sideContainer__items__item__main__name").textContent = product.name;
-                        templateCartProducts.querySelector("img").setAttribute("src",`${product.img}`);
+                        templateCartProducts.querySelector("img").setAttribute("src", `${product.img}`);
                         templateCartProducts.querySelector(".cart__sideContainer__items__item__description__units__number").textContent = product.units;
-                        templateCartProducts.querySelector(".cart__sideContainer__items__item__description__price").textContent =`$${Number(product.price.slice(1)) * product.units}`;
+                        templateCartProducts.querySelector(".cart__sideContainer__items__item__description__price").textContent = `$${Number(product.price.slice(1)) * product.units}`;
                         templateCartProducts.querySelector(".cart__sideContainer__items__item__main__btnDelete").dataset.id = product.id;
                         templateCartProducts.querySelector(".cart__sideContainer__items__item__description__units__btn__add").dataset.id = product.id;
                         templateCartProducts.querySelector(".cart__sideContainer__items__item__description__units__btn__rest").dataset.id = product.id;
-                        
+
                         totalPrice += Number(product.price.slice(1)) * product.units; //quita el $ de product.price y lo transforma a number
                         const clone = templateCartProducts.cloneNode(true);
                         fragmentCart.appendChild(clone);
@@ -211,10 +236,10 @@ function updateCartProductView() {
 `;
 }
 //Agrego eventos a los botones en el carrito
-cartList.addEventListener('click',(e) =>{
+cartList.addEventListener('click', (e) => {
         cartProductsModify(e);
 });
-const cartProductsModify = (e) =>{
+const cartProductsModify = (e) => {
         //Agregar un producto
         if (e.target.classList.contains('fa-plus')) { //click en el icono
                 plusProductCart(e.target.parentElement.dataset.id);
@@ -235,28 +260,28 @@ const cartProductsModify = (e) =>{
         }
 
         //Eliminar producto 
-        if(e.target.classList.contains('fa-trash')){//click en icono
+        if (e.target.classList.contains('fa-trash')) {//click en icono
                 deleteProductCart(e.target.parentElement.dataset.id);
-        }else{
-                if(e.target.classList.contains('cart__sideContainer__items__item__main__btnDelete')){//click en boton
+        } else {
+                if (e.target.classList.contains('cart__sideContainer__items__item__main__btnDelete')) {//click en boton
                         deleteProductCart(e.target.dataset.id);
                 }
         }
         e.stopPropagation();
 };
 
-const plusProductCart = (id)=>{
-        const product= cart[id];
+const plusProductCart = (id) => {
+        const product = cart[id];
         product.units++;
-        cart[id]={...product};
+        cart[id] = { ...product };
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartProductView();
 };
 
-const minusProductCart = (id) =>{
+const minusProductCart = (id) => {
         const product = cart[id];
         product.units--;
-        if(product.units === 0){
+        if (product.units === 0) {
                 delete cart[id];
         }
         localStorage.setItem('cart', JSON.stringify(cart));

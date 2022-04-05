@@ -35,10 +35,12 @@ body{
     font-size: 1rem;
     margin: 2em auto;
     position: relative;
-    min-height: 352px;
+    min-height: 370px;
+
     &__container{
         &__elements{
             overflow: hidden;
+
             &__item{
                 margin:.5em;
                 background-color: #fff;
@@ -150,6 +152,11 @@ body{
 }
 .cartAlert{
     background: #7f00b2;
+}
+
+.footer{
+    height: 150px;
+    background-color: #7f00b2;
 }
 @media only screen and (max-width:575px){
     .productsCarousel{

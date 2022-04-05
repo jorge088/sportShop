@@ -98,6 +98,7 @@ navCategoryLigaProf.addEventListener('click', (e)=>{
         filter = filterProducts ('Liga Profesional');
         cleanCarousel(carouselProducts);
         loadCarouselProducts(filter);
+        return false;
 });
 navCategoryPrimeraNac.addEventListener('click', (e)=>{
         e.preventDefault();
@@ -105,11 +106,13 @@ navCategoryPrimeraNac.addEventListener('click', (e)=>{
         filter = filterProducts ('Primera Nacional');
         cleanCarousel(carouselProducts);
         loadCarouselProducts(filter);
+        return false;
 })
 navCategoryTodosProduct.addEventListener('click',(e)=>{
         e.preventDefault();
         cleanCarousel(carouselProducts);
         loadCarouselProducts(products);
+        return false;
 });
 
 //Filtrar productos según su categoria

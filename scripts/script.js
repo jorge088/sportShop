@@ -15,19 +15,19 @@ const cart__resume = document.querySelector('.cart__sideContainer__resume'); //d
 
 const searchForm = document.querySelector('#searchForm');
 const inputSearch = document.querySelector('#inputSearch');
-inputSearch.value='';
+inputSearch.value = '';
 
 const navCategoryLigaProf = document.querySelector('#navCategoryLigaProf');
 const navCategoryPrimeraNac = document.querySelector('#navCategoryPrimeraNac');
 const navCategoryTodosProduct = document.querySelector('#navCategoryTodosProduct');
 
-const carouselProductsElements =document.querySelector('.productsCarousel__container__elements')
+const carouselProductsElements = document.querySelector('.productsCarousel__container__elements')
 
 //Carruseles
 const info = new Glider(document.querySelector('.informationCarousel__container__elements'), {//carrusel con imagenes
         duration: 2,
-        draggable:true,
-        dragVelocity:1,
+        draggable: true,
+        dragVelocity: 1,
         rewind: true,
 });
 
@@ -72,72 +72,77 @@ document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el D
 });
 
 //Buscar producto
-searchForm.addEventListener('submit',(e)=>{
+searchForm.addEventListener('submit', (e) => {
         searchProduct(inputSearch);
         e.preventDefault();//evita recarga de pagina
-},false);
+}, false);
 
 //Input buscar producto 
-const searchProduct = (inputSearch)=>{
+const searchProduct = (inputSearch) => {
         result = filterProducts(inputSearch.value);
         cleanCarousel(carouselProducts);
         if (result.length == 0) {
                 loadCarouselProducts(products);
         } else {
-                loadCarouselProducts(resul)
-                if (nav__menu.classList.contains('show')){
+                if (nav__menu.classList.contains('show')) {
                         nav__menu.classList.toggle('show');
                         btn__nav.classList.toggle('active');
                 }
+                setTimeout(() => {
+                        loadCarouselProducts(resul)
+                }, 500);
         }
-        
+
 }
-inputSearch.addEventListener('keyup',(e)=>{
-        if(inputSearch.value==0){
+inputSearch.addEventListener('keyup', (e) => {
+        if (inputSearch.value == 0) {
                 cleanCarousel(carouselProducts);
                 loadRandomProducts(products);
         }
 });
 
 //Eventos para botones de categorias en NAV
-navCategoryLigaProf.addEventListener('click', (e)=>{
+navCategoryLigaProf.addEventListener('click', (e) => {
         e.preventDefault();
         let filter = [];
-        filter = filterProducts ('Liga Profesional');
-        cleanCarousel(carouselProducts);
-        loadCarouselProducts(filter);
-        if (nav__menu.classList.contains('show')){
+        filter = filterProducts('Liga Profesional');
+        if (nav__menu.classList.contains('show')) {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
-                
-        return false;
+        setTimeout(() => {
+                cleanCarousel(carouselProducts);
+                loadCarouselProducts(filter);
+        }, 500)
 });
-navCategoryPrimeraNac.addEventListener('click', (e)=>{
+navCategoryPrimeraNac.addEventListener('click', (e) => {
         e.preventDefault();
         let filter = [];
-        filter = filterProducts ('Primera Nacional');
-        cleanCarousel(carouselProducts);
-        loadCarouselProducts(filter);
-        if (nav__menu.classList.contains('show')){
+        filter = filterProducts('Primera Nacional');
+
+        if (nav__menu.classList.contains('show')) {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
-        return false;
-})
-navCategoryTodosProduct.addEventListener('click',(e)=>{
+        setTimeout(() => {
+                cleanCarousel(carouselProducts);
+                loadCarouselProducts(filter);
+        }, 500)
+});
+navCategoryTodosProduct.addEventListener('click', (e) => {
         e.preventDefault();
-        cleanCarousel(carouselProducts);
-        loadCarouselProducts(products);
-        if (nav__menu.classList.contains('show')){
+        if (nav__menu.classList.contains('show')) {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
-        return false;
+        setTimeout(() => {
+                cleanCarousel(carouselProducts);
+                loadCarouselProducts(products);
+        }, 500)
 });
 
 //Filtrar productos según su categoria
-const filterProducts = (parameter) =>{
+const filterProducts = (parameter) => {
         resul = products.filter(product =>
                 product.category.toLowerCase().includes(parameter.toLowerCase())
         )
@@ -235,12 +240,12 @@ const fetchData = async () => {
 }
 
 //Carga en el carrusel 12 productos de la lista
-const loadRandomProducts = (data)=>{
-        let randomProducts=[];
-        for(let i=0;i<12;i++){
+const loadRandomProducts = (data) => {
+        let randomProducts = [];
+        for (let i = 0; i < 12; i++) {
                 index = Math.floor(Math.random() * data.length);
                 if (randomProducts[index]) {
-                        if(index!=data.length){
+                        if (index != data.length) {
                                 index++;
                         }
                 }

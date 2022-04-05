@@ -374,7 +374,7 @@ header .btn__nav {
     background: #7f00b2;
     top: -100vh;
     text-align: center;
-    transition: 0.8s all ease;
+    transition: 0.6s all ease;
     flex-direction: column;
   }
   header .navBar__menu li {

@@ -9,7 +9,7 @@ const templateCartProducts = document.getElementById("template-CartProducts").co
 const fragmentCart = document.createDocumentFragment();//fragmento para guardar cada item y luego insertarlo en el carrito
 const cart__resume = document.querySelector('.cart__sideContainer__resume'); //div con resumen del carrito
 
-
+const searchForm = document.querySelector('#searchForm');
 const inputSearch = document.querySelector('#inputSearch');
 inputSearch.value='';
 
@@ -67,27 +67,30 @@ document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el D
         carouselAuto(info, 3500);
 });
 
+//Buscar producto
+searchForm.addEventListener('submit',(e)=>{
+        searchProduct(inputSearch);
+        e.preventDefault();//evita recarga de pagina
+},false);
+
 //Input buscar producto 
-inputSearch.addEventListener("keyup", (e) => {
-        if (e.keyCode == 13 || e.keyCode == 'Enter') {
-                let search = [];
-                search = filterProducts(inputSearch.value);
-
-                if (resul.length == 0) {
-                        cleanCarousel(carouselProducts);
-                        loadCarouselProducts(products);
-
-                } else {
-                        cleanCarousel(carouselProducts);
-                        loadCarouselProducts(resul)
-                }
+const searchProduct = (inputSearch)=>{
+        result = filterProducts(inputSearch.value);
+        cleanCarousel(carouselProducts);
+        if (result.length == 0) {
+                loadCarouselProducts(products);
+        } else {
+                loadCarouselProducts(resul)
         }
+        
+}
+inputSearch.addEventListener('keyup',(e)=>{
         if(inputSearch.value==0){
                 cleanCarousel(carouselProducts);
-                loadCarouselProducts(products);
+                loadRandomProducts(products);
         }
-        e.stopPropagation();
-})
+});
+
 //Eventos para botones de categorias en NAV
 navCategoryLigaProf.addEventListener('click', ()=>{
         let filter = [];
@@ -197,7 +200,7 @@ const addEventShowCart = () => {
 //Leer los datos del archivo json
 const fetchData = async () => {
         try {
-                const res = await fetch("./assets/products.json");
+                const res = await fetch(`./assets/products.json`);
                 const data = await res.json();
                 products = data; //almaceno los datos del archivo en un array
                 loadRandomProducts(products)

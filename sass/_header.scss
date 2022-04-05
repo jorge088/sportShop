@@ -8,7 +8,7 @@ header{
     font-family: 'Gothic A1', sans-serif;
     font-weight: 600;
     .navBar{
-        height: 50px;
+        height: 55px;
         width: 80%;
         margin: 0 auto;
         display: flex;
@@ -95,7 +95,7 @@ header{
                 }
             }
             &.show{
-                top:50px;
+                top:55px;
             }
         }
         &__btnCartResponsive{

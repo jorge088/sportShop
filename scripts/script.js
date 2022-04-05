@@ -16,6 +16,7 @@ const cart__resume = document.querySelector('.cart__sideContainer__resume'); //d
 const searchForm = document.querySelector('#searchForm');
 const inputSearch = document.querySelector('#inputSearch');
 inputSearch.value = '';
+const productNotFoundedModal = document.querySelector('#productNotFoundedModal');
 
 const navCategoryLigaProf = document.querySelector('#navCategoryLigaProf');
 const navCategoryPrimeraNac = document.querySelector('#navCategoryPrimeraNac');
@@ -82,12 +83,15 @@ const searchProduct = (inputSearch) => {
         result = filterProducts(inputSearch.value);
         cleanCarousel(carouselProducts);
         if (result.length == 0) {
-                loadCarouselProducts(products);
+                if (!productNotFoundedModal.classList.contains('show'))
+                        productNotFoundedModal.classList.toggle('show');
         } else {
                 if (nav__menu.classList.contains('show')) {
                         nav__menu.classList.toggle('show');
                         btn__nav.classList.toggle('active');
                 }
+                if (productNotFoundedModal.classList.contains('show'))
+                        productNotFoundedModal.classList.toggle('show');
                 setTimeout(() => {
                         loadCarouselProducts(resul)
                 }, 400);
@@ -96,6 +100,8 @@ const searchProduct = (inputSearch) => {
 }
 inputSearch.addEventListener('keyup', (e) => {
         if (inputSearch.value == 0) {
+                if (productNotFoundedModal.classList.contains('show'))
+                        productNotFoundedModal.classList.toggle('show');
                 cleanCarousel(carouselProducts);
                 loadRandomProducts(products);
         }
@@ -245,11 +251,13 @@ const loadRandomProducts = (data) => {
         for (let i = 0; i < 12; i++) {
                 index = Math.floor(Math.random() * data.length);
                 if (randomProducts[index]) {
-                        if (index != data.length) {
+                        if (index != data.length - 1) {
                                 index++;
                         }
                 }
                 randomProducts[index] = { ...data[index] }
+
+
         }
         loadCarouselProducts(randomProducts);
 }

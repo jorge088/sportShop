@@ -152,6 +152,7 @@ body{
 }
 .cartAlert{
     background: #7f00b2;
+    border: 1px solid #fff;
 }
 
 .footer{
@@ -161,6 +162,7 @@ body{
 @media only screen and (max-width:575px){
     .productsCarousel{
         font-size: .9rem;
+        min-height: 350px;
         &__container{
             &__elements{
                 
@@ -185,6 +187,7 @@ body{
 @media only screen and (min-width:576px) and (max-width:768px){
     .productsCarousel{
         font-size: .9rem;
+        min-height: 350px;
         &__container{
             &__elements{
                 
@@ -210,6 +213,7 @@ body{
 @media only screen and (min-width:768px) and (max-width:992px){
     .productsCarousel{
         font-size: .9rem;
+        min-height: 350px;
         &__container{
             &__elements{
                 

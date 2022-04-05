@@ -76,15 +76,36 @@ header{
             }
             
             form{
+                position: relative;
                 input{
                     padding: 6px;
                     width: 300px;
                     background: transparent;
-                    color: rgb(255, 255, 255);
+                    color: #fff;
                     font-size: 1.1em;
                     border: 1px solid rgb(216, 216, 216);
                     &:focus{
                         outline: none;
+                    }
+                }
+                span {
+                    position: absolute;
+                    left: 0px;
+                    top: 40px;
+                    height: 2.5em;
+                    width: 100%;
+                    border-radius: 8px;
+                    background-color:rgba(255, 0, 119, 0.95);
+                    opacity: 0;
+                    transition: .2s all ease-in;
+                    p{
+                        margin: 0;
+                        padding: .6em  0;
+                        text-align: center;
+                        font-size: 1em;
+                    }
+                    &.show{
+                        opacity: 1;
                     }
                 }
             }

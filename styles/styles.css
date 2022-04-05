@@ -309,16 +309,39 @@ header .navBar__menu li ul li a:hover, header .navBar__menu li ul li a:focus {
 header .navBar__menu li:hover ul {
   display: block;
 }
+header .navBar__menu form {
+  position: relative;
+}
 header .navBar__menu form input {
   padding: 6px;
   width: 300px;
   background: transparent;
-  color: white;
+  color: #fff;
   font-size: 1.1em;
   border: 1px solid #d8d8d8;
 }
 header .navBar__menu form input:focus {
   outline: none;
+}
+header .navBar__menu form span {
+  position: absolute;
+  left: 0px;
+  top: 40px;
+  height: 2.5em;
+  width: 100%;
+  border-radius: 8px;
+  background-color: rgba(255, 0, 119, 0.95);
+  opacity: 0;
+  transition: 0.2s all ease-in;
+}
+header .navBar__menu form span p {
+  margin: 0;
+  padding: 0.6em 0;
+  text-align: center;
+  font-size: 1em;
+}
+header .navBar__menu form span.show {
+  opacity: 1;
 }
 header .navBar__menu__btnCart {
   color: #fff;
@@ -947,6 +970,7 @@ body {
 
 .cartAlert {
   background: #7f00b2;
+  border: 1px solid #fff;
 }
 
 .footer {
@@ -957,6 +981,7 @@ body {
 @media only screen and (max-width: 575px) {
   .productsCarousel {
     font-size: 0.9rem;
+    min-height: 350px;
   }
   .productsCarousel__container__elements__item button {
     opacity: 1;
@@ -969,6 +994,7 @@ body {
 @media only screen and (min-width: 576px) and (max-width: 768px) {
   .productsCarousel {
     font-size: 0.9rem;
+    min-height: 350px;
   }
   .productsCarousel__container__elements__item button {
     opacity: 1;
@@ -981,6 +1007,7 @@ body {
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .productsCarousel {
     font-size: 0.9rem;
+    min-height: 350px;
   }
   .productsCarousel__container__elements__item button {
     opacity: 1;

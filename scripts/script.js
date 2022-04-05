@@ -92,19 +92,22 @@ inputSearch.addEventListener('keyup',(e)=>{
 });
 
 //Eventos para botones de categorias en NAV
-navCategoryLigaProf.addEventListener('click', ()=>{
+navCategoryLigaProf.addEventListener('click', (e)=>{
+        e.preventDefault();
         let filter = [];
         filter = filterProducts ('Liga Profesional');
         cleanCarousel(carouselProducts);
         loadCarouselProducts(filter);
 });
-navCategoryPrimeraNac.addEventListener('click', ()=>{
+navCategoryPrimeraNac.addEventListener('click', (e)=>{
+        e.preventDefault();
         let filter = [];
         filter = filterProducts ('Primera Nacional');
         cleanCarousel(carouselProducts);
         loadCarouselProducts(filter);
 })
-navCategoryTodosProduct.addEventListener('click',()=>{
+navCategoryTodosProduct.addEventListener('click',(e)=>{
+        e.preventDefault();
         cleanCarousel(carouselProducts);
         loadCarouselProducts(products);
 });

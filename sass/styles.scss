@@ -33,12 +33,12 @@ body{
 .productsCarousel{
     width: 90%;
     font-size: 1rem;
-    margin: 1em auto;
+    margin: 2em auto;
     position: relative;
+    min-height: 352px;
     &__container{
         &__elements{
             overflow: hidden;
-            
             &__item{
                 margin:.5em;
                 background-color: #fff;

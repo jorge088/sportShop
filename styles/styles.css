@@ -291,6 +291,7 @@ header .navBar__menu li ul {
   min-width: 240px;
   position: absolute;
   background-color: #7f00b2;
+  z-index: 50;
 }
 header .navBar__menu li ul li {
   list-style: none;

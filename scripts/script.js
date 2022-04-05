@@ -3,6 +3,10 @@ let products = []; //productos leidos desde el json
 
 const cartList = document.getElementById('cart__items'); //contenedor de productos en el carrito
 
+const nav__menu = document.querySelector('.navBar__menu');
+const btn__nav = document.querySelector('.btn__nav');
+
+
 const templateProducts = document.getElementById("template-carouselProducts").content; //template para cada producto item
 
 const templateCartProducts = document.getElementById("template-CartProducts").content; //template para cargar los items en el carrito
@@ -81,6 +85,10 @@ const searchProduct = (inputSearch)=>{
                 loadCarouselProducts(products);
         } else {
                 loadCarouselProducts(resul)
+                if (nav__menu.classList.contains('show')){
+                        nav__menu.classList.toggle('show');
+                        btn__nav.classList.toggle('active');
+                }
         }
         
 }
@@ -98,6 +106,11 @@ navCategoryLigaProf.addEventListener('click', (e)=>{
         filter = filterProducts ('Liga Profesional');
         cleanCarousel(carouselProducts);
         loadCarouselProducts(filter);
+        if (nav__menu.classList.contains('show')){
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+                
         return false;
 });
 navCategoryPrimeraNac.addEventListener('click', (e)=>{
@@ -106,12 +119,20 @@ navCategoryPrimeraNac.addEventListener('click', (e)=>{
         filter = filterProducts ('Primera Nacional');
         cleanCarousel(carouselProducts);
         loadCarouselProducts(filter);
+        if (nav__menu.classList.contains('show')){
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
         return false;
 })
 navCategoryTodosProduct.addEventListener('click',(e)=>{
         e.preventDefault();
         cleanCarousel(carouselProducts);
         loadCarouselProducts(products);
+        if (nav__menu.classList.contains('show')){
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
         return false;
 });
 
@@ -166,9 +187,7 @@ const checkCartLocalStorage = () => {
 
 //Mostrar el menu en navbar, para dispositivos mobiles
 const showNavResponsive = () => {
-        const btn__nav = document.querySelector('.btn__nav');
         btn__nav.addEventListener('click', () => {
-                const nav__menu = document.querySelector('.navBar__menu');
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         })

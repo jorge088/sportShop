@@ -8,11 +8,11 @@ header{
     font-family: 'Gothic A1', sans-serif;
     font-weight: 600;
     .navBar{
-        height: 55px;
+        height: 50px;
         width: 80%;
         margin: 0 auto;
         display: flex;
-        align-items: center;
+        align-items:center;
         justify-content: space-between;
         & div{
             display: flex;
@@ -20,7 +20,7 @@ header{
         }
         &__logo{
             color: #fff;
-            font-size: 1.4em;
+            font-size: 1.3em;
             padding: 0;
             font-weight: bold;
             text-decoration: none;
@@ -37,7 +37,8 @@ header{
             & li a{
                 text-decoration: none;
                 color: #fff;
-                padding: .5em;
+                font-size: 1em;
+                padding: 1em;
                 display: block;
                 &:hover,&:focus{
                     background-color: #a400e6;
@@ -46,8 +47,8 @@ header{
             }
             & li ul{
                 left: 0;
-                top:35px;
-                padding: .5em 0;
+                top:50px;
+                padding: .2em 0;
                 text-align: left;
                 display: none;
                 min-width: 240px;
@@ -59,8 +60,9 @@ header{
                     padding: 0;
                     border-radius: 0;
                     & a{
-                        margin: .3em 0;
-                        padding: .5em 1em;
+                        font-size: .9em;
+                        margin: .2em 0;
+                        padding: .7em 1em;
                         &:hover,&:focus{
                             background-color: #a400e6;
                         }
@@ -88,25 +90,28 @@ header{
             }
             &__btnCart{
                 color: #fff;
-                padding: .6em;
+                padding: 1em;
                 cursor: pointer;
                 &:hover{
                     background-color: #a400e6;
                 }
             }
             &.show{
-                top:55px;
+                top:50px;
             }
         }
         &__btnCartResponsive{
                 font-size: 1em;
                 color: #fff;
-                padding: .4em .4em;
+                padding: 1em;
                 margin: 0 .4em;
                 cursor: pointer;
                 display: none;
                 i{
                     margin-right: .2em;
+                }
+                &:hover{
+                    background-color: #a400e6;
                 }
         }
     }
@@ -123,9 +128,9 @@ header{
         font-size: .8rem;
         .navBar{
             width: 100%;
-            height: 55px;
+            height: 50px;
             &__logo{
-                padding: 0;
+                padding: .6em 0;
                 margin: 0;
                 margin-left: .5em;
             }
@@ -134,24 +139,39 @@ header{
                 width: 100%;
                 margin: 0;
                 padding: 0;
+                height: calc(100vh - 50px);
                 background: #7f00b2;
                 top: -100vh;
                 text-align: center;
-                transition: all ease .8s;
+                transition:.8s all ease ;
                 flex-direction: column; 
                 & li{
                     width: 100%;
                     margin: .6em 0;
+                    transition: .3s all ease;
                 }
                 & li a{
-                    padding: .8em 1em;
-                    font-size: 1.1em;
+                    padding: 1em 1em;
+                    font-size: 1em;
                     font-weight: bold;
                 }
+                & li ul{
+                    top:40px;
+                    text-align: center;
+                    display: none;
+                    min-width: 100%;
+                    position: absolute;
+                    & li{
+                        & a{
+                            font-size: .9em;
+                            margin: .3em 0;
+                            padding: 1em;
+                        }
+                    }
+                } 
+                
                 form{
                     input{
-                        margin-top: 1em;
-                        margin-bottom: 1.5em;
                         font-size: 1.1em;
                     }
                 }
@@ -170,7 +190,8 @@ header{
             display: block;
             margin-left: 1em;
             i{
-                padding: 4px 8px;    
+                padding: 4px 8px;
+                font-size: 1em;
                 &:hover{
                     outline: 1px solid #fff;
                 }
@@ -187,10 +208,10 @@ header{
 }
 @media only screen and (min-width:576px) and (max-width:768px){
     header{
-        font-size: .8rem;
+        font-size: .9rem;
         .navBar{
             width: 100%;
-            height: 55px;
+            height: 50px;
             &__logo{
                 padding: 0;
                 margin: 0;
@@ -199,6 +220,7 @@ header{
             &__menu{
                 position: fixed;
                 width: 100%;
+                height: calc(100vh - 50px);
                 margin: 0;
                 padding: 0;
                 background: #7f00b2;
@@ -211,16 +233,31 @@ header{
                     margin: .6em 0;
                 }
                 & li a{
-                    padding: .8em 1em;
-                    font-size: 1.1em;
+                    padding: 1em;
+                    font-size: 1em;
                     font-weight: bold;
                 }
+                & li ul{
+                    top:40px;
+                    text-align: center;
+                    min-width: 100%;
+                    display: none;
+                    position: absolute;
+                    & li{
+                        & a{
+                            font-size: .9em;
+                            margin: .3em 0;
+                            padding: 1em;
+                        }
+                    }
+                } 
                 form{
                     input{
-                        margin-top: 1em;
-                        margin-bottom: 1.5em;
                         font-size: 1.1em;
                     }
+                }
+                & .navBar__menu__btnCartMenu{
+                    display: none;
                 }
 
             }
@@ -252,10 +289,10 @@ header{
 }
 @media only screen and (min-width:768px) and (max-width:992px){
     header{
-        font-size: .8rem;
+        font-size: .9rem;
         .navBar{
             width: 100%;
-            height: 55px;
+            height: 50px;
             &__logo{
                 padding: 0;
                 margin: 0;
@@ -264,6 +301,7 @@ header{
             &__menu{
                 position: fixed;
                 width: 100%;
+                height: calc(100vh - 50px);
                 margin: 0;
                 padding: 0;
                 background: #7f00b2;
@@ -280,12 +318,27 @@ header{
                     font-size: 1.1em;
                     font-weight: bold;
                 }
+                & li ul{
+                    top:40px;
+                    text-align: center;
+                    min-width: 100%;
+                    display: none;
+                    position: absolute;
+                    & li{
+                        & a{
+                            font-size: .9em;
+                            margin: .3em 0;
+                            padding: 1em;
+                        }
+                    }
+                } 
                 form{
                     input{
-                        margin-top: 1em;
-                        margin-bottom: 1.5em;
                         font-size: 1.1em;
                     }
+                }
+                & .navBar__menu__btnCartMenu{
+                    display: none;
                 }
             }
             &__btnCartResponsive{

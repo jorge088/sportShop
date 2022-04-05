@@ -90,7 +90,7 @@ const searchProduct = (inputSearch) => {
                 }
                 setTimeout(() => {
                         loadCarouselProducts(resul)
-                }, 500);
+                }, 400);
         }
 
 }
@@ -113,7 +113,7 @@ navCategoryLigaProf.addEventListener('click', (e) => {
         setTimeout(() => {
                 cleanCarousel(carouselProducts);
                 loadCarouselProducts(filter);
-        }, 500)
+        }, 400)
 });
 navCategoryPrimeraNac.addEventListener('click', (e) => {
         e.preventDefault();
@@ -127,7 +127,7 @@ navCategoryPrimeraNac.addEventListener('click', (e) => {
         setTimeout(() => {
                 cleanCarousel(carouselProducts);
                 loadCarouselProducts(filter);
-        }, 500)
+        }, 400)
 });
 navCategoryTodosProduct.addEventListener('click', (e) => {
         e.preventDefault();
@@ -138,7 +138,7 @@ navCategoryTodosProduct.addEventListener('click', (e) => {
         setTimeout(() => {
                 cleanCarousel(carouselProducts);
                 loadCarouselProducts(products);
-        }, 500)
+        }, 400)
 });
 
 //Filtrar productos según su categoria

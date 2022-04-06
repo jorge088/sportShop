@@ -65,6 +65,7 @@ btnNavPrimeraNacional.addEventListener('click', (e) => {
                 loadContainerProducts(filter);
         }, 400)
 });
+
 btnNavTodosProductos.addEventListener('click', (e) => {
         e.preventDefault();
         if (nav__menu.classList.contains('show')) {
@@ -90,6 +91,7 @@ searchInput.addEventListener('keyup', (e) => {
                 if (productNotFoundedAlert.classList.contains('show'))//si el input está vacio, quita el cartel no encontrado
                         productNotFoundedAlert.classList.toggle('show');
                 productsContainer.innerHTML = '';
+                loadRandomProductsToContainer(products);
         }
 });
 
@@ -213,15 +215,19 @@ const fetchData = async () => {
 //-----Cargar contenedor de productos
 const loadRandomProductsToContainer = (data) => {
         let randomProducts = [];
-        for (let i = 0; i < 12; i++) {
-                index = Math.floor(Math.random() * data.length);//numero random entre 0 y el tamaño del array
-                if (randomProducts[index]) { //evita que se repitan   
-                        if (index != data.length - 1) {
-                                index++;
-                        }
+        let randomNumbers = [];
+        let i=0;
+        while (i < 12) {
+                num = Math.floor(Math.random() * data.length);//numero random entre 0 y el tamaño del array 
+                if (!randomNumbers.includes(num)) {
+                        randomNumbers.push(num);
+                        i++;
+                        continue;
                 }
-                randomProducts[index] = { ...data[index] }
         }
+        randomNumbers.forEach(id => {
+                randomProducts[id] = { ...data[id] }
+        });
         loadContainerProducts(randomProducts);
 }
 

@@ -277,5 +277,50 @@
         "year":"2020",
         "imgFrontUrl":"camiseta1Front-Temperley-2020.png",
         "imgBackUrl":"camiseta1Back-Temperley-2020.png"
+    },
+    {
+        "id": 32,
+        "name":"Short titular Boca Juniors",
+        "price":6500,
+        "category":"Boca Juniors Liga Profesional",
+        "year":"2021",
+        "imgFrontUrl":"shorts1Front-BocaJuniors-2021.png",
+        "imgBackUrl":"shorts1Back-BocaJuniors-2021.png"
+    },
+    {
+        "id": 33,
+        "name":"Short titular Racing",
+        "price":6000,
+        "category":"Racing Liga Profesional",
+        "year":"2021",
+        "imgFrontUrl":"shorts1Front-Racing-2021.png",
+        "imgBackUrl":"shorts1Back-Racing-2021.png"
+    },
+    {
+        "id": 34,
+        "name":"Short titular River Plate",
+        "price":6000,
+        "category":"River Plate Liga Profesional",
+        "year":"2021",
+        "imgFrontUrl":"shorts1Front-RiverPlate-2021.png",
+        "imgBackUrl":"shorts1Back-RiverPlate-2021.png"
+    },
+    {
+        "id": 35,
+        "name":"Short titular Rosario Central",
+        "price":5000,
+        "category":"Rosario Central Liga Profesional",
+        "year":"2022",
+        "imgFrontUrl":"shorts1Front-RosarioCentral-2022.png",
+        "imgBackUrl":"shorts1Back-RosarioCentral-2022.png"
+    },
+    {
+        "id": 35,
+        "name":"Short Alternativo Newells Old Boys",
+        "price":5000,
+        "category":"Newells Old Boys Liga Profesional",
+        "year":"2022",
+        "imgFrontUrl":"shorts2Front-Newells-2022.png",
+        "imgBackUrl":"shorts2Back-Newells-2022.png"
     }
 ]

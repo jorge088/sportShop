@@ -113,7 +113,6 @@ const searchProduct = (searchInput) => {
                 }
                 if (productNotFoundedAlert.classList.contains('show'))//oculta el cartel de no encontrado, si estaba visible
                         productNotFoundedAlert.classList.toggle('show');
-
                 setTimeout(() => {
                         loadContainerProducts(resul);
                 }, 400);
@@ -226,7 +225,7 @@ const loadRandomProductsToContainer = (data) => {
                 }
         }
         randomNumbers.forEach(id => {
-                randomProducts[id] = { ...data[id] }
+                randomProducts.push(data[id]); 
         });
         loadContainerProducts(randomProducts);
 }

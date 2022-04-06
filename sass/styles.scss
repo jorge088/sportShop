@@ -29,11 +29,111 @@ body{
     }
 
 }
+.productsCarouselTitle{
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+    h2{
+        padding: 0;
+        margin: 0;
+
+    }
+    button{
+        
+        border: 0;
+        background: #7f00b2;
+    }
+}
+.productsContainer{
+    width: 90%;
+    font-size: 1rem;
+    padding: 0;
+    margin: .5em auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    &__item{
+        background-color: #fff;
+        display: flex;
+        width: 180px;
+        margin: .7em .45em;
+        position: relative;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: .2s ease;
+        &:hover{
+            box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.25);
+            & button{
+                opacity: 1;
+            }
+        }
+        &__info{
+            margin: 0 1em;
+            position: relative;
+            & img{
+                width: 100%;
+                height: 190px;
+                margin-bottom: .7em;
+                cursor: pointer;
+                transition: .4s ease;
+                &.back{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                    
+                }
+                &:hover{
+                    &.back{
+                        opacity: 1;
+                    }
+                }
+            }
+            &__name{
+                margin: 0;
+                padding: 0;
+                min-height: 4em;
+                font-weight: 400;
+                font-size: 1em;
+                font-family: 'Gothic A1', sans-serif;
+
+            }
+            &__price{
+                margin: .8em 0;
+                font-family: 'Signika Negative', sans-serif;
+
+                font-size: 1.2em;
+            }
+        }
+        & button {
+            position:absolute;
+            bottom: 10px;
+            right: 15px;
+            opacity: 0;
+            padding: 6px 15px;
+            border-radius: 8px;
+            background-color: #7f00b2;
+            text-align: center;
+            color: #fff;
+            border: none;
+            transition: .5s all ease;
+            &:hover{
+                background-color: #9c0ed4;
+            }
+            & i{
+                font-size: 1.3em;
+            }
+        }
+        
+    }
+}
 
 .productsCarousel{
     width: 90%;
     font-size: 1rem;
-    margin: 2em auto;
+    margin: .6em auto;
     position: relative;
     min-height: 370px;
 
@@ -63,7 +163,6 @@ body{
                     margin-bottom: .7em;
                     cursor: pointer;
                     transition: .4s ease;
-                    z-index: 5000;
                     &.back{
                         position: absolute;
                         top: 0;

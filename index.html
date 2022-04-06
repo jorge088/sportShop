@@ -23,7 +23,6 @@
 <body>
     <script src="./scripts/toastify.js"></script>
     <script src="./scripts/glider.min.js"></script>
-
     <header>
         <nav class="navBar">
             <div>
@@ -35,16 +34,18 @@
             <ul class="navBar__menu">
                 <li>
                     <a href="#">CATEGORIAS</a>
-                    <ul >
-                        <li><a id="navCategoryTodosProduct" href="#" >TODOS LOS PRODUCTOS</a></li>
-                        <li><a id="navCategoryLigaProf" href="#">LIGA PROFESIONAL</a></li>
-                        <li><a id="navCategoryPrimeraNac" href="#">PRIMERA NACIONAL</a></li>
+                    <ul>
+                        <li><a id="btnNavTodosProductos" href="#">TODOS LOS PRODUCTOS</a></li>
+                        <li><a id="btnNavLigaProfesional" href="#">LIGA PROFESIONAL</a></li>
+                        <li><a id="btnNavPrimeraNacional" href="#">PRIMERA NACIONAL</a></li>
                         <li><a href="#">PRENDAS</a></li>
                     </ul>
                 </li>
                 <form action="" id="searchForm">
-                    <input id="inputSearch" type="text" placeholder="Buscar producto">
-                    <span id="productNotFoundedModal"><p>No se encontraron coincidencias :(</p></span>
+                    <input id="searchInput" type="text" placeholder="Buscar producto">
+                    <span id="productNotFoundedAlert">
+                        <p>No se encontraron coincidencias :(</p>
+                    </span>
                 </form>
                 <li class="navBar__menu__btnCartMenu">
                     <span class="navBar__menu__btnCart" id="btnCartView">
@@ -55,13 +56,10 @@
             <span class="navBar__btnCartResponsive" id="btnCartViewResponsive">
                 <i class=" fas fa-solid fa-cart-arrow-down"></i> CARRITO
             </span>
-
-
         </nav>
     </header>
 
     <div class="container">
-
         <!-- Aqui se listan los elementos del carrito -->
         <div class="cart">
             <div class="cart__sideContainer">
@@ -81,51 +79,34 @@
             <div class="informationCarousel__container">
                 <div class="informationCarousel__container__elements">
                     <div>
-                        <img src="./assets/images/information1.png" alt="">
+                        <img src="./assets/images/information1.png" alt="Portada selección Argentina de futbol">
                     </div>
                     <div>
-                        <img src="./assets/images/information2.png" alt="">
+                        <img src="./assets/images/information2.png" alt="Portada Super liga de futbol argentino">
                     </div>
                     <div>
-                        <img src="./assets/images/information3.png" alt="">
+                        <img src="./assets/images/information3.png" alt="Portada Primera Nacional de futbol argentino">
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Aqui se listan los productos -->
-        <div class="productsCarousel" >
-            <div class="productsCarousel__container">
-                <button aria-label="Anterior" class="carousel__before">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-
-                <div class="productsCarousel__container__elements products" id="productsCarousel">
-
-                </div>
-
-                <button aria-label="Siguiente" class="carousel__next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-
-            <div role="tablist" class="carousel__indicadores"></div>
-        </div>
+        <div class="productsContainer"></div>
     </div>
     <footer class="footer">
 
     </footer>
-    <!-- Template para cada producto -->
-    <template id="template-carouselProducts">
-        <div class="productsCarousel__container__elements__item">
-            <div class="productsCarousel__container__elements__item__info">
+
+    <!-- Template para cada producto del contenedor -->
+    <template id="template-containerProducts">
+        <div class="productsContainer__item">
+            <div class="productsContainer__item__info">
                 <img src="" alt="" class="front">
                 <img src="" alt="" class="back">
-                <h3 class="productsCarousel__container__elements__item__info__name"></h3>
-                <p class="productsCarousel__container__elements__item__info__price"></p>
+                <h3 class="productsContainer__item__info__name"></h3>
+                <p class="productsContainer__item__info__price"></p>
             </div>
-            <button class="productsCarousel__container__elements__item__button"><i
-                    class="fas fa-solid fa-cart-plus"></i>
+            <button class="productsContainer__item__button"><i class="fas fa-solid fa-cart-plus"></i>
             </button>
         </div>
     </template>
@@ -162,3 +143,39 @@
 </body>
 
 </html>
+<!-- <div class="productsCarouselTitle">
+            <h2>Ver productos aleatorios </h2>
+            <button id="carouselProductsBtnLoad">Ver Productos</button>
+        </div>
+
+        <div class="productsCarousel" >
+            <div class="productsCarousel__container">
+                <button aria-label="Anterior" class="carousel__before">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="productsCarousel__container__elements products" id="productsCarousel">
+
+                </div>
+
+                <button aria-label="Siguiente" class="carousel__next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div role="tablist" class="carousel__indicadores"></div>
+        </div> -->
+<!-- Template para cada producto del carrusel
+<template id="template-carouselProducts">
+    <div class="productsCarousel__container__elements__item">
+        <div class="productsCarousel__container__elements__item__info">
+            <img src="" alt="" class="front">
+            <img src="" alt="" class="back">
+            <h3 class="productsCarousel__container__elements__item__info__name"></h3>
+            <p class="productsCarousel__container__elements__item__info__price"></p>
+        </div>
+        <button class="productsCarousel__container__elements__item__button"><i
+                class="fas fa-solid fa-cart-plus"></i>
+        </button>
+    </div>
+</template> -->

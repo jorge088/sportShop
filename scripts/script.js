@@ -1,28 +1,26 @@
-let cart = [];
 let products = []; //productos leidos desde el json
-
-const cartList = document.getElementById('cart__items'); //contenedor de productos en el carrito
+let cart = [];  //productos cargados en el carrito
 
 const nav__menu = document.querySelector('.navBar__menu');
 const btn__nav = document.querySelector('.btn__nav');
 
-
-const templateProducts = document.getElementById("template-carouselProducts").content; //template para cada producto item
-
-const templateCartProducts = document.getElementById("template-CartProducts").content; //template para cargar los items en el carrito
-const fragmentCart = document.createDocumentFragment();//fragmento para guardar cada item y luego insertarlo en el carrito
-const cart__resume = document.querySelector('.cart__sideContainer__resume'); //div con resumen del carrito
+const btnNavLigaProfesional = document.querySelector('#btnNavLigaProfesional');
+const btnNavPrimeraNacional = document.querySelector('#btnNavPrimeraNacional');
+const btnNavTodosProductos = document.querySelector('#btnNavTodosProductos');
 
 const searchForm = document.querySelector('#searchForm');
-const inputSearch = document.querySelector('#inputSearch');
-inputSearch.value = '';
-const productNotFoundedModal = document.querySelector('#productNotFoundedModal');
+const searchInput = document.querySelector('#searchInput');
+searchInput.value = '';
+const productNotFoundedAlert = document.querySelector('#productNotFoundedAlert');
 
-const navCategoryLigaProf = document.querySelector('#navCategoryLigaProf');
-const navCategoryPrimeraNac = document.querySelector('#navCategoryPrimeraNac');
-const navCategoryTodosProduct = document.querySelector('#navCategoryTodosProduct');
+const productsContainer = document.querySelector('.productsContainer'); //contenedor de productos 
+const templateContainerProducts = document.getElementById("template-containerProducts").content; //template para cargar los items en contenedor
+const fragmentProduct = document.createDocumentFragment();//fragmento para guardar cada item y luego insertarlo en el contenedor
 
-const carouselProductsElements = document.querySelector('.productsCarousel__container__elements')
+const cartList = document.getElementById('cart__items'); //contenedor de productos en el carrito
+const templateCartProducts = document.getElementById("template-CartProducts").content; //template para cargar los items en el carrito
+const fragmentCart = document.createDocumentFragment();//fragmento para guardar cada item y luego insertarlo en el carrito
+const cart__resume = document.querySelector('.cart__sideContainer__resume');
 
 //Carruseles
 const info = new Glider(document.querySelector('.informationCarousel__container__elements'), {//carrusel con imagenes
@@ -32,122 +30,94 @@ const info = new Glider(document.querySelector('.informationCarousel__container_
         rewind: true,
 });
 
-const carouselProducts = new Glider(document.querySelector('.productsCarousel__container__elements'), {
-        exactWidth: true,
-        itemWidth: 180,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        duration: 2.5,
-        rewind: true,   //llega al final y vuelva al principio
-        arrows: {
-                prev: '.carousel__before',
-                next: '.carousel__next'
-        },
-        responsive: [
-                {
-                        breakpoint: 575, //>=575px
-                        settings: {
-                                itemWidth: 180,
-                                slidesToShow: 3,
-                                dots: '.carousel__indicadores',
-                                rewind: true,
-                        }
-                }, {
-                        breakpoint: 800,
-                        settings: {
-                                itemWidth: 200,
-                                slidesToShow: 6,
-                                dots: '.carousel__indicadores',
-                                rewind: true,
-                        }
-                }
-        ]
-});
+// const templateProducts = document.getElementById("template-carouselProducts").content; //template para cada producto item
+//const carouselProductsElements = document.querySelector('.productsCarousel__container__elements')
 
 document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el DOM
-        showNavResponsive();
         addEventShowCart();
         fetchData();
         checkCartLocalStorage();
-        carouselAuto(info, 3500);
+        carouselAutoScroll(info, 3500);
 });
 
-//Buscar producto
+
+//-----Eventos para btn de categorias en NAV
+btnNavLigaProfesional.addEventListener('click', (e) => {
+        e.preventDefault();
+        let filter = filterProducts('Liga Profesional');
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        setTimeout(() => {
+                loadContainerProducts(filter);
+        }, 400)
+});
+
+btnNavPrimeraNacional.addEventListener('click', (e) => {
+        e.preventDefault();
+        let filter = filterProducts('Primera Nacional');
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        setTimeout(() => {
+                loadContainerProducts(filter);
+        }, 400)
+});
+btnNavTodosProductos.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        setTimeout(() => {
+                loadContainerProducts(products);
+        }, 400)
+});
+
+
+//-----Muestra el menu del nav en dispositivos moviles
+btn__nav.addEventListener('click', () => {
+        nav__menu.classList.toggle('show');
+        btn__nav.classList.toggle('active');
+})
+
+
+//-----Buscar producto
+searchInput.addEventListener('keyup', (e) => {
+        if (searchInput.value == 0) {
+                if (productNotFoundedAlert.classList.contains('show'))//si el input está vacio, quita el cartel no encontrado
+                        productNotFoundedAlert.classList.toggle('show');
+                productsContainer.innerHTML = '';
+        }
+});
+
 searchForm.addEventListener('submit', (e) => {
-        searchProduct(inputSearch);
+        searchProduct(searchInput);
         e.preventDefault();//evita recarga de pagina
 }, false);
 
-//Input buscar producto 
-const searchProduct = (inputSearch) => {
-        result = filterProducts(inputSearch.value);
-        cleanCarousel(carouselProducts);
+const searchProduct = (searchInput) => {
+        result = filterProducts(searchInput.value);
+
         if (result.length == 0) {
-                if (!productNotFoundedModal.classList.contains('show'))
-                        productNotFoundedModal.classList.toggle('show');
+                if (!productNotFoundedAlert.classList.contains('show'))
+                        productNotFoundedAlert.classList.toggle('show');//muestra cartel de no encontrado
         } else {
-                if (nav__menu.classList.contains('show')) {
+                if (nav__menu.classList.contains('show')) { //En dispositivo movil, cierra el menu del nav
                         nav__menu.classList.toggle('show');
                         btn__nav.classList.toggle('active');
                 }
-                if (productNotFoundedModal.classList.contains('show'))
-                        productNotFoundedModal.classList.toggle('show');
+                if (productNotFoundedAlert.classList.contains('show'))//oculta el cartel de no encontrado, si estaba visible
+                        productNotFoundedAlert.classList.toggle('show');
+
                 setTimeout(() => {
-                        loadCarouselProducts(resul)
+                        loadContainerProducts(resul);
                 }, 400);
         }
-
 }
-inputSearch.addEventListener('keyup', (e) => {
-        if (inputSearch.value == 0) {
-                if (productNotFoundedModal.classList.contains('show'))
-                        productNotFoundedModal.classList.toggle('show');
-                cleanCarousel(carouselProducts);
-                loadRandomProducts(products);
-        }
-});
-
-//Eventos para botones de categorias en NAV
-navCategoryLigaProf.addEventListener('click', (e) => {
-        e.preventDefault();
-        let filter = [];
-        filter = filterProducts('Liga Profesional');
-        if (nav__menu.classList.contains('show')) {
-                nav__menu.classList.toggle('show');
-                btn__nav.classList.toggle('active');
-        }
-        setTimeout(() => {
-                cleanCarousel(carouselProducts);
-                loadCarouselProducts(filter);
-        }, 400)
-});
-navCategoryPrimeraNac.addEventListener('click', (e) => {
-        e.preventDefault();
-        let filter = [];
-        filter = filterProducts('Primera Nacional');
-
-        if (nav__menu.classList.contains('show')) {
-                nav__menu.classList.toggle('show');
-                btn__nav.classList.toggle('active');
-        }
-        setTimeout(() => {
-                cleanCarousel(carouselProducts);
-                loadCarouselProducts(filter);
-        }, 400)
-});
-navCategoryTodosProduct.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (nav__menu.classList.contains('show')) {
-                nav__menu.classList.toggle('show');
-                btn__nav.classList.toggle('active');
-        }
-        setTimeout(() => {
-                cleanCarousel(carouselProducts);
-                loadCarouselProducts(products);
-        }, 400)
-});
-
-//Filtrar productos según su categoria
+//Filtrar productos
 const filterProducts = (parameter) => {
         resul = products.filter(product =>
                 product.category.toLowerCase().includes(parameter.toLowerCase())
@@ -155,56 +125,8 @@ const filterProducts = (parameter) => {
         return resul;
 }
 
-//Scroll automatico a algun carrusel
-const carouselAuto = (slider, miliseconds) => {
-        const slidesCount = slider.track.childElementCount;
-        let slideTimeout = null;
-        let nextIndex = 1;
 
-        function slide() {
-                slideTimeout = setTimeout(
-                        function () {
-                                if (nextIndex >= slidesCount) {
-                                        nextIndex = 0;
-                                }
-                                slider.scrollItem(nextIndex++);
-                        },
-                        miliseconds
-                );
-        }
-        slider.ele.addEventListener('glider-animated', function () {
-                window.clearInterval(slideTimeout);
-                slide();
-        });
-        slide();
-}
-
-//Limpiar carrusel
-const cleanCarousel = (carousel) => {
-        const slidesCount = carousel.track.childElementCount;
-        for (let i = 0; i < slidesCount; i++)
-                carousel.removeItem(0);
-        carousel.updateControls()
-}
-
-//Carrito en localstorage
-const checkCartLocalStorage = () => {
-        const cartStorage = localStorage.getItem('cart');
-        if (cartStorage) {
-                cart = JSON.parse(cartStorage);
-                updateCartProductView()
-        }
-};
-
-//Mostrar el menu en navbar, para dispositivos mobiles
-const showNavResponsive = () => {
-        btn__nav.addEventListener('click', () => {
-                nav__menu.classList.toggle('show');
-                btn__nav.classList.toggle('active');
-        })
-}
-
-//Agrega eventos a los botones para mostrar y ocultar la vista del carrito
+//-----Agrega eventos a los botones para mostrar y ocultar la vista del carrito
 const addEventShowCart = () => {
         //evento para boton carrito en el nav bar.
         const btnCart = document.getElementById('btnCartView');
@@ -233,87 +155,127 @@ const addEventShowCart = () => {
         });
 }
 
-//Leer los datos del archivo json
+//-----Carrito en localstorage
+const checkCartLocalStorage = () => {
+        const cartStorage = localStorage.getItem('cart');
+        if (cartStorage) {
+                cart = JSON.parse(cartStorage);
+                updateCartProductView()
+        }
+};
+
+
+//-----Carrusel
+const carouselAutoScroll = (slider, miliseconds) => {
+        const slidesCount = slider.track.childElementCount;
+        let slideTimeout = null;
+        let nextIndex = 1;
+
+        function slide() {
+                slideTimeout = setTimeout(
+                        function () {
+                                if (nextIndex >= slidesCount) {
+                                        nextIndex = 0;
+                                }
+                                slider.scrollItem(nextIndex++);
+                        },
+                        miliseconds
+                );
+        }
+        slider.ele.addEventListener('glider-animated', function () {
+                window.clearInterval(slideTimeout);
+                slide();
+        });
+        slide();
+}
+//Limpia items en carrusel
+const cleanCarousel = (carousel) => {
+        const slidesCount = carousel.track.childElementCount;
+        for (let i = 0; i < slidesCount; i++)
+                carousel.removeItem(0);
+        carousel.updateControls()
+}
+
+
+//-----Leer datos de archivo JSON
 const fetchData = async () => {
         try {
                 const res = await fetch(`./assets/products.json`);
                 const data = await res.json();
                 products = data; //almaceno los datos del archivo en un array
-                loadRandomProducts(products)
+                loadRandomProductsToContainer(products);
         } catch (error) {
                 console.log(error)
         }
 }
 
-//Carga en el carrusel 12 productos de la lista
-const loadRandomProducts = (data) => {
+
+//-----Cargar contenedor de productos
+const loadRandomProductsToContainer = (data) => {
         let randomProducts = [];
         for (let i = 0; i < 12; i++) {
-                index = Math.floor(Math.random() * data.length);
-                if (randomProducts[index]) {
+                index = Math.floor(Math.random() * data.length);//numero random entre 0 y el tamaño del array
+                if (randomProducts[index]) { //evita que se repitan   
                         if (index != data.length - 1) {
                                 index++;
                         }
                 }
                 randomProducts[index] = { ...data[index] }
-
-
         }
-        loadCarouselProducts(randomProducts);
+        loadContainerProducts(randomProducts);
 }
 
-//Carga carrusel de productos con elementos en un array
-const loadCarouselProducts = (data) => {
+const loadContainerProducts = (data) => {
+        productsContainer.innerHTML = '';
         data.forEach(product => {
-                templateProducts.querySelectorAll('img')[0].setAttribute('src', `./assets/images/${product.imgFrontUrl}`);
-                templateProducts.querySelectorAll('img')[1].setAttribute('src', `./assets/images/${product.imgBackUrl}`);
-                templateProducts.querySelector('h3').textContent = `${product.name} ${product.year}`;
-                templateProducts.querySelector('p').textContent = `$${product.price}`;
-                templateProducts.querySelector('.productsCarousel__container__elements__item__button').dataset.id = product.id; //guardo en el button el id de ese producto
+                templateContainerProducts.querySelectorAll('img')[0].setAttribute('src', `./assets/images/${product.imgFrontUrl}`);
+                templateContainerProducts.querySelectorAll('img')[0].setAttribute('alt', `${product.name}`);
+                templateContainerProducts.querySelectorAll('img')[1].setAttribute('src', `./assets/images/${product.imgBackUrl}`);
+                templateContainerProducts.querySelectorAll('img')[1].setAttribute('alt', `${product.name}`);
+                templateContainerProducts.querySelector('h3').textContent = `${product.name} ${product.year}`;
+                templateContainerProducts.querySelector('p').textContent = `$${product.price}`;
+                templateContainerProducts.querySelector('.productsContainer__item__button').dataset.id = product.id; //guardo en el button el id de ese producto
 
-                const clone = templateProducts.cloneNode(true);
-                carouselProducts.addItem(clone);
-        })
+                const clone = templateContainerProducts.cloneNode(true);
+                fragmentProduct.appendChild(clone);
+        });
+        productsContainer.appendChild(fragmentProduct);
 }
 
-//captura los clicks para agregar un producto al carrito
-carouselProductsElements.addEventListener("click", (e) => {
+
+//-----Eventos en btn Sumar al carrito-->
+productsContainer.addEventListener("click", (e) => {
         addCart(e);
 });
 
-//filtra el producto seleccionado.
 const addCart = e => {
-        //verifica que se hizo click en el boton
-        if (e.target.classList.contains('fa-cart-plus')) { //si hace click en el icono
+        if (e.target.classList.contains('fa-cart-plus')) { //click en el icono
                 setCart(e.target.parentElement.parentElement);
         } else {
-                if (e.target.classList.contains('productsCarousel__container__elements__item__button')) {
-                        setCart(e.target.parentElement); //Envia el item completo
+                if (e.target.classList.contains('productsContainer__item__button')) { //click en el boton
+                        setCart(e.target.parentElement);
                 }
         }
         e.stopPropagation();
 }
 
-//Agrega los datos del producto a un objeto y lo agrega al array cart,luego actualiza en localstorage
+//Crea un objeto con los datos y lo agrega al array cart
 const setCart = (object) => {
         const product = {
-                id: object.querySelector('.productsCarousel__container__elements__item__button').dataset.id,
+                id: object.querySelector('button').dataset.id,
                 name: object.querySelector('h3').textContent,
                 price: object.querySelector('p').textContent,
                 img: object.querySelector('img').getAttribute('src'),
                 units: 1
         }
-        //si ya existe ese id, le aumento la cantidad
-        if (cart[product.id]) {
+        if (cart[product.id]) { //producto cargado, le aumento una unidad
                 product.units = cart[product.id].units + 1;
         }
         cart[product.id] = { ...product }
-
-        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem('cart', JSON.stringify(cart)); //actualiza localstorage
         updateCartProductView();
 
-        //Muestra alerta, usando libreria
-        Toastify({
+        Toastify({ //Muestra alerta
                 text: "Se agregó al carrito",
                 position: "right",
                 gravity: "bottom",
@@ -321,7 +283,8 @@ const setCart = (object) => {
         }).showToast();
 }
 
-//actualiza la vista de los productos en el carrito
+
+//----Actualiza la vista de productos en el carrito
 function updateCartProductView() {
         let totalPrice = 0;
         cartList.innerHTML = '';
@@ -342,21 +305,21 @@ function updateCartProductView() {
         });
         cartList.appendChild(fragmentCart);
 
-        cart__resume.innerHTML = `
-        <div class="cart__sideContainer__resume__total">
-                <p>Total: $${totalPrice} </p>
-        </div>
-`;
+        cart__resume.innerHTML =
+                `<div class="cart__sideContainer__resume__total">
+                        <p>Total: $${totalPrice} </p>
+                </div>`;
 }
 
-//Agrego eventos a los botones en el carrito
+
+//-----Modificar productos en carrito
 cartList.addEventListener('click', (e) => {
         cartProductsModify(e);
 });
 
 const cartProductsModify = (e) => {
-        //Agregar un producto
-        if (e.target.classList.contains('fa-plus')) { //click en el icono
+        //Aumentar unidades
+        if (e.target.classList.contains('fa-plus')) { //click en icono
                 plusProductCart(e.target.parentElement.dataset.id);
         } else {
                 if (e.target.classList.contains('cart__sideContainer__items__item__description__units__btn__add')) { //click en boton
@@ -364,9 +327,8 @@ const cartProductsModify = (e) => {
                 }
         }
 
-        //Quitar un producto
-        if (e.target.classList.contains('fa-minus')) { //click en el icono
-                //console.log(e.target.parentElement.dataset.id);
+        //Disminuir unidades
+        if (e.target.classList.contains('fa-minus')) { //click en icono
                 minusProductCart(e.target.parentElement.dataset.id);
         } else {
                 if (e.target.classList.contains('cart__sideContainer__items__item__description__units__btn__rest')) {//click en boton
@@ -408,3 +370,77 @@ const deleteProductCart = (id) => {
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartProductView();
 }
+
+
+// //Carga en el carrusel 12 productos de la lista
+// const loadRandomProductsToCarousel = (data) => {
+//         let randomProducts = [];
+//         for (let i = 0; i < 12; i++) {
+//                 index = Math.floor(Math.random() * data.length);
+//                 if (randomProducts[index]) {
+//                         if (index != data.length - 1) {
+//                                 index++;
+//                         }
+//                 }
+//                 randomProducts[index] = { ...data[index] }
+
+
+//         }
+//         cleanCarousel(carouselProducts)
+//         loadCarouselProducts(randomProducts);
+// }
+
+
+// //Carga carrusel de productos con elementos en un array
+// const loadCarouselProducts = (data) => {
+//         data.forEach(product => {
+//                 templateProducts.querySelectorAll('img')[0].setAttribute('src', `./assets/images/${product.imgFrontUrl}`);
+//                 templateProducts.querySelectorAll('img')[1].setAttribute('src', `./assets/images/${product.imgBackUrl}`);
+//                 templateProducts.querySelector('h3').textContent = `${product.name} ${product.year}`;
+//                 templateProducts.querySelector('p').textContent = `$${product.price}`;
+//                 templateProducts.querySelector('.productsCarousel__container__elements__item__button').dataset.id = product.id; //guardo en el button el id de ese producto
+
+//                 const clone = templateProducts.cloneNode(true);
+//                 carouselProducts.addItem(clone);
+//         })
+// }
+
+
+
+// //captura los clicks para agregar un producto al carrito
+// carouselProductsElements.addEventListener("click", (e) => {
+//         addCart(e);
+// });
+
+
+// const carouselProducts = new Glider(document.querySelector('.productsCarousel__container__elements'), {
+//         exactWidth: true,
+//         itemWidth: 180,
+//         slidesToShow: 1,
+//         slidesToScroll: 1,
+//         duration: 2,
+//         rewind: true,   //llega al final y vuelva al principio
+//         arrows: {
+//                 prev: '.carousel__before',
+//                 next: '.carousel__next'
+//         },
+//         responsive: [
+//                 {
+//                         breakpoint: 575, //>=575px
+//                         settings: {
+//                                 itemWidth: 180,
+//                                 slidesToShow: 3,
+//                                 dots: '.carousel__indicadores',
+//                                 rewind: true,
+//                         }
+//                 }, {
+//                         breakpoint: 800,
+//                         settings: {
+//                                 itemWidth: 200,
+//                                 slidesToShow: 6,
+//                                 dots: '.carousel__indicadores',
+//                                 rewind: true,
+//                         }
+//                 }
+//         ]
+// });

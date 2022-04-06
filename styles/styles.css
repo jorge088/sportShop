@@ -858,10 +858,104 @@ body {
   height: 220px;
 }
 
+.productsCarouselTitle {
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+}
+.productsCarouselTitle h2 {
+  padding: 0;
+  margin: 0;
+}
+.productsCarouselTitle button {
+  border: 0;
+  background: #7f00b2;
+}
+
+.productsContainer {
+  width: 90%;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0.5em auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.productsContainer__item {
+  background-color: #fff;
+  display: flex;
+  width: 180px;
+  margin: 0.7em 0.45em;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.2s ease;
+}
+.productsContainer__item:hover {
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.25);
+}
+.productsContainer__item:hover button {
+  opacity: 1;
+}
+.productsContainer__item__info {
+  margin: 0 1em;
+  position: relative;
+}
+.productsContainer__item__info img {
+  width: 100%;
+  height: 190px;
+  margin-bottom: 0.7em;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+.productsContainer__item__info img.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.productsContainer__item__info img:hover.back {
+  opacity: 1;
+}
+.productsContainer__item__info__name {
+  margin: 0;
+  padding: 0;
+  min-height: 4em;
+  font-weight: 400;
+  font-size: 1em;
+  font-family: "Gothic A1", sans-serif;
+}
+.productsContainer__item__info__price {
+  margin: 0.8em 0;
+  font-family: "Signika Negative", sans-serif;
+  font-size: 1.2em;
+}
+.productsContainer__item button {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  opacity: 0;
+  padding: 6px 15px;
+  border-radius: 8px;
+  background-color: #7f00b2;
+  text-align: center;
+  color: #fff;
+  border: none;
+  transition: 0.5s all ease;
+}
+.productsContainer__item button:hover {
+  background-color: #9c0ed4;
+}
+.productsContainer__item button i {
+  font-size: 1.3em;
+}
+
 .productsCarousel {
   width: 90%;
   font-size: 1rem;
-  margin: 2em auto;
+  margin: 0.6em auto;
   position: relative;
   min-height: 370px;
 }
@@ -890,7 +984,6 @@ body {
   margin-bottom: 0.7em;
   cursor: pointer;
   transition: 0.4s ease;
-  z-index: 5000;
 }
 .productsCarousel__container__elements__item img.back {
   position: absolute;

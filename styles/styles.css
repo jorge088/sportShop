@@ -1081,6 +1081,9 @@ body {
     margin: 0;
     margin-bottom: 1em;
   }
+  .productsContainer__item button {
+    opacity: 1;
+  }
 }
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .informationCarousel__container__elements img {

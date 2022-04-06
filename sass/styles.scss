@@ -190,7 +190,7 @@ body{
             transition: .2s ease;
             &__info{
                 margin: 0;
-                padding: .5em 1.5em;
+                padding: .5em 2em;
                 position: relative;
                 display: flex;
                 justify-content: space-between;
@@ -201,7 +201,7 @@ body{
                     margin-bottom: 0;
                     &.back{
                         top: .5em;
-                        left: 1.5em;
+                        left: 2em;
                     }
                 }
                 .productsContainer__item__info-container{
@@ -221,7 +221,7 @@ body{
         }
         & button {
             bottom: 25px;
-            right: 32px;
+            right: 40px;
             opacity: 1;
             padding: 7px 17px;
             border-radius: 8px;

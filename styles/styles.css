@@ -995,7 +995,7 @@ body {
   }
   .productsContainer__item__info {
     margin: 0;
-    padding: 0.5em 1.5em;
+    padding: 0.5em 2em;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -1008,7 +1008,7 @@ body {
   }
   .productsContainer__item__info img.back {
     top: 0.5em;
-    left: 1.5em;
+    left: 2em;
   }
   .productsContainer__item__info .productsContainer__item__info-container {
     display: flex;
@@ -1025,7 +1025,7 @@ body {
   }
   .productsContainer button {
     bottom: 25px;
-    right: 32px;
+    right: 40px;
     opacity: 1;
     padding: 7px 17px;
     border-radius: 8px;

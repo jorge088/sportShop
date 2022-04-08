@@ -21,7 +21,9 @@ const cartList = document.getElementById('cart__items'); //contenedor de product
 const templateCartProducts = document.getElementById("template-CartProducts").content; //template para cargar los items en el carrito
 const fragmentCart = document.createDocumentFragment();//fragmento para guardar cada item y luego insertarlo en el carrito
 const cart__resume = document.querySelector('.cart__sideContainer__resume');
-
+const productAddToast = document.querySelector('.productAddToast');
+const cartProductsCounter =document.querySelector('.navBar__menu__btnCartMenu-counter');
+const cartProductsCounterResponsive = document.querySelector('.navBar__btnCartResponsive-counter');
 //Carruseles
 const info = new Glider(document.querySelector('.informationCarousel__container__elements'), {//carrusel con imagenes
         duration: 2,
@@ -38,9 +40,20 @@ document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el D
         fetchData();
         checkCartLocalStorage();
         carouselAutoScroll(info, 3500);
+        cartProductsCounter.textContent= cartLength();
+        cartProductsCounterResponsive.textContent = cartLength();
 });
 
-
+const cartLength = ()=>{
+        let count=0;
+        cart.forEach(product => {
+                
+                if(product)
+                        count+=product.units;
+                
+        });
+        return count;
+}
 //-----Eventos para btn de categorias en NAV
 btnNavLigaProfesional.addEventListener('click', (e) => {
         e.preventDefault();
@@ -215,7 +228,7 @@ const fetchData = async () => {
 const loadRandomProductsToContainer = (data) => {
         let randomProducts = [];
         let randomNumbers = [];
-        let i=0;
+        let i = 0;
         while (i < 12) {
                 num = Math.floor(Math.random() * data.length);//numero random entre 0 y el tamaño del array 
                 if (!randomNumbers.includes(num)) {
@@ -225,7 +238,7 @@ const loadRandomProductsToContainer = (data) => {
                 }
         }
         randomNumbers.forEach(id => {
-                randomProducts.push(data[id]); 
+                randomProducts.push(data[id]);
         });
         loadContainerProducts(randomProducts);
 }
@@ -279,13 +292,17 @@ const setCart = (object) => {
         cart[product.id] = { ...product }
         localStorage.setItem('cart', JSON.stringify(cart)); //actualiza localstorage
         updateCartProductView();
+        cartProductsCounter.textContent= cartLength();
+        cartProductsCounterResponsive.textContent = cartLength();
+        if (!productAddToast.classList.contains('show')) {
+                productAddToast.classList.toggle('show');
+                setTimeout(() => {
+                        productAddToast.classList.toggle('show');
+                }, 1500)
+        }
 
-        Toastify({ //Muestra alerta
-                text: "Se agregó al carrito",
-                position: "right",
-                gravity: "bottom",
-                className: "cartAlert",
-        }).showToast();
+
+
 }
 
 
@@ -349,6 +366,8 @@ const cartProductsModify = (e) => {
                         deleteProductCart(e.target.dataset.id);
                 }
         }
+        cartProductsCounter.textContent= cartLength();
+        cartProductsCounterResponsive.textContent = cartLength();
         e.stopPropagation();
 };
 

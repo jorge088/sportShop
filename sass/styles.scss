@@ -137,9 +137,28 @@ body{
 }
 
 // 
-.cartAlert{
+.productAddToast{
+    font-size: 1rem;
+    position: fixed;
+    bottom: 1.2em;
+    right: 1.2em;
+    width: 15em;
+    opacity: 0;
+    height: 3em;
     background: #7f00b2;
     border: 1px solid #fff;
+    transition: .5s ease all;
+    color: #fff;
+    z-index: 400;
+    p {
+        font-size: 1.1em;
+        margin: 0;
+        padding: .75em 0;
+        text-align: center;
+    }
+    &.show{
+        opacity: 1;
+    }
 }
 
 .footer{
@@ -238,6 +257,9 @@ body{
             }
         }
     }
+    .productAddToast{
+        font-size: .9rem;
+    }
 }
 @media only screen and (min-width:576px) and (max-width:768px){
     // .productsCarousel{
@@ -300,6 +322,9 @@ body{
             }
         }
     }
+    .productAddToast{
+        font-size: .9rem;
+    }
     
 }
 @media only screen and (min-width:768px) and (max-width:992px){
@@ -359,6 +384,9 @@ body{
                 }
             }
         }
+    }
+    .productAddToast{
+        font-size: .9rem;
     }
 }
 // .productsCarousel{

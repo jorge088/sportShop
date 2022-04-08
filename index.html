@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/glider.min.css">
-    <link rel="stylesheet" href="./styles/toastify.css">
     <link rel="stylesheet" href="./styles/styles.css">
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,14 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200;400;500;600;700&display=swap"
         rel="stylesheet">
     <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/9eb45967b7.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9eb45967b7.js"></script>
 
     <title>SportShop</title>
 </head>
 
 <body>
-    <script src="./scripts/toastify.js"></script>
     <script src="./scripts/glider.min.js"></script>
+
     <header>
         <nav class="navBar">
             <div>
@@ -47,18 +46,20 @@
                         <p>No se encontraron coincidencias :(</p>
                     </span>
                 </form>
-                <li class="navBar__menu__btnCartMenu">
-                    <span class="navBar__menu__btnCart" id="btnCartView">
-                        <i class=" fas fa-solid fa-cart-arrow-down"></i> CARRITO
-                    </span>
+                <li class="navBar__menu__btnCartMenu" id="btnCartView">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="navBar__menu__btnCartMenu-counter"></span>
                 </li>
             </ul>
             <span class="navBar__btnCartResponsive" id="btnCartViewResponsive">
-                <i class=" fas fa-solid fa-cart-arrow-down"></i> CARRITO
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="navBar__btnCartResponsive-counter"></span>
             </span>
         </nav>
     </header>
-
+    <div class="productAddToast">
+        <p><i class="fas fa-solid fa-check"></i> Producto agregado</p>
+    </div>
     <div class="container">
         <!-- Aqui se listan los elementos del carrito -->
         <div class="cart">

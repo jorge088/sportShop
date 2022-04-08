@@ -132,7 +132,7 @@ header {
 
             &__btnCartMenu {
                 color: #fff;
-                padding: .8em;
+                padding: .8em 1.1em;
                 margin: 0;
                 cursor: pointer;
                 text-align: center;
@@ -151,8 +151,8 @@ header {
 
                 &-counter {
                     position: absolute;
-                    top: 2px;
-                    right: -6px;
+                    top: 6px;
+                    right: 0px;
                     border-radius: 50%;
                     color: #fff;
                     font-weight: bold;
@@ -171,7 +171,7 @@ header {
 
         &__btnCartResponsive {
             color: #fff;
-            padding: .9em;
+            padding: .9em 1.2em;
             margin: 0;
             margin-right: 3em;
             cursor: pointer;
@@ -192,8 +192,8 @@ header {
 
             &-counter {
                 position: absolute;
-                top: 4px;
-                right: -6px;
+                top: 6px;
+                right: -1px;
                 border-radius: 50%;
                 color: #fff;
                 font-weight: bold;

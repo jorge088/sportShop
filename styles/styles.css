@@ -1017,74 +1017,53 @@ body {
 
 .footer {
   font-size: 1rem;
-  min-height: 140px;
+  font-family: "Signika Negative", sans-serif;
+  height: 120px;
   width: 100%;
-  padding: 1em 0;
+  padding: 2em 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   color: #fff;
   background-color: #7f00b2;
-  text-align: center;
 }
 .footer a {
   color: #fff;
   text-decoration: none;
 }
 .footer h4 {
-  margin: 0 auto;
-  font-size: 1em;
+  margin: 0;
+  font-size: 1.1em;
   padding: 0;
   margin-bottom: 0.4em;
   opacity: 0.6;
-  width: 180px;
-  border-bottom: 1px solid #fff;
-}
-.footer__btnTop {
-  display: flex;
-  flex-direction: column;
-  min-width: 400px;
-}
-.footer__btnTop a {
-  padding: 0;
-  margin: 0 auto;
-}
-.footer__btnTop a i {
-  font-size: 2.5em;
-  border-radius: 50%;
-  padding: 0;
-  margin: 0;
-}
-.footer__btnTop a :hover {
-  transform: scale(1.1);
 }
 .footer__links {
   display: flex;
   flex-direction: column;
-  min-width: 400px;
 }
 .footer__links a {
   width: 150px;
   font-size: 0.9em;
-  padding: 0.3em 0.5em;
-  margin: 0.1em auto;
+  padding: 0.3em 0;
+  margin: 0.1em 0;
+  opacity: 0.8;
 }
 .footer__links a:hover {
-  background-color: #9c0ed4;
+  opacity: 1;
 }
 .footer__social {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-width: 400px;
 }
 .footer__social div {
   display: flex;
-  margin: 0 auto;
+  gap: 1em;
+  margin: 0;
 }
 .footer__social div a {
   padding: 0;
-  margin: 0 0.5em;
+  margin: 0;
   font-size: 2.2em;
 }
 .footer__social div a :hover {
@@ -1170,33 +1149,6 @@ body {
 
   .footer {
     font-size: 0.9rem;
-    display: flex;
-    align-content: flex-end;
-  }
-  .footer h4 {
-    border-bottom: none;
-  }
-  .footer__btnTop {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1em;
-    width: 100%;
-    min-height: 120px;
-  }
-  .footer__btnTop a {
-    padding: 4px;
-  }
-  .footer__btnTop a i {
-    font-size: 2.5em;
-    border-radius: 50%;
-    padding: 0;
-    margin: 0;
-  }
-  .footer__links {
-    min-width: 50%;
-  }
-  .footer__social {
-    min-width: 50%;
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 768px) {
@@ -1244,37 +1196,6 @@ body {
 
   .productAddToast {
     font-size: 0.9rem;
-  }
-
-  .footer {
-    font-size: 0.9rem;
-    display: flex;
-    align-content: flex-end;
-  }
-  .footer h4 {
-    border-bottom: none;
-  }
-  .footer__btnTop {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1em;
-    width: 100%;
-    min-height: 120px;
-  }
-  .footer__btnTop a {
-    padding: 4px;
-  }
-  .footer__btnTop a i {
-    font-size: 2.5em;
-    border-radius: 50%;
-    padding: 0;
-    margin: 0;
-  }
-  .footer__links {
-    min-width: 50%;
-  }
-  .footer__social {
-    min-width: 50%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 992px) {

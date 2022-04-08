@@ -28,6 +28,10 @@ const productAddToast = document.querySelector('.productAddToast');
 const cartProductsCounter = document.querySelector('.navBar__menu__btnCartMenu-counter');
 const cartProductsCounterResponsive = document.querySelector('.navBar__btnCartResponsive-counter');
 
+const btnFooterLigaProfesional = document.querySelector('#btnFooterLigaProfesional');
+const btnFooterPrimeraNacional = document.querySelector('#btnFooterPrimeraNacional');
+const btnFooterTodosProductos = document.querySelector('#btnFooterTodosProductos');
+
 //Carruseles
 const info = new Glider(document.querySelector('.informationCarousel__container__elements'), {//carrusel con imagenes
         duration: 2,
@@ -102,6 +106,36 @@ btnNavTodosProductos.addEventListener('click', (e) => {
         }, 400)
 });
 
+btnFooterLigaProfesional.addEventListener('click', (e)=>{
+        
+        let filter = filterProducts('Liga Profesional');
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        setTimeout(() => {
+                loadContainerProducts(filter);
+        }, 400)
+});
+btnFooterPrimeraNacional.addEventListener('click', (e) => {
+        let filter = filterProducts('Primera Nacional');
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        setTimeout(() => {
+                loadContainerProducts(filter);
+        }, 400)
+});
+btnFooterTodosProductos.addEventListener('click', (e) => {
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        setTimeout(() => {
+                loadContainerProducts(products);
+        }, 400)
+});
 
 //-----Muestra el menu del nav en dispositivos moviles
 btn__nav.addEventListener('click', () => {

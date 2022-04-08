@@ -4,6 +4,8 @@ let cart = [];  //productos cargados en el carrito
 const nav__menu = document.querySelector('.navBar__menu');
 const btn__nav = document.querySelector('.btn__nav');
 
+const navLogo = document.querySelector('.navBar__logo');
+
 const btnNavLigaProfesional = document.querySelector('#btnNavLigaProfesional');
 const btnNavPrimeraNacional = document.querySelector('#btnNavPrimeraNacional');
 const btnNavTodosProductos = document.querySelector('#btnNavTodosProductos');
@@ -17,13 +19,15 @@ const productsContainer = document.querySelector('.productsContainer'); //conten
 const templateContainerProducts = document.getElementById("template-containerProducts").content; //template para cargar los items en contenedor
 const fragmentProduct = document.createDocumentFragment();//fragmento para guardar cada item y luego insertarlo en el contenedor
 
+const cartView = document.querySelector('.cart');
 const cartList = document.getElementById('cart__items'); //contenedor de productos en el carrito
 const templateCartProducts = document.getElementById("template-CartProducts").content; //template para cargar los items en el carrito
 const fragmentCart = document.createDocumentFragment();//fragmento para guardar cada item y luego insertarlo en el carrito
 const cart__resume = document.querySelector('.cart__sideContainer__resume');
 const productAddToast = document.querySelector('.productAddToast');
-const cartProductsCounter =document.querySelector('.navBar__menu__btnCartMenu-counter');
+const cartProductsCounter = document.querySelector('.navBar__menu__btnCartMenu-counter');
 const cartProductsCounterResponsive = document.querySelector('.navBar__btnCartResponsive-counter');
+
 //Carruseles
 const info = new Glider(document.querySelector('.informationCarousel__container__elements'), {//carrusel con imagenes
         duration: 2,
@@ -40,20 +44,28 @@ document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el D
         fetchData();
         checkCartLocalStorage();
         carouselAutoScroll(info, 3500);
-        cartProductsCounter.textContent= cartLength();
+        cartProductsCounter.textContent = cartLength();
         cartProductsCounterResponsive.textContent = cartLength();
 });
 
-const cartLength = ()=>{
-        let count=0;
+const cartLength = () => {
+        let count = 0;
         cart.forEach(product => {
-                
-                if(product)
-                        count+=product.units;
-                
+
+                if (product)
+                        count += product.units;
+
         });
         return count;
 }
+navLogo.addEventListener('click', () => {
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        if(cartView.classList.contains('show'))
+                cartView.classList.toggle('show')
+})
 //-----Eventos para btn de categorias en NAV
 btnNavLigaProfesional.addEventListener('click', (e) => {
         e.preventDefault();
@@ -149,7 +161,7 @@ const addEventShowCart = () => {
         });
 
         //evento para cuando se haga click en el sector opaco se cierre la vista
-        const cartView = document.querySelector('.cart');
+        
         cartView.addEventListener('click', (e) => {
                 if (e.target.classList.contains('cart')) {
                         cartView.classList.toggle('show');
@@ -292,7 +304,7 @@ const setCart = (object) => {
         cart[product.id] = { ...product }
         localStorage.setItem('cart', JSON.stringify(cart)); //actualiza localstorage
         updateCartProductView();
-        cartProductsCounter.textContent= cartLength();
+        cartProductsCounter.textContent = cartLength();
         cartProductsCounterResponsive.textContent = cartLength();
         if (!productAddToast.classList.contains('show')) {
                 productAddToast.classList.toggle('show');
@@ -366,7 +378,7 @@ const cartProductsModify = (e) => {
                         deleteProductCart(e.target.dataset.id);
                 }
         }
-        cartProductsCounter.textContent= cartLength();
+        cartProductsCounter.textContent = cartLength();
         cartProductsCounterResponsive.textContent = cartLength();
         e.stopPropagation();
 };

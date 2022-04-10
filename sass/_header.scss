@@ -57,33 +57,29 @@ header {
             & li ul {
                 left: 0;
                 top: 50px;
-                padding: .2em 0;
+                padding: .3em 0;
                 text-align: left;
                 display: none;
-                min-width: 240px;
+                min-width: 200px;
                 position: absolute;
                 background-color: #7f00b2;
                 z-index: 50;
-
                 & li {
                     list-style: none;
-                    margin: 0;
                     padding: 0;
                     border-radius: 0;
-
+                    margin: 0;
                     & a {
                         font-size: .9em;
-                        margin: .2em 0;
+                        margin:  0;
                         padding: .7em 1em;
-
                         &:hover,
                         &:focus {
-                            background-color: #a400e6;
+                            background-color: #eca400;
                         }
                     }
                 }
             }
-
             & li:hover {
                 ul {
                     display: block;

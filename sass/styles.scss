@@ -20,15 +20,18 @@ body {
 .informationCarousel {
     font-size: 1rem;
     margin: 0 auto;
-
+    padding: 0;
+    height: 222px;
+    overflow: hidden;
     &__container {
         &__elements {
             overflow: hidden;
             display: flex;
-
+            margin: 0;
+            padding: 0;
             & img {
                 width: 100%;
-                height: 220px;
+                height: 222px;
             }
         }
     }
@@ -41,20 +44,24 @@ body {
     justify-content: center;
     width: 90%;
     margin: 0 auto;
-
     h2 {
         padding: 0;
         margin: 0;
-
     }
-
     button {
-
         border: 0;
         background: #7f00b2;
     }
 }
-
+.mainInformation{
+    height: calc(100vh - 272px);
+    background-color: #7f00b2;
+    
+}
+.productsInformation{
+    height: 140px;
+    background-color: #eca400;
+}
 .productsContainer {
     width: 90%;
     font-size: 1rem;
@@ -145,7 +152,6 @@ body {
             color: #fff;
             border: none;
             transition: .5s all ease;
-
             &:hover {
                 background-color: #9c0ed4;
             }
@@ -171,11 +177,10 @@ body {
     transition: .5s ease all;
     color: #fff;
     z-index: 400;
-
     p {
         display: flex;
         align-items: center;
-        font-size: 1.1em;
+        font-size: 1em;
         margin: 0;
         padding: .6em 1.2em;
         text-align: center;

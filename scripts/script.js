@@ -15,6 +15,7 @@ const searchInput = document.querySelector('#searchInput');
 searchInput.value = '';
 const productNotFoundedAlert = document.querySelector('#productNotFoundedAlert');
 
+const productsInformation = document.querySelector('#productsInformation');
 const productsContainer = document.querySelector('.productsContainer'); //contenedor de productos 
 const templateContainerProducts = document.getElementById("template-containerProducts").content; //template para cargar los items en contenedor
 const fragmentProduct = document.createDocumentFragment();//fragmento para guardar cada item y luego insertarlo en el contenedor
@@ -78,6 +79,7 @@ btnNavLigaProfesional.addEventListener('click', (e) => {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
+        scrollTo(0,productsInformation.offsetTop);
         setTimeout(() => {
                 loadContainerProducts(filter);
         }, 400)
@@ -90,6 +92,7 @@ btnNavPrimeraNacional.addEventListener('click', (e) => {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
+        scrollTo(0,productsInformation.offsetTop);
         setTimeout(() => {
                 loadContainerProducts(filter);
         }, 400)
@@ -101,37 +104,43 @@ btnNavTodosProductos.addEventListener('click', (e) => {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
+        scrollTo(0,productsInformation.offsetTop);
         setTimeout(() => {
                 loadContainerProducts(products);
         }, 400)
 });
 
 btnFooterLigaProfesional.addEventListener('click', (e)=>{
-        
+        e.preventDefault();
         let filter = filterProducts('Liga Profesional');
         if (nav__menu.classList.contains('show')) {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
+        scrollTo(0,productsInformation.offsetTop);
         setTimeout(() => {
                 loadContainerProducts(filter);
         }, 400)
 });
 btnFooterPrimeraNacional.addEventListener('click', (e) => {
+        e.preventDefault();
         let filter = filterProducts('Primera Nacional');
         if (nav__menu.classList.contains('show')) {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
+        scrollTo(0,productsInformation.offsetTop);
         setTimeout(() => {
                 loadContainerProducts(filter);
         }, 400)
 });
 btnFooterTodosProductos.addEventListener('click', (e) => {
+        e.preventDefault();
         if (nav__menu.classList.contains('show')) {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
+        scrollTo(0,productsInformation.offsetTop);
         setTimeout(() => {
                 loadContainerProducts(products);
         }, 400)

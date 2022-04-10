@@ -6,6 +6,7 @@ const btn__nav = document.querySelector('.btn__nav');
 
 const navLogo = document.querySelector('.navBar__logo');
 
+const btnNavProductos = document.querySelector('#btnNavProductos');
 const btnNavLigaProfesional = document.querySelector('#btnNavLigaProfesional');
 const btnNavPrimeraNacional = document.querySelector('#btnNavPrimeraNacional');
 const btnNavTodosProductos = document.querySelector('#btnNavTodosProductos');
@@ -14,6 +15,9 @@ const searchForm = document.querySelector('#searchForm');
 const searchInput = document.querySelector('#searchInput');
 searchInput.value = '';
 const productNotFoundedAlert = document.querySelector('#productNotFoundedAlert');
+
+const productsInformationTitle = document.querySelector('.productsInformation__title');
+const productsInformationResults = document.querySelector('.productsInformation__results');
 
 const productsInformation = document.querySelector('#productsInformation');
 const productsContainer = document.querySelector('.productsContainer'); //contenedor de productos 
@@ -49,13 +53,13 @@ document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el D
         fetchData();
         checkCartLocalStorage();
         carouselAutoScroll(info, 3500);
-        cartProductsCounter.textContent = cartLength();
-        cartProductsCounterResponsive.textContent = cartLength();
+        cartProductsCounter.textContent = arrayLength(cart);
+        cartProductsCounterResponsive.textContent = arrayLength(cart);
 });
 
-const cartLength = () => {
+const arrayLength = (array) => {
         let count = 0;
-        cart.forEach(product => {
+        array.forEach(product => {
 
                 if (product)
                         count += product.units;
@@ -72,6 +76,14 @@ navLogo.addEventListener('click', () => {
                 cartView.classList.toggle('show')
 })
 //-----Eventos para btn de categorias en NAV
+btnNavProductos.addEventListener('click',(e)=>{
+        e.preventDefault();
+        productsContainer.innerHTML = '';
+        productsInformationTitle.textContent=`Descubrí nuestros productos`;
+        productsInformationResults.textContent=``;
+        loadRandomProductsToContainer(products);
+        scrollTo(0,productsInformation.offsetTop);
+});
 btnNavLigaProfesional.addEventListener('click', (e) => {
         e.preventDefault();
         let filter = filterProducts('Liga Profesional');
@@ -79,6 +91,9 @@ btnNavLigaProfesional.addEventListener('click', (e) => {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
+        console.log(filter)
+        productsInformationTitle.textContent=`Categoria: Liga Profesional`;
+        productsInformationResults.textContent=`${ filter.length} Resultados`
         scrollTo(0,productsInformation.offsetTop);
         setTimeout(() => {
                 loadContainerProducts(filter);
@@ -92,6 +107,8 @@ btnNavPrimeraNacional.addEventListener('click', (e) => {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
+        productsInformationTitle.textContent=`Categoria: Primera Nacional`;
+        productsInformationResults.textContent=`${ filter.length} Resultados`
         scrollTo(0,productsInformation.offsetTop);
         setTimeout(() => {
                 loadContainerProducts(filter);
@@ -104,6 +121,8 @@ btnNavTodosProductos.addEventListener('click', (e) => {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
+        productsInformationTitle.textContent=`Todos los productos`;
+        productsInformationResults.textContent=`${ products.length} Resultados`
         scrollTo(0,productsInformation.offsetTop);
         setTimeout(() => {
                 loadContainerProducts(products);
@@ -117,6 +136,8 @@ btnFooterLigaProfesional.addEventListener('click', (e)=>{
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
+        productsInformationTitle.textContent=`Categoria: Liga Profesional`;
+        productsInformationResults.textContent=`${ filter.length} Resultados`
         scrollTo(0,productsInformation.offsetTop);
         setTimeout(() => {
                 loadContainerProducts(filter);
@@ -129,6 +150,8 @@ btnFooterPrimeraNacional.addEventListener('click', (e) => {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
+        productsInformationTitle.textContent=`Categoria: Primera Nacional`;
+        productsInformationResults.textContent=`${ filter.length} Resultados`
         scrollTo(0,productsInformation.offsetTop);
         setTimeout(() => {
                 loadContainerProducts(filter);
@@ -140,6 +163,8 @@ btnFooterTodosProductos.addEventListener('click', (e) => {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
+        productsInformationTitle.textContent=`Todos los productos`;
+        productsInformationResults.textContent=`${ products.length} Resultados`
         scrollTo(0,productsInformation.offsetTop);
         setTimeout(() => {
                 loadContainerProducts(products);
@@ -155,11 +180,19 @@ btn__nav.addEventListener('click', () => {
 
 //-----Buscar producto
 searchInput.addEventListener('keyup', (e) => {
+        
+
         if (searchInput.value == 0) {
                 if (productNotFoundedAlert.classList.contains('show'))//si el input está vacio, quita el cartel no encontrado
                         productNotFoundedAlert.classList.toggle('show');
                 productsContainer.innerHTML = '';
-                loadRandomProductsToContainer(products);
+                productsInformationTitle.textContent=`Descubrí nuestros productos`;
+                productsInformationResults.textContent=``;
+                        loadRandomProductsToContainer(products);
+                        e.preventDefault();//evita recarga de pagina
+                        scrollTo(0,productsInformation.offsetTop);
+
+
         }
 });
 
@@ -181,6 +214,10 @@ const searchProduct = (searchInput) => {
                 }
                 if (productNotFoundedAlert.classList.contains('show'))//oculta el cartel de no encontrado, si estaba visible
                         productNotFoundedAlert.classList.toggle('show');
+                
+                productsInformationTitle.textContent=`Busqueda: ${searchInput.value}`;
+                productsInformationResults.textContent=`${ result.length} Resultados`
+                scrollTo(0,productsInformation.offsetTop);
                 setTimeout(() => {
                         loadContainerProducts(resul);
                 }, 400);
@@ -347,8 +384,8 @@ const setCart = (object) => {
         cart[product.id] = { ...product }
         localStorage.setItem('cart', JSON.stringify(cart)); //actualiza localstorage
         updateCartProductView();
-        cartProductsCounter.textContent = cartLength();
-        cartProductsCounterResponsive.textContent = cartLength();
+        cartProductsCounter.textContent = arrayLength(cart);
+        cartProductsCounterResponsive.textContent = arrayLength(cart);
         if (!productAddToast.classList.contains('show')) {
                 productAddToast.classList.toggle('show');
                 setTimeout(() => {
@@ -421,8 +458,8 @@ const cartProductsModify = (e) => {
                         deleteProductCart(e.target.dataset.id);
                 }
         }
-        cartProductsCounter.textContent = cartLength();
-        cartProductsCounterResponsive.textContent = cartLength();
+        cartProductsCounter.textContent = arrayLength(cart);
+        cartProductsCounterResponsive.textContent = arrayLength(cart);
         e.stopPropagation();
 };
 

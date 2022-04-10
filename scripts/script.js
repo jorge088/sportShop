@@ -83,7 +83,7 @@ btnNavProductos.addEventListener('click',(e)=>{
         productsInformationTitle.textContent=`Descubrí nuestros productos`;
         productsInformationResults.textContent=``;
         loadRandomProductsToContainer(products);
-        scrollTo(0,productsInformation.offsetTop);
+        scrollTo(0,productsInformation.offsetTop - 50);
 });
 btnNavSeleccionArgentina.addEventListener('click',(e)=>{
         e.preventDefault();
@@ -95,7 +95,7 @@ btnNavSeleccionArgentina.addEventListener('click',(e)=>{
         console.log(filter)
         productsInformationTitle.textContent=`Categoria: Selección Argentina`;
         productsInformationResults.textContent=`${ filter.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop);
+        scrollTo(0,productsInformation.offsetTop - 50);
         setTimeout(() => {
                 loadContainerProducts(filter);
         }, 400)
@@ -110,7 +110,7 @@ btnNavLigaProfesional.addEventListener('click', (e) => {
         console.log(filter)
         productsInformationTitle.textContent=`Categoria: Liga Profesional`;
         productsInformationResults.textContent=`${ filter.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop);
+        scrollTo(0,productsInformation.offsetTop - 50);
         setTimeout(() => {
                 loadContainerProducts(filter);
         }, 400)
@@ -125,7 +125,7 @@ btnNavPrimeraNacional.addEventListener('click', (e) => {
         }
         productsInformationTitle.textContent=`Categoria: Primera Nacional`;
         productsInformationResults.textContent=`${ filter.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop);
+        scrollTo(0,productsInformation.offsetTop - 50);
         setTimeout(() => {
                 loadContainerProducts(filter);
         }, 400)
@@ -139,7 +139,7 @@ btnNavTodosProductos.addEventListener('click', (e) => {
         }
         productsInformationTitle.textContent=`Todos los productos`;
         productsInformationResults.textContent=`${ products.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop);
+        scrollTo(0,productsInformation.offsetTop - 50);
         setTimeout(() => {
                 loadContainerProducts(products);
         }, 400)
@@ -153,7 +153,7 @@ btnFooterSeleccionArgentina.addEventListener("click",(e)=>{
         }
         productsInformationTitle.textContent=`Categoria: Seleccion Argentina`;
         productsInformationResults.textContent=`${ filter.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop);
+        scrollTo(0,productsInformation.offsetTop - 50);
         setTimeout(() => {
                 loadContainerProducts(filter);
         }, 400)
@@ -167,7 +167,7 @@ btnFooterLigaProfesional.addEventListener('click', (e)=>{
         }
         productsInformationTitle.textContent=`Categoria: Liga Profesional`;
         productsInformationResults.textContent=`${ filter.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop);
+        scrollTo(0,productsInformation.offsetTop - 50);
         setTimeout(() => {
                 loadContainerProducts(filter);
         }, 400)
@@ -181,7 +181,7 @@ btnFooterPrimeraNacional.addEventListener('click', (e) => {
         }
         productsInformationTitle.textContent=`Categoria: Primera Nacional`;
         productsInformationResults.textContent=`${ filter.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop);
+        scrollTo(0,productsInformation.offsetTop - 50);
         setTimeout(() => {
                 loadContainerProducts(filter);
         }, 400)
@@ -194,7 +194,7 @@ btnFooterTodosProductos.addEventListener('click', (e) => {
         }
         productsInformationTitle.textContent=`Todos los productos`;
         productsInformationResults.textContent=`${ products.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop);
+        scrollTo(0,productsInformation.offsetTop - 50);
         setTimeout(() => {
                 loadContainerProducts(products);
         }, 400)
@@ -219,7 +219,7 @@ searchInput.addEventListener('keyup', (e) => {
                 productsInformationResults.textContent=``;
                         loadRandomProductsToContainer(products);
                         e.preventDefault();//evita recarga de pagina
-                        scrollTo(0,productsInformation.offsetTop);
+                        scrollTo(0,productsInformation.offsetTop - 50);
 
 
         }
@@ -246,7 +246,7 @@ const searchProduct = (searchInput) => {
                 
                 productsInformationTitle.textContent=`Busqueda: ${searchInput.value}`;
                 productsInformationResults.textContent=`${ result.length} Resultados`
-                scrollTo(0,productsInformation.offsetTop);
+                scrollTo(0,productsInformation.offsetTop - 50);
                 setTimeout(() => {
                         loadContainerProducts(resul);
                 }, 400);

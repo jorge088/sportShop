@@ -385,5 +385,14 @@
         "year":"2021",
         "imgFrontUrl":"campera1Front-Argentina-2021.png",
         "imgBackUrl":"campera1Back-Argentina-2021.png"
+    },
+    {
+        "id": 44,
+        "name":"Camiseta Titular Colon",
+        "price":8000,
+        "category":"Colon de Santa Fe Liga Profesional",
+        "year":"2021",
+        "imgFrontUrl":"campera1Front-Argentina-2021.png",
+        "imgBackUrl":"campera1Back-Argentina-2021.png"
     }
 ]

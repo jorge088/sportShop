@@ -57,67 +57,82 @@
             </span>
         </nav>
     </header>
+    <div class="cart">
+        <div class="cart__sideContainer">
+            <div class="cart__sideContainer__title">
+                <span class="cart__sideContainer__title__exit"><i class="fas fa-solid fa-angle-right"></i></span>
+                <h2><i class=" fas fa-solid fa-cart-arrow-down"></i> Carrito</h2>
+            </div>
+            <div class="cart__sideContainer__items" id="cart__items">
+
+            </div>
+            <div class="cart__sideContainer__resume">
+
+            </div>
+        </div>
+    </div>
     <div class="productAddToast">
         <p><i class="fas fa-solid fa-check"></i>Producto agregado</p>
     </div>
-    <div class="container">
-        <!-- Aqui se listan los elementos del carrito -->
-        <div class="cart">
-            <div class="cart__sideContainer">
-                <div class="cart__sideContainer__title">
-                    <span class="cart__sideContainer__title__exit"><i class="fas fa-solid fa-angle-right"></i></span>
-                    <h2><i class=" fas fa-solid fa-cart-arrow-down"></i> Carrito</h2>
+    
+    <div class="informationCarousel">
+        <div class="informationCarousel__container">
+            <div class="informationCarousel__container__elements">
+                <div>
+                    <img src="./assets/images/information1.png" alt="Portada selección Argentina de futbol">
                 </div>
-                <div class="cart__sideContainer__items" id="cart__items">
-
+                <div>
+                    <img src="./assets/images/information2.png" alt="Portada Super liga de futbol argentino">
                 </div>
-                <div class="cart__sideContainer__resume">
-
-                </div>
-            </div>
-        </div>
-        <div class="informationCarousel">
-            <div class="informationCarousel__container">
-                <div class="informationCarousel__container__elements">
-                    <div>
-                        <img src="./assets/images/information1.png" alt="Portada selección Argentina de futbol">
-                    </div>
-                    <div>
-                        <img src="./assets/images/information2.png" alt="Portada Super liga de futbol argentino">
-                    </div>
-                    <div>
-                        <img src="./assets/images/information3.png" alt="Portada Primera Nacional de futbol argentino">
-                    </div>
+                <div>
+                    <img src="./assets/images/information3.png" alt="Portada Primera Nacional de futbol argentino">
                 </div>
             </div>
         </div>
-        <main class="mainInformation" id="mainInformation">
-
-        </main>
-        <div class="productsInformation" id="productsInformation">
-            <p class="productsInformation__title">Descubrí nuestros productos</p>
-            <p class="productsInformation__results"></p>
-        </div>
-        <!-- Aqui se listan los productos -->
-        <div class="productsContainer" id="productsContainer"></div>
     </div>
 
+    <main class="mainInformation" id="mainInformation">
+        <div class="mainInformation__content"></div>
+        <svg class="mainInformation-svg" width="100%" height="100px" viewBox="0 0 1280 140" preserveAspectRatio="none">
+            <g>
+                <path d="M640 140L1280 0H0z" />
+            </g>
+        </svg>
+    </main>
+
+    <div class="productsInformation" id="productsInformation">
+        <p class="productsInformation__title">Descubrí nuestros productos</p>
+        <p class="productsInformation__results"></p>
+    </div>
+    
+    <!-- Aqui se listan los productos -->
+    <div class="productsContainer" id="productsContainer"></div>
+
     <footer class="footer">
-        <div class="footer__links">
-            <h4>PRODUCTOS</h4>
-            <a href="#" id="btnFooterSeleccionArgentina">Selección Argentina</a>
-            <a href="#" id="btnFooterLigaProfesional">LIGA PROFESIONAL</a>
-            <a href="#" id="btnFooterPrimeraNacional">PRIMERA NACIONAL</a>
-            <a href="#" id="btnFooterTodosProductos">VER TODOS</a>
-        </div>
-        <div class="footer__social">
-            <h4>SEGUINOS EN</h4>
-            <div>
-                <a href="https://www.instagram.com" target="/blank"><i class="fa-brands fa-instagram-square"></i></a>
-                <a href="https://www.facebook.com" target="/blank"><i class="fa-brands fa-facebook-square"></i></a>
-                <a href="https://twitter.com" target="/blank"><i class="fa-brands fa-twitter-square"></i></a>
+        <svg class="footer-svg" width="100%" height="100px" viewBox="0 0 1280 140" preserveAspectRatio="none">
+            <g>
+                <path d="M640 140L1280 0H0z" />
+            </g>
+        </svg>
+        <div class="footer__content">
+            <div class="footer__content__links">
+                <h4>PRODUCTOS</h4>
+                <a href="#" id="btnFooterSeleccionArgentina">Selección Argentina</a>
+                <a href="#" id="btnFooterLigaProfesional">LIGA PROFESIONAL</a>
+                <a href="#" id="btnFooterPrimeraNacional">PRIMERA NACIONAL</a>
+                <a href="#" id="btnFooterTodosProductos">VER TODOS</a>
+            </div>
+            <div class="footer__content__social">
+                <h4>SEGUINOS EN</h4>
+                <div>
+                    <a href="https://www.instagram.com" target="/blank"><i
+                            class="fa-brands fa-instagram-square"></i></a>
+                    <a href="https://www.facebook.com" target="/blank"><i class="fa-brands fa-facebook-square"></i></a>
+                    <a href="https://twitter.com" target="/blank"><i class="fa-brands fa-twitter-square"></i></a>
+                </div>
             </div>
         </div>
+
 
 
     </footer>

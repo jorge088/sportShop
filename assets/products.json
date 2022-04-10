@@ -315,12 +315,75 @@
         "imgBackUrl":"shorts1Back-RosarioCentral-2022.png"
     },
     {
-        "id": 35,
-        "name":"Short Alternativo Newells Old Boys",
-        "price":5000,
-        "category":"Newells Old Boys Liga Profesional",
-        "year":"2022",
-        "imgFrontUrl":"shorts2Front-Newells-2022.png",
-        "imgBackUrl":"shorts2Back-Newells-2022.png"
+        "id": 36,
+        "name":"Camiseta titular Selección Argentina",
+        "price":11000,
+        "category":"Seleccion Argentina AFA Messi",
+        "year":"2021",
+        "imgFrontUrl":"camiseta1Front-Argentina-2021.png",
+        "imgBackUrl":"camiseta1Back-Argentina-2021.png"
+    },
+    {
+        "id": 37,
+        "name":"Camiseta Alternativo Selección Argentina",
+        "price":10000,
+        "category":"Seleccion Argentina AFA Messi",
+        "year":"2021",
+        "imgFrontUrl":"camiseta2Front-Argentina-2021.png",
+        "imgBackUrl":"camiseta2Back-Argentina-2021.png"
+    },
+    {
+        "id": 38,
+        "name":"Camiseta titular Selección Argentina",
+        "price":9500,
+        "category":"Seleccion Argentina AFA Messi",
+        "year":"2019",
+        "imgFrontUrl":"camiseta1Front-Argentina-2019.png",
+        "imgBackUrl":"camiseta1Back-Argentina-2019.png"
+    },
+    {
+        "id": 39,
+        "name":"Short titular Selección Argentina",
+        "price":6500,
+        "category":"Seleccion Argentina AFA Messi",
+        "year":"2019",
+        "imgFrontUrl":"short1Front-Argentina-2021.png",
+        "imgBackUrl":"short1Back-Argentina-2021.png"
+    },
+    {
+        "id": 40,
+        "name":"Camiseta Entrenamiento Selección Argentina",
+        "price":8000,
+        "category":"Seleccion Argentina AFA Messi",
+        "year":"2021",
+        "imgFrontUrl":"camisetaEntrenFront-Argentina-2021.png",
+        "imgBackUrl":"camisetaEntrenBack-Argentina-2021.png"
+    },
+    {
+        "id": 41,
+        "name":"Camiseta titular Arquero Selección Argentina",
+        "price":11000,
+        "category":"Seleccion Argentina Arquero AFA Messi",
+        "year":"2021",
+        "imgFrontUrl":"camisetaArqFront-Argentina-2021.png",
+        "imgBackUrl":"camisetaArqBack-Argentina-2021.png"
+    },
+    {
+        "id": 42,
+        "name":"Short titular Arquero Selección Argentina",
+        "price":6500,
+        "category":"Seleccion Argentina Arquero  AFA Messi",
+        "year":"2021",
+        "imgFrontUrl":"shortArqFront-Argentina-2021.png",
+        "imgBackUrl":"shortArqBack-Argentina-2021.png"
+    },
+    {
+        "id": 43,
+        "name":"Campera Anthem Selección Argentina",
+        "price":15000,
+        "category":"Seleccion Argentina Campera AFA Messi",
+        "year":"2021",
+        "imgFrontUrl":"campera1Front-Argentina-2021.png",
+        "imgBackUrl":"campera1Back-Argentina-2021.png"
     }
 ]

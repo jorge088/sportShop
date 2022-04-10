@@ -7,6 +7,7 @@ const btn__nav = document.querySelector('.btn__nav');
 const navLogo = document.querySelector('.navBar__logo');
 
 const btnNavProductos = document.querySelector('#btnNavProductos');
+const btnNavSeleccionArgentina = document.querySelector('#btnNavSeleccionArgentina');
 const btnNavLigaProfesional = document.querySelector('#btnNavLigaProfesional');
 const btnNavPrimeraNacional = document.querySelector('#btnNavPrimeraNacional');
 const btnNavTodosProductos = document.querySelector('#btnNavTodosProductos');
@@ -36,7 +37,7 @@ const cartProductsCounterResponsive = document.querySelector('.navBar__btnCartRe
 const btnFooterLigaProfesional = document.querySelector('#btnFooterLigaProfesional');
 const btnFooterPrimeraNacional = document.querySelector('#btnFooterPrimeraNacional');
 const btnFooterTodosProductos = document.querySelector('#btnFooterTodosProductos');
-
+const btnFooterSeleccionArgentina = document.querySelector('#btnFooterSeleccionArgentina')
 //Carruseles
 const info = new Glider(document.querySelector('.informationCarousel__container__elements'), {//carrusel con imagenes
         duration: 2,
@@ -84,6 +85,21 @@ btnNavProductos.addEventListener('click',(e)=>{
         loadRandomProductsToContainer(products);
         scrollTo(0,productsInformation.offsetTop);
 });
+btnNavSeleccionArgentina.addEventListener('click',(e)=>{
+        e.preventDefault();
+        let filter = filterProducts('Seleccion Argentina');
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        console.log(filter)
+        productsInformationTitle.textContent=`Categoria: Selección Argentina`;
+        productsInformationResults.textContent=`${ filter.length} Resultados`
+        scrollTo(0,productsInformation.offsetTop);
+        setTimeout(() => {
+                loadContainerProducts(filter);
+        }, 400)
+});
 btnNavLigaProfesional.addEventListener('click', (e) => {
         e.preventDefault();
         let filter = filterProducts('Liga Profesional');
@@ -128,7 +144,20 @@ btnNavTodosProductos.addEventListener('click', (e) => {
                 loadContainerProducts(products);
         }, 400)
 });
-
+btnFooterSeleccionArgentina.addEventListener("click",(e)=>{
+        e.preventDefault();
+        let filter = filterProducts('Seleccion Argentina');
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        productsInformationTitle.textContent=`Categoria: Seleccion Argentina`;
+        productsInformationResults.textContent=`${ filter.length} Resultados`
+        scrollTo(0,productsInformation.offsetTop);
+        setTimeout(() => {
+                loadContainerProducts(filter);
+        }, 400)
+});
 btnFooterLigaProfesional.addEventListener('click', (e)=>{
         e.preventDefault();
         let filter = filterProducts('Liga Profesional');

@@ -39,12 +39,12 @@ const btnFooterPrimeraNacional = document.querySelector('#btnFooterPrimeraNacion
 const btnFooterTodosProductos = document.querySelector('#btnFooterTodosProductos');
 const btnFooterSeleccionArgentina = document.querySelector('#btnFooterSeleccionArgentina')
 //Carruseles
-const info = new Glider(document.querySelector('.informationCarousel__container__elements'), {//carrusel con imagenes
-        duration: 2,
-        draggable: true,
-        dragVelocity: 1,
-        rewind: true,
-});
+// const info = new Glider(document.querySelector('.informationCarousel__container__elements'), {//carrusel con imagenes
+//         duration: 2,
+//         draggable: true,
+//         dragVelocity: 1,
+//         rewind: true,
+// });
 
 // const templateProducts = document.getElementById("template-carouselProducts").content; //template para cada producto item
 //const carouselProductsElements = document.querySelector('.productsCarousel__container__elements')
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el D
         addEventShowCart();
         fetchData();
         checkCartLocalStorage();
-        carouselAutoScroll(info, 3500);
+        // carouselAutoScroll(info, 3500);
         cartProductsCounter.textContent = arrayLength(cart);
         cartProductsCounterResponsive.textContent = arrayLength(cart);
 });
@@ -92,9 +92,8 @@ btnNavSeleccionArgentina.addEventListener('click',(e)=>{
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
-        console.log(filter)
         productsInformationTitle.textContent=`Categoria: Selección Argentina`;
-        productsInformationResults.textContent=`${ filter.length} Resultados`
+        productsInformationResults.textContent=`${ filter.length} Resultados`;
         scrollTo(0,productsInformation.offsetTop - 50);
         setTimeout(() => {
                 loadContainerProducts(filter);

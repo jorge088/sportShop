@@ -5,8 +5,7 @@ header {
     position: sticky;
     z-index: 100;
     top: 0;
-    font-family: 'Gothic A1', sans-serif;
-    font-weight: 600;
+    font-family: 'Rubik', sans-serif;
 
     .navBar {
         height: 50px;
@@ -34,7 +33,7 @@ header {
             list-style: none;
             align-items: center;
             color: #fff;
-
+            font-weight: 500;
             & li {
                 margin: 0 .4em;
                 position: relative;
@@ -75,7 +74,7 @@ header {
                         padding: .7em 1em;
                         &:hover,
                         &:focus {
-                            background-color: #eca400;
+                            background-color: #a400e6;
                         }
                     }
                 }
@@ -260,6 +259,8 @@ header {
                             font-size: .9em;
                             margin: .3em 0;
                             padding: 1em;
+                            
+                            
                         }
                     }
                 }

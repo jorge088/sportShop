@@ -240,8 +240,7 @@ header {
   position: sticky;
   z-index: 100;
   top: 0;
-  font-family: "Gothic A1", sans-serif;
-  font-weight: 600;
+  font-family: "Rubik", sans-serif;
 }
 header .navBar {
   height: 50px;
@@ -267,6 +266,7 @@ header .navBar__menu {
   list-style: none;
   align-items: center;
   color: #fff;
+  font-weight: 500;
 }
 header .navBar__menu li {
   margin: 0 0.4em;
@@ -305,7 +305,7 @@ header .navBar__menu li ul li a {
   padding: 0.7em 1em;
 }
 header .navBar__menu li ul li a:hover, header .navBar__menu li ul li a:focus {
-  background-color: #eca400;
+  background-color: #a400e6;
 }
 header .navBar__menu li:hover ul {
   display: block;
@@ -633,7 +633,7 @@ header .btn__nav {
   z-index: 50;
   background: rgba(0, 0, 0, 0.2);
   font-size: 1rem;
-  font-family: "Signika Negative", sans-serif;
+  font-family: "Rubik", sans-serif;
   transition: 0.4s linear all;
 }
 .cart.show {
@@ -654,7 +654,7 @@ header .btn__nav {
 }
 .cart__sideContainer__title {
   margin-bottom: 0.4em;
-  font-family: "Gothic A1", sans-serif;
+  font-weight: 300;
 }
 .cart__sideContainer__title__exit {
   display: inline-block;
@@ -699,6 +699,7 @@ header .btn__nav {
 .cart__sideContainer__items__item__main p {
   width: 200px;
   font-size: 1em;
+  font-weight: 300;
 }
 .cart__sideContainer__items__item__main__btnDelete {
   border: none;
@@ -730,6 +731,7 @@ header .btn__nav {
 }
 .cart__sideContainer__items__item__description__units p {
   font-size: 1.1em;
+  font-family: "Signika Negative", sans-serif;
 }
 .cart__sideContainer__items__item__description__units__btn {
   display: flex;
@@ -761,11 +763,13 @@ header .btn__nav {
 }
 .cart__sideContainer__items__item__description__price {
   font-size: 1.1em;
+  font-family: "Signika Negative", sans-serif;
 }
 .cart__sideContainer__resume__total {
-  font-weight: bold;
+  font-weight: 500;
   font-size: 1.2em;
   text-align: center;
+  font-family: "Signika Negative", sans-serif;
 }
 
 @media only screen and (max-width: 575px) {
@@ -893,12 +897,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background: url("./../assets/images/asdf.jpg");
+  background: url("./../assets/images/mainBackground.jpg");
   background-position: top;
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.1);
   background-blend-mode: saturation;
   transition: 0.8s ease all;
+  font-family: "Rubik", sans-serif;
 }
 .mainInformation:hover {
   background-color: rgba(0, 0, 0, 0.6);
@@ -945,8 +950,9 @@ body {
   align-items: center;
 }
 .productsInformation__title {
-  font-size: 1.8em;
-  font-family: "Gothic A1", sans-serif;
+  font-size: 1.6em;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
   margin: 0;
 }
 .productsInformation__results {
@@ -1010,9 +1016,9 @@ body {
   margin: 0;
   padding: 0;
   min-height: 3.5em;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 1em;
-  font-family: "Gothic A1", sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 .productsContainer__item__info__price {
   margin: 0;
@@ -1052,6 +1058,7 @@ body {
   transition: 0.5s ease all;
   color: #fff;
   z-index: 400;
+  font-family: "Rubik", sans-serif;
 }
 .productAddToast p {
   display: flex;
@@ -1071,7 +1078,7 @@ body {
 
 .footer {
   font-size: 1rem;
-  font-family: "Signika Negative", sans-serif;
+  font-family: "Rubik", sans-serif;
   width: 100%;
   background-color: #7f00b2;
   margin-bottom: 0;
@@ -1102,9 +1109,10 @@ body {
 .footer__content__links {
   display: flex;
   flex-direction: column;
+  font-weight: 400;
 }
 .footer__content__links a {
-  width: 150px;
+  width: 170px;
   font-size: 0.9em;
   padding: 0.3em 0;
   margin: 0.1em 0;

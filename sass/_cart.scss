@@ -7,7 +7,7 @@
     z-index: 50;
     background: rgba(0,0,0,.2);
     font-size: 1rem;
-    font-family: 'Signika Negative', sans-serif;
+    font-family: 'Rubik', sans-serif;
 
     transition: .4s linear all;
     &.show{
@@ -27,8 +27,7 @@
         transition: .4s linear all;
         &__title{ 
             margin-bottom: .4em ;
-            font-family: 'Gothic A1', sans-serif;
-            
+            font-weight: 300;
             &__exit{
                 display: inline-block;
                 padding: 8px;
@@ -70,6 +69,7 @@
                     & p{
                         width: 200px;
                         font-size: 1em;
+                        font-weight: 300;
                     }
                     &__btnDelete{
                         border: none;
@@ -100,6 +100,7 @@
                         align-items: center;
                         & p{
                             font-size: 1.1em;
+                            font-family: 'Signika Negative', sans-serif;
                         }
                         &__btn{
                             display: flex;
@@ -132,15 +133,18 @@
                     }
                     &__price{
                         font-size: 1.1em;
+                        font-family: 'Signika Negative', sans-serif;
                     }
                 }
             }
         }
         &__resume{
             &__total{
-                font-weight: bold;
+                font-weight: 500;
                 font-size: 1.2em;
                 text-align: center;
+                font-family: 'Signika Negative', sans-serif;
+
             }
         }
         

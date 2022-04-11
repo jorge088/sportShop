@@ -929,10 +929,12 @@ body {
   font-size: 1.6em;
   margin: 0;
   padding: 0;
+  font-weight: 400;
 }
 .mainInformation__content p {
   font-size: 1.9em;
   text-align: center;
+  font-weight: 300;
   font-style: italic;
 }
 .mainInformation-svg {

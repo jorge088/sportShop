@@ -392,7 +392,88 @@
         "price":8000,
         "category":"Colon de Santa Fe Liga Profesional camiseta remera",
         "year":"2021",
-        "imgFrontUrl":"campera1Front-Argentina-2021.png",
-        "imgBackUrl":"campera1Back-Argentina-2021.png"
+        "imgFrontUrl":"camiseta1Front-Colon-2021.png",
+        "imgBackUrl":"camiseta1Back-Colon-2021.png"
+    },
+    {
+        "id": 45,
+        "name":"Camiseta Titular Huracán",
+        "price":7000,
+        "category":"Huracan Liga Profesional camiseta remera",
+        "year":"2022",
+        "imgFrontUrl":"camiseta1Front-Huracan-2022.png",
+        "imgBackUrl":"camiseta1Back-Huracan-2022.png"
+    },
+    {
+        "id": 46,
+        "name":"Camiseta Alternativa Gimnasia de Jujuy",
+        "price":7000,
+        "category":"Gimnasia de jujuy primera nacional camiseta remera",
+        "year":"2022",
+        "imgFrontUrl":"camiseta4Front-GimnasiaJujuy-2022.png",
+        "imgBackUrl":"camiseta4Back-GimnasiaJujuy-2022.png"
+    },
+    {
+        "id": 47,
+        "name":"Camiseta Titular Defensa y Justicia",
+        "price":6800,
+        "category":"Defensa y justicia Liga Profesional camiseta remera",
+        "year":"2021",
+        "imgFrontUrl":"camiseta1Front-Defensa-2021.png",
+        "imgBackUrl":"camiseta1Back-Defensa-2021.png"
+    },
+    {
+        "id": 48,
+        "name":"Camiseta Titular Aldosivi",
+        "price":6000,
+        "category":"Aldosivi Liga Profesional camiseta remera",
+        "year":"2021",
+        "imgFrontUrl":"camiseta1Front-Aldosivi-2021.png",
+        "imgBackUrl":"camiseta1Back-Aldosivi-2021.png"
+    },
+    {
+        "id": 49,
+        "name":"Camiseta Titular Patronato",
+        "price":6000,
+        "category":"Patronato Liga Profesional camiseta remera",
+        "year":"2020",
+        "imgFrontUrl":"camiseta2Front-Patronato-2020.png",
+        "imgBackUrl":"camiseta2Back-Patronato-2020.png"
+    },
+    {
+        "id": 50,
+        "name":"Camiseta Titular Godoy Cruz",
+        "price":7000,
+        "category":"Godoy cruz Liga Profesional camiseta remera",
+        "year":"2021",
+        "imgFrontUrl":"camiseta1Front-GodoyCruz-2021.png",
+        "imgBackUrl":"camiseta1Back-GodoyCruz-2021.png"
+    },
+    {
+        "id": 51,
+        "name":"Camiseta Titular Gimnasia de La Plata",
+        "price":8000,
+        "category":"Gimnasia de La Plata Liga Profesional camiseta remera",
+        "year":"2021",
+        "imgFrontUrl":"camiseta1Front-GimnasiaLP-2021.png",
+        "imgBackUrl":"camiseta1Back-GimnasiaLP-2021.png"
+    },
+    {
+        "id": 52,
+        "name":"Camiseta Titular Unión",
+        "price":7000,
+        "category":"Union de Santa Fe Liga Profesional camiseta remera",
+        "year":"2021",
+        "imgFrontUrl":"camiseta1Front-Union-2021.png",
+        "imgBackUrl":"camiseta1Back-Union-2021.png"
+    },
+    {
+        "id": 53,
+        "name":"Camiseta Titular San Lorenzo",
+        "price":11000,
+        "category":"San Lorenzo Liga Profesional camiseta remera",
+        "year":"2022",
+        "imgFrontUrl":"camiseta1Front-SanLorenzo-2022.png",
+        "imgBackUrl":"camiseta1Back-SanLorenzo-2022.png"
     }
 ]

@@ -106,7 +106,6 @@ btnNavLigaProfesional.addEventListener('click', (e) => {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
-        console.log(filter)
         productsInformationTitle.textContent=`Categoria: Liga Profesional`;
         productsInformationResults.textContent=`${ filter.length} Resultados`
         scrollTo(0,productsInformation.offsetTop - 50);

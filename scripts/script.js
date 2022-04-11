@@ -37,17 +37,7 @@ const cartProductsCounterResponsive = document.querySelector('.navBar__btnCartRe
 const btnFooterLigaProfesional = document.querySelector('#btnFooterLigaProfesional');
 const btnFooterPrimeraNacional = document.querySelector('#btnFooterPrimeraNacional');
 const btnFooterTodosProductos = document.querySelector('#btnFooterTodosProductos');
-const btnFooterSeleccionArgentina = document.querySelector('#btnFooterSeleccionArgentina')
-//Carruseles
-// const info = new Glider(document.querySelector('.informationCarousel__container__elements'), {//carrusel con imagenes
-//         duration: 2,
-//         draggable: true,
-//         dragVelocity: 1,
-//         rewind: true,
-// });
-
-// const templateProducts = document.getElementById("template-carouselProducts").content; //template para cada producto item
-//const carouselProductsElements = document.querySelector('.productsCarousel__container__elements')
+const btnFooterSeleccionArgentina = document.querySelector('#btnFooterSeleccionArgentina');
 
 document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el DOM
         addEventShowCart();
@@ -513,77 +503,3 @@ const deleteProductCart = (id) => {
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartProductView();
 }
-
-
-// //Carga en el carrusel 12 productos de la lista
-// const loadRandomProductsToCarousel = (data) => {
-//         let randomProducts = [];
-//         for (let i = 0; i < 12; i++) {
-//                 index = Math.floor(Math.random() * data.length);
-//                 if (randomProducts[index]) {
-//                         if (index != data.length - 1) {
-//                                 index++;
-//                         }
-//                 }
-//                 randomProducts[index] = { ...data[index] }
-
-
-//         }
-//         cleanCarousel(carouselProducts)
-//         loadCarouselProducts(randomProducts);
-// }
-
-
-// //Carga carrusel de productos con elementos en un array
-// const loadCarouselProducts = (data) => {
-//         data.forEach(product => {
-//                 templateProducts.querySelectorAll('img')[0].setAttribute('src', `./assets/images/${product.imgFrontUrl}`);
-//                 templateProducts.querySelectorAll('img')[1].setAttribute('src', `./assets/images/${product.imgBackUrl}`);
-//                 templateProducts.querySelector('h3').textContent = `${product.name} ${product.year}`;
-//                 templateProducts.querySelector('p').textContent = `$${product.price}`;
-//                 templateProducts.querySelector('.productsCarousel__container__elements__item__button').dataset.id = product.id; //guardo en el button el id de ese producto
-
-//                 const clone = templateProducts.cloneNode(true);
-//                 carouselProducts.addItem(clone);
-//         })
-// }
-
-
-
-// //captura los clicks para agregar un producto al carrito
-// carouselProductsElements.addEventListener("click", (e) => {
-//         addCart(e);
-// });
-
-
-// const carouselProducts = new Glider(document.querySelector('.productsCarousel__container__elements'), {
-//         exactWidth: true,
-//         itemWidth: 180,
-//         slidesToShow: 1,
-//         slidesToScroll: 1,
-//         duration: 2,
-//         rewind: true,   //llega al final y vuelva al principio
-//         arrows: {
-//                 prev: '.carousel__before',
-//                 next: '.carousel__next'
-//         },
-//         responsive: [
-//                 {
-//                         breakpoint: 575, //>=575px
-//                         settings: {
-//                                 itemWidth: 180,
-//                                 slidesToShow: 3,
-//                                 dots: '.carousel__indicadores',
-//                                 rewind: true,
-//                         }
-//                 }, {
-//                         breakpoint: 800,
-//                         settings: {
-//                                 itemWidth: 200,
-//                                 slidesToShow: 6,
-//                                 dots: '.carousel__indicadores',
-//                                 rewind: true,
-//                         }
-//                 }
-//         ]
-// });

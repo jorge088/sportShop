@@ -24,6 +24,7 @@ Las caracteristicas y funcionalidades del sitio son:
 
 # Mobile
 ![sportshop](./assets/images/sportshop3.png)
+***
 ![sportshop](./assets/images/sportshop4.png)
 
 # Ver Sitio

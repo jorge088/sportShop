@@ -40,243 +40,10 @@ const btnFooterTodosProductos = document.querySelector('#btnFooterTodosProductos
 const btnFooterSeleccionArgentina = document.querySelector('#btnFooterSeleccionArgentina');
 
 document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el DOM
-        addEventShowCart();
         fetchData();
         checkCartLocalStorage();
-        // carouselAutoScroll(info, 3500);
-        cartProductsCounter.textContent = arrayLength(cart);
-        cartProductsCounterResponsive.textContent = arrayLength(cart);
+        addEventShowCart();
 });
-
-const arrayLength = (array) => {
-        let count = 0;
-        array.forEach(product => {
-
-                if (product)
-                        count += product.units;
-
-        });
-        return count;
-}
-navLogo.addEventListener('click', () => {
-        if (nav__menu.classList.contains('show')) {
-                nav__menu.classList.toggle('show');
-                btn__nav.classList.toggle('active');
-        }
-        if(cartView.classList.contains('show'))
-                cartView.classList.toggle('show')
-})
-//-----Eventos para btn de categorias en NAV
-btnNavProductos.addEventListener('click',(e)=>{
-        e.preventDefault();
-        productsContainer.innerHTML = '';
-        productsInformationTitle.textContent=`Descubrí nuestros productos`;
-        productsInformationResults.textContent=``;
-        loadRandomProductsToContainer(products);
-        scrollTo(0,productsInformation.offsetTop - 50);
-});
-btnNavSeleccionArgentina.addEventListener('click',(e)=>{
-        e.preventDefault();
-        let filter = filterProducts('Seleccion Argentina');
-        if (nav__menu.classList.contains('show')) {
-                nav__menu.classList.toggle('show');
-                btn__nav.classList.toggle('active');
-        }
-        productsInformationTitle.textContent=`Categoria: Selección Argentina`;
-        productsInformationResults.textContent=`${ filter.length} Resultados`;
-        scrollTo(0,productsInformation.offsetTop - 50);
-        setTimeout(() => {
-                loadContainerProducts(filter);
-        }, 400)
-});
-btnNavLigaProfesional.addEventListener('click', (e) => {
-        e.preventDefault();
-        let filter = filterProducts('Liga Profesional');
-        if (nav__menu.classList.contains('show')) {
-                nav__menu.classList.toggle('show');
-                btn__nav.classList.toggle('active');
-        }
-        productsInformationTitle.textContent=`Categoria: Liga Profesional`;
-        productsInformationResults.textContent=`${ filter.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop - 50);
-        setTimeout(() => {
-                loadContainerProducts(filter);
-        }, 400)
-});
-
-btnNavPrimeraNacional.addEventListener('click', (e) => {
-        e.preventDefault();
-        let filter = filterProducts('Primera Nacional');
-        if (nav__menu.classList.contains('show')) {
-                nav__menu.classList.toggle('show');
-                btn__nav.classList.toggle('active');
-        }
-        productsInformationTitle.textContent=`Categoria: Primera Nacional`;
-        productsInformationResults.textContent=`${ filter.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop - 50);
-        setTimeout(() => {
-                loadContainerProducts(filter);
-        }, 400)
-});
-
-btnNavTodosProductos.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (nav__menu.classList.contains('show')) {
-                nav__menu.classList.toggle('show');
-                btn__nav.classList.toggle('active');
-        }
-        productsInformationTitle.textContent=`Todos los productos`;
-        productsInformationResults.textContent=`${ products.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop - 50);
-        setTimeout(() => {
-                loadContainerProducts(products);
-        }, 400)
-});
-btnFooterSeleccionArgentina.addEventListener("click",(e)=>{
-        e.preventDefault();
-        let filter = filterProducts('Seleccion Argentina');
-        if (nav__menu.classList.contains('show')) {
-                nav__menu.classList.toggle('show');
-                btn__nav.classList.toggle('active');
-        }
-        productsInformationTitle.textContent=`Categoria: Seleccion Argentina`;
-        productsInformationResults.textContent=`${ filter.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop - 50);
-        setTimeout(() => {
-                loadContainerProducts(filter);
-        }, 400)
-});
-btnFooterLigaProfesional.addEventListener('click', (e)=>{
-        e.preventDefault();
-        let filter = filterProducts('Liga Profesional');
-        if (nav__menu.classList.contains('show')) {
-                nav__menu.classList.toggle('show');
-                btn__nav.classList.toggle('active');
-        }
-        productsInformationTitle.textContent=`Categoria: Liga Profesional`;
-        productsInformationResults.textContent=`${ filter.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop - 50);
-        setTimeout(() => {
-                loadContainerProducts(filter);
-        }, 400)
-});
-btnFooterPrimeraNacional.addEventListener('click', (e) => {
-        e.preventDefault();
-        let filter = filterProducts('Primera Nacional');
-        if (nav__menu.classList.contains('show')) {
-                nav__menu.classList.toggle('show');
-                btn__nav.classList.toggle('active');
-        }
-        productsInformationTitle.textContent=`Categoria: Primera Nacional`;
-        productsInformationResults.textContent=`${ filter.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop - 50);
-        setTimeout(() => {
-                loadContainerProducts(filter);
-        }, 400)
-});
-btnFooterTodosProductos.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (nav__menu.classList.contains('show')) {
-                nav__menu.classList.toggle('show');
-                btn__nav.classList.toggle('active');
-        }
-        productsInformationTitle.textContent=`Todos los productos`;
-        productsInformationResults.textContent=`${ products.length} Resultados`
-        scrollTo(0,productsInformation.offsetTop - 50);
-        setTimeout(() => {
-                loadContainerProducts(products);
-        }, 400)
-});
-
-//-----Muestra el menu del nav en dispositivos moviles
-btn__nav.addEventListener('click', () => {
-        nav__menu.classList.toggle('show');
-        btn__nav.classList.toggle('active');
-})
-
-
-//-----Buscar producto
-searchInput.addEventListener('keyup', (e) => {
-        
-
-        if (searchInput.value == 0) {
-                if (productNotFoundedAlert.classList.contains('show'))//si el input está vacio, quita el cartel no encontrado
-                        productNotFoundedAlert.classList.toggle('show');
-                productsContainer.innerHTML = '';
-                productsInformationTitle.textContent=`Descubrí nuestros productos`;
-                productsInformationResults.textContent=``;
-                        loadRandomProductsToContainer(products);
-                        e.preventDefault();//evita recarga de pagina
-                        scrollTo(0,productsInformation.offsetTop - 50);
-
-
-        }
-});
-
-searchForm.addEventListener('submit', (e) => {
-        searchProduct(searchInput);
-        e.preventDefault();//evita recarga de pagina
-}, false);
-
-const searchProduct = (searchInput) => {
-        result = filterProducts(searchInput.value);
-
-        if (result.length == 0) {
-                if (!productNotFoundedAlert.classList.contains('show'))
-                        productNotFoundedAlert.classList.toggle('show');//muestra cartel de no encontrado
-        } else {
-                if (nav__menu.classList.contains('show')) { //En dispositivo movil, cierra el menu del nav
-                        nav__menu.classList.toggle('show');
-                        btn__nav.classList.toggle('active');
-                }
-                if (productNotFoundedAlert.classList.contains('show'))//oculta el cartel de no encontrado, si estaba visible
-                        productNotFoundedAlert.classList.toggle('show');
-                
-                productsInformationTitle.textContent=`Busqueda: ${searchInput.value}`;
-                productsInformationResults.textContent=`${ result.length} Resultados`
-                scrollTo(0,productsInformation.offsetTop - 50);
-                setTimeout(() => {
-                        loadContainerProducts(resul);
-                }, 400);
-        }
-}
-//Filtrar productos
-const filterProducts = (parameter) => {
-        resul = products.filter(product =>
-                product.category.toLowerCase().includes(parameter.toLowerCase())
-        )
-        return resul;
-}
-
-
-//-----Agrega eventos a los botones para mostrar y ocultar la vista del carrito
-const addEventShowCart = () => {
-        //evento para boton carrito en el nav bar.
-        const btnCart = document.getElementById('btnCartView');
-        btnCart.addEventListener('click', () => {
-                cartView.classList.toggle('show');
-        });
-
-        //evento para cuando se haga click en el sector opaco se cierre la vista
-        
-        cartView.addEventListener('click', (e) => {
-                if (e.target.classList.contains('cart')) {
-                        cartView.classList.toggle('show');
-                }
-        });
-
-        //evento para el boton cerrar, dentro de la vista del carrito
-        const btnCloseCartView = document.querySelector('.cart__sideContainer__title__exit');
-        btnCloseCartView.addEventListener('click', () => {
-                cartView.classList.toggle('show');
-        });
-
-        //evento para boton carrito responsive del nav bar
-        const btnCartViewResponsive = document.querySelector('#btnCartViewResponsive');
-        btnCartViewResponsive.addEventListener('click', () => {
-                cartView.classList.toggle('show');
-        });
-}
 
 //-----Carrito en localstorage
 const checkCartLocalStorage = () => {
@@ -284,41 +51,11 @@ const checkCartLocalStorage = () => {
         if (cartStorage) {
                 cart = JSON.parse(cartStorage);
                 updateCartProductView()
+                let units = arrayLength(cart);
+                cartProductsCounter.textContent = units;
+                cartProductsCounterResponsive.textContent = units;
         }
 };
-
-
-//-----Carrusel
-const carouselAutoScroll = (slider, miliseconds) => {
-        const slidesCount = slider.track.childElementCount;
-        let slideTimeout = null;
-        let nextIndex = 1;
-
-        function slide() {
-                slideTimeout = setTimeout(
-                        function () {
-                                if (nextIndex >= slidesCount) {
-                                        nextIndex = 0;
-                                }
-                                slider.scrollItem(nextIndex++);
-                        },
-                        miliseconds
-                );
-        }
-        slider.ele.addEventListener('glider-animated', function () {
-                window.clearInterval(slideTimeout);
-                slide();
-        });
-        slide();
-}
-//Limpia items en carrusel
-const cleanCarousel = (carousel) => {
-        const slidesCount = carousel.track.childElementCount;
-        for (let i = 0; i < slidesCount; i++)
-                carousel.removeItem(0);
-        carousel.updateControls()
-}
-
 
 //-----Leer datos de archivo JSON
 const fetchData = async () => {
@@ -333,7 +70,7 @@ const fetchData = async () => {
 }
 
 
-//-----Cargar contenedor de productos
+//-----Cargar contenedor de productos 
 const loadRandomProductsToContainer = (data) => {
         let randomProducts = [];
         let randomNumbers = [];
@@ -502,4 +239,234 @@ const deleteProductCart = (id) => {
         delete cart[id];
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartProductView();
+}
+
+//-----Buscar producto
+searchInput.addEventListener('keyup', (e) => {
+        
+
+        if (searchInput.value == 0) {
+                if (productNotFoundedAlert.classList.contains('show'))//si el input está vacio, quita el cartel no encontrado
+                        productNotFoundedAlert.classList.toggle('show');
+                productsContainer.innerHTML = '';
+                productsInformationTitle.textContent=`Descubrí nuestros productos`;
+                productsInformationResults.textContent=``;
+                        loadRandomProductsToContainer(products);
+                        e.preventDefault();//evita recarga de pagina
+                        scrollTo(0,productsInformation.offsetTop - 50);
+
+
+        }
+});
+
+searchForm.addEventListener('submit', (e) => {
+        searchProduct(searchInput);
+        e.preventDefault();//evita recarga de pagina
+}, false);
+
+const searchProduct = (searchInput) => {
+        result = filterProducts(searchInput.value);
+
+        if (result.length == 0) {
+                if (!productNotFoundedAlert.classList.contains('show'))
+                        productNotFoundedAlert.classList.toggle('show');//muestra cartel de no encontrado
+        } else {
+                if (nav__menu.classList.contains('show')) { //En dispositivo movil, cierra el menu del nav
+                        nav__menu.classList.toggle('show');
+                        btn__nav.classList.toggle('active');
+                }
+                if (productNotFoundedAlert.classList.contains('show'))//oculta el cartel de no encontrado, si estaba visible
+                        productNotFoundedAlert.classList.toggle('show');
+                
+                productsInformationTitle.textContent=`Busqueda: ${searchInput.value}`;
+                productsInformationResults.textContent=`${ result.length} Resultados`
+                scrollTo(0,productsInformation.offsetTop - 50);
+                setTimeout(() => {
+                        loadContainerProducts(resul);
+                }, 400);
+        }
+}
+//Filtrar productos
+const filterProducts = (parameter) => {
+        resul = products.filter(product =>
+                product.category.toLowerCase().includes(parameter.toLowerCase())
+        )
+        return resul;
+}
+
+//------Evento para Logo de la pagina
+navLogo.addEventListener('click', () => {
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        if(cartView.classList.contains('show'))
+                cartView.classList.toggle('show')
+})
+
+//-----Eventos para btn de productos en NAV y FOOTER
+btnNavProductos.addEventListener('click',(e)=>{
+        e.preventDefault();
+        productsContainer.innerHTML = '';
+        productsInformationTitle.textContent=`Descubrí nuestros productos`;
+        productsInformationResults.textContent=``;
+        loadRandomProductsToContainer(products);
+        scrollTo(0,productsInformation.offsetTop - 50);
+});
+btnNavSeleccionArgentina.addEventListener('click',(e)=>{
+        e.preventDefault();
+        let filter = filterProducts('Seleccion Argentina');
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        productsInformationTitle.textContent=`Categoria: Selección Argentina`;
+        productsInformationResults.textContent=`${ filter.length} Resultados`;
+        scrollTo(0,productsInformation.offsetTop - 50);
+        setTimeout(() => {
+                loadContainerProducts(filter);
+        }, 400)
+});
+btnNavLigaProfesional.addEventListener('click', (e) => {
+        e.preventDefault();
+        let filter = filterProducts('Liga Profesional');
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        productsInformationTitle.textContent=`Categoria: Liga Profesional`;
+        productsInformationResults.textContent=`${ filter.length} Resultados`
+        scrollTo(0,productsInformation.offsetTop - 50);
+        setTimeout(() => {
+                loadContainerProducts(filter);
+        }, 400)
+});
+
+btnNavPrimeraNacional.addEventListener('click', (e) => {
+        e.preventDefault();
+        let filter = filterProducts('Primera Nacional');
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        productsInformationTitle.textContent=`Categoria: Primera Nacional`;
+        productsInformationResults.textContent=`${ filter.length} Resultados`
+        scrollTo(0,productsInformation.offsetTop - 50);
+        setTimeout(() => {
+                loadContainerProducts(filter);
+        }, 400)
+});
+
+btnNavTodosProductos.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        productsInformationTitle.textContent=`Todos los productos`;
+        productsInformationResults.textContent=`${ products.length} Resultados`
+        scrollTo(0,productsInformation.offsetTop - 50);
+        setTimeout(() => {
+                loadContainerProducts(products);
+        }, 400)
+});
+btnFooterSeleccionArgentina.addEventListener("click",(e)=>{
+        e.preventDefault();
+        let filter = filterProducts('Seleccion Argentina');
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        productsInformationTitle.textContent=`Categoria: Seleccion Argentina`;
+        productsInformationResults.textContent=`${ filter.length} Resultados`
+        scrollTo(0,productsInformation.offsetTop - 50);
+        setTimeout(() => {
+                loadContainerProducts(filter);
+        }, 400)
+});
+btnFooterLigaProfesional.addEventListener('click', (e)=>{
+        e.preventDefault();
+        let filter = filterProducts('Liga Profesional');
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        productsInformationTitle.textContent=`Categoria: Liga Profesional`;
+        productsInformationResults.textContent=`${ filter.length} Resultados`
+        scrollTo(0,productsInformation.offsetTop - 50);
+        setTimeout(() => {
+                loadContainerProducts(filter);
+        }, 400)
+});
+btnFooterPrimeraNacional.addEventListener('click', (e) => {
+        e.preventDefault();
+        let filter = filterProducts('Primera Nacional');
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        productsInformationTitle.textContent=`Categoria: Primera Nacional`;
+        productsInformationResults.textContent=`${ filter.length} Resultados`
+        scrollTo(0,productsInformation.offsetTop - 50);
+        setTimeout(() => {
+                loadContainerProducts(filter);
+        }, 400)
+});
+btnFooterTodosProductos.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (nav__menu.classList.contains('show')) {
+                nav__menu.classList.toggle('show');
+                btn__nav.classList.toggle('active');
+        }
+        productsInformationTitle.textContent=`Todos los productos`;
+        productsInformationResults.textContent=`${ products.length} Resultados`
+        scrollTo(0,productsInformation.offsetTop - 50);
+        setTimeout(() => {
+                loadContainerProducts(products);
+        }, 400)
+});
+
+const arrayLength = (array) => {
+        let count = 0;
+        array.forEach(product => {
+
+                if (product)
+                        count += product.units;
+        });
+        return count;
+}
+
+//-----Muestra el menu del nav en dispositivos moviles
+btn__nav.addEventListener('click', () => {
+        nav__menu.classList.toggle('show');
+        btn__nav.classList.toggle('active');
+})
+
+//-----Agrega eventos a los botones para mostrar y ocultar la vista del carrito
+const addEventShowCart = () => {
+        //evento para boton carrito en el nav bar.
+        const btnCart = document.getElementById('btnCartView');
+        btnCart.addEventListener('click', () => {
+                cartView.classList.toggle('show');
+        });
+
+        //evento para cuando se haga click en el sector opaco se cierre la vista
+        
+        cartView.addEventListener('click', (e) => {
+                if (e.target.classList.contains('cart')) {
+                        cartView.classList.toggle('show');
+                }
+        });
+
+        //evento para el boton cerrar, dentro de la vista del carrito
+        const btnCloseCartView = document.querySelector('.cart__sideContainer__title__exit');
+        btnCloseCartView.addEventListener('click', () => {
+                cartView.classList.toggle('show');
+        });
+
+        //evento para boton carrito responsive del nav bar
+        const btnCartViewResponsive = document.querySelector('#btnCartViewResponsive');
+        btnCartViewResponsive.addEventListener('click', () => {
+                cartView.classList.toggle('show');
+        });
 }

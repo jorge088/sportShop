@@ -6,7 +6,6 @@ header {
     z-index: 100;
     top: 0;
     font-family: 'Rubik', sans-serif;
-
     .navBar {
         height: 50px;
         width: 80%;
@@ -14,12 +13,10 @@ header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-
         & div {
             display: flex;
             align-items: center;
         }
-
         &__logo {
             color: #fff;
             font-size: 1.3em;
@@ -27,7 +24,6 @@ header {
             font-weight: bold;
             text-decoration: none;
         }
-
         &__menu {
             display: flex;
             list-style: none;
@@ -38,7 +34,6 @@ header {
                 margin: 0 .4em;
                 position: relative;
             }
-
             & li a {
                 text-decoration: none;
                 color: #fff;
@@ -50,9 +45,7 @@ header {
                 &:focus {
                     background-color: #a400e6;
                 }
-
             }
-
             & li ul {
                 left: 0;
                 top: 50px;
@@ -85,10 +78,8 @@ header {
                     display: block;
                 }
             }
-
             form {
                 position: relative;
-
                 input {
                     padding: 6px;
                     width: 300px;
@@ -118,13 +109,11 @@ header {
                         text-align: center;
                         font-size: 1em;
                     }
-
                     &.show {
                         opacity: 1;
                     }
                 }
             }
-
             &__btnCartMenu {
                 color: #fff;
                 padding: .8em 1.1em;
@@ -132,18 +121,15 @@ header {
                 cursor: pointer;
                 text-align: center;
                 position: relative;
-
                 i {
                     font-size: 1.4em;
                     vertical-align: bottom;
                     padding: 0;
 
                 }
-
                 &:hover {
                     background-color: #a400e6;
                 }
-
                 &-counter {
                     position: absolute;
                     top: 6px;
@@ -156,14 +142,11 @@ header {
                     text-align: center;
                     padding: 1px;
                 }
-
             }
-
             &.show {
                 top: 50px;
             }
         }
-
         &__btnCartResponsive {
             color: #fff;
             padding: .9em 1.2em;
@@ -173,18 +156,14 @@ header {
             text-align: center;
             position: relative;
             display: none;
-
             i {
                 font-size: 1.5em;
                 vertical-align: bottom;
                 padding: 0;
-
             }
-
             &:hover {
                 background-color: #a400e6;
             }
-
             &-counter {
                 position: absolute;
                 top: 6px;
@@ -199,7 +178,6 @@ header {
             }
         }
     }
-
     .btn__nav {
         font-size: 25px;
         color: #fff;
@@ -212,17 +190,14 @@ header {
 @media only screen and (max-width:575px) {
     header {
         font-size: .8rem;
-
         .navBar {
             width: 100%;
             height: 50px;
-
             &__logo {
                 padding: .6em 0;
                 margin: 0;
                 margin-left: .5em;
             }
-
             &__menu {
                 position: fixed;
                 width: 100%;
@@ -234,57 +209,46 @@ header {
                 text-align: center;
                 transition: .6s all ease;
                 flex-direction: column;
-
                 & li {
                     width: 100%;
                     margin: .6em 0;
                     transition: .3s all ease;
                 }
-
                 & li a {
                     padding: 1em 1em;
                     font-size: 1em;
                     font-weight: bold;
                 }
-
                 & li ul {
                     top: 40px;
                     text-align: center;
                     display: none;
                     min-width: 100%;
                     position: absolute;
-
                     & li {
                         & a {
                             font-size: .9em;
                             margin: .3em 0;
-                            padding: 1em;
-                            
-                            
+                            padding: 1em;          
                         }
                     }
                 }
-
                 form {
                     input {
                         font-size: 1.1em;
                     }
                 }
-
                 & .navBar__menu__btnCartMenu {
                     display: none;
                 }
             }
-
             &__btnCartResponsive {
                 display: block;
             }
         }
-
         .btn__nav {
             display: block;
             margin-left: 1em;
-
             i {
                 padding: 4px 8px;
                 font-size: 1em;
@@ -293,7 +257,6 @@ header {
                     outline: 1px solid #fff;
                 }
             }
-
             &.active {
                 i {
                     font-weight: bold;
@@ -308,17 +271,14 @@ header {
 @media only screen and (min-width:576px) and (max-width:768px) {
     header {
         font-size: .9rem;
-
         .navBar {
             width: 100%;
             height: 50px;
-
             &__logo {
                 padding: 0;
                 margin: 0;
                 margin-left: .5em;
             }
-
             &__menu {
                 position: fixed;
                 width: 100%;
@@ -330,25 +290,21 @@ header {
                 text-align: center;
                 transition: all ease .8s;
                 flex-direction: column;
-
                 & li {
                     width: 100%;
                     margin: .6em 0;
                 }
-
                 & li a {
                     padding: 1em;
                     font-size: 1em;
                     font-weight: bold;
                 }
-
                 & li ul {
                     top: 40px;
                     text-align: center;
                     min-width: 100%;
                     display: none;
                     position: absolute;
-
                     & li {
                         & a {
                             font-size: .9em;
@@ -357,28 +313,22 @@ header {
                         }
                     }
                 }
-
                 form {
                     input {
                         font-size: 1.1em;
                     }
                 }
-
                 & .navBar__menu__btnCartMenu {
                     display: none;
                 }
-
             }
-
             &__btnCartResponsive {
                 display: block;
             }
         }
-
         .btn__nav {
             display: block;
             margin-left: 1em;
-
             i {
                 padding: 4px 8px;
 
@@ -386,7 +336,6 @@ header {
                     outline: 1px solid #fff;
                 }
             }
-
             &.active {
                 i {
                     font-weight: bold;
@@ -395,23 +344,19 @@ header {
             }
         }
     }
-
 }
 
 @media only screen and (min-width:768px) and (max-width:992px) {
     header {
         font-size: .9rem;
-
         .navBar {
             width: 100%;
             height: 50px;
-
             &__logo {
                 padding: 0;
                 margin: 0;
                 margin-left: .5em;
             }
-
             &__menu {
                 position: fixed;
                 width: 100%;
@@ -423,25 +368,21 @@ header {
                 text-align: center;
                 transition: all ease .8s;
                 flex-direction: column;
-
                 & li {
                     width: 100%;
                     margin: .6em 0;
                 }
-
                 & li a {
                     padding: .8em 1em;
                     font-size: 1.1em;
                     font-weight: bold;
                 }
-
                 & li ul {
                     top: 40px;
                     text-align: center;
                     min-width: 100%;
                     display: none;
                     position: absolute;
-
                     & li {
                         & a {
                             font-size: .9em;
@@ -450,18 +391,15 @@ header {
                         }
                     }
                 }
-
                 form {
                     input {
                         font-size: 1.1em;
                     }
                 }
-
                 & .navBar__menu__btnCartMenu {
                     display: none;
                 }
             }
-
             &__btnCartResponsive {
                 display: block;
             }
@@ -470,7 +408,6 @@ header {
         .btn__nav {
             display: block;
             margin-left: 1em;
-
             i {
                 padding: 4px 8px;
 
@@ -478,7 +415,6 @@ header {
                     outline: 1px solid #fff;
                 }
             }
-
             &.active {
                 i {
                     font-weight: bold;

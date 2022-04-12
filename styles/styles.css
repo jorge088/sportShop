@@ -972,23 +972,6 @@ body {
   overflow-x: hidden;
 }
 
-.informationCarousel {
-  font-size: 1rem;
-  margin: 0 auto;
-  padding: 0;
-  height: 200px;
-  display: none;
-}
-.informationCarousel__container__elements {
-  overflow: hidden;
-  display: flex;
-}
-.informationCarousel__container__elements img {
-  width: 100%;
-  height: 200px;
-  padding: 0;
-}
-
 .mainInformation {
   font-size: 1rem;
   margin: 0;
@@ -1087,10 +1070,6 @@ body {
     height: 100px;
   }
 
-  .informationCarousel__container__elements img {
-    height: 140px;
-  }
-
   .productAddToast {
     font-size: 0.9rem;
   }
@@ -1110,10 +1089,6 @@ body {
     height: 100px;
   }
 
-  .informationCarousel__container__elements img {
-    height: 170px;
-  }
-
   .productAddToast {
     font-size: 0.9rem;
   }
@@ -1131,10 +1106,6 @@ body {
   .mainInformation-svg {
     fill: #7f00b2;
     height: 100px;
-  }
-
-  .informationCarousel__container__elements img {
-    height: 200px;
   }
 
   .productAddToast {

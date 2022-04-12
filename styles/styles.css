@@ -892,6 +892,74 @@ header .btn__nav {
     margin: 0 2em;
   }
 }
+.footer {
+  font-size: 1rem;
+  font-family: "Rubik", sans-serif;
+  width: 100%;
+  background-color: #7f00b2;
+  margin-bottom: 0;
+}
+.footer-svg {
+  height: 3em;
+  fill: #e0e0e0;
+}
+.footer__content {
+  padding: 2em 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  color: #fff;
+}
+.footer__content a {
+  color: #fff;
+  text-decoration: none;
+}
+.footer__content h4 {
+  margin: 0;
+  font-size: 1.1em;
+  padding: 0;
+  margin-bottom: 0.4em;
+  opacity: 0.6;
+}
+.footer__content__links {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+}
+.footer__content__links a {
+  width: 170px;
+  font-size: 0.9em;
+  padding: 0.3em 0;
+  margin: 0.1em 0;
+  opacity: 0.8;
+}
+.footer__content__links a:hover {
+  opacity: 1;
+}
+.footer__content__social {
+  display: flex;
+  flex-direction: column;
+}
+.footer__content__social div {
+  display: flex;
+  gap: 1em;
+  margin: 0;
+}
+.footer__content__social div a {
+  padding: 0;
+  margin: 0;
+  font-size: 2.2em;
+}
+.footer__content__social div a :hover {
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 575px) {
+  .footer {
+    font-size: 0.9rem;
+  }
+}
 html {
   scroll-behavior: smooth;
 }
@@ -1004,69 +1072,6 @@ body {
   opacity: 1;
 }
 
-.footer {
-  font-size: 1rem;
-  font-family: "Rubik", sans-serif;
-  width: 100%;
-  background-color: #7f00b2;
-  margin-bottom: 0;
-}
-.footer-svg {
-  height: 3em;
-  fill: #e0e0e0;
-}
-.footer__content {
-  padding: 2em 0;
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  width: 100%;
-  color: #fff;
-}
-.footer__content a {
-  color: #fff;
-  text-decoration: none;
-}
-.footer__content h4 {
-  margin: 0;
-  font-size: 1.1em;
-  padding: 0;
-  margin-bottom: 0.4em;
-  opacity: 0.6;
-}
-.footer__content__links {
-  display: flex;
-  flex-direction: column;
-  font-weight: 400;
-}
-.footer__content__links a {
-  width: 170px;
-  font-size: 0.9em;
-  padding: 0.3em 0;
-  margin: 0.1em 0;
-  opacity: 0.8;
-}
-.footer__content__links a:hover {
-  opacity: 1;
-}
-.footer__content__social {
-  display: flex;
-  flex-direction: column;
-}
-.footer__content__social div {
-  display: flex;
-  gap: 1em;
-  margin: 0;
-}
-.footer__content__social div a {
-  padding: 0;
-  margin: 0;
-  font-size: 2.2em;
-}
-.footer__content__social div a :hover {
-  transform: scale(1.1);
-}
-
 @media only screen and (max-width: 575px) {
   .mainInformation {
     font-size: 0.8rem;
@@ -1087,10 +1092,6 @@ body {
   }
 
   .productAddToast {
-    font-size: 0.9rem;
-  }
-
-  .footer {
     font-size: 0.9rem;
   }
 }

@@ -91,9 +91,9 @@
     },
     {
         "id": 11,
-        "name":"Camiseta titular Velez Liga Profesional",
+        "name":"Camiseta titular Velez Sarsfield",
         "price":10000,
-        "category":"Velez Liga Profesional camiseta remera",
+        "category":"Velez Sarsfield Liga Profesional camiseta remera",
         "year":"2021",
         "imgFrontUrl":"camiseta1Front-Velez-2021.png",
         "imgBackUrl":"camiseta1Back-Velez-2021.png"

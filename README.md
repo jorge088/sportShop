@@ -27,5 +27,5 @@ Las caracteristicas y funcionalidades del sitio son:
 
 # Ver Sitio
 
-<a href="https://sportshoparg.netlify.app/"><h2>Sporthop</h2></a>
+<a href="https://sportshoparg.netlify.app/"><h2>Sportshop</h2></a>
 

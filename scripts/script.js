@@ -29,10 +29,12 @@ const cartView = document.querySelector('.cart');
 const cartList = document.getElementById('cart__items'); //contenedor de productos en el carrito
 const templateCartProducts = document.getElementById("template-CartProducts").content; //template para cargar los items en el carrito
 const fragmentCart = document.createDocumentFragment();//fragmento para guardar cada item y luego insertarlo en el carrito
-const cart__resume = document.querySelector('.cart__sideContainer__resume');
+const cartResumeTotal = document.querySelector('.cart__sideContainer__resume__total');
+const btnFinishBuy = document.querySelector('.cart__sideContainer__resume__btnFinishBuy');
 const productAddToast = document.querySelector('.productAddToast');
 const cartProductsCounter = document.querySelector('.navBar__menu__btnCartMenu-counter');
 const cartProductsCounterResponsive = document.querySelector('.navBar__btnCartResponsive-counter');
+
 
 const btnFooterLigaProfesional = document.querySelector('#btnFooterLigaProfesional');
 const btnFooterPrimeraNacional = document.querySelector('#btnFooterPrimeraNacional');
@@ -172,13 +174,19 @@ function updateCartProductView() {
                 }
         });
         cartList.appendChild(fragmentCart);
-
-        cart__resume.innerHTML =
-                `<div class="cart__sideContainer__resume__total">
-                        <p>Total: $${totalPrice} </p>
-                </div>`;
+        if(totalPrice==0){
+                cartResumeTotal.textContent = 'Carrito vacio';
+        }else {
+                if(!btnFinishBuy.classList.contains('show'))
+                        btnFinishBuy.classList.toggle('show');
+                cartResumeTotal.textContent = `Total a pagar: $${totalPrice}`;
+        }
+        if(arrayLength(cart)==0){
+                if(btnFinishBuy.classList.contains('show'))
+                        btnFinishBuy.classList.toggle('show');
+        }
+        
 }
-
 
 //-----Modificar productos en carrito
 cartList.addEventListener('click', (e) => {
@@ -444,27 +452,26 @@ btn__nav.addEventListener('click', () => {
 
 //-----Agrega eventos a los botones para mostrar y ocultar la vista del carrito
 const addEventShowCart = () => {
-        //evento para boton carrito en el nav bar.
+        //click en btn carrito abre o cierra la vista del carrito.
         const btnCart = document.getElementById('btnCartView');
         btnCart.addEventListener('click', () => {
                 cartView.classList.toggle('show');
         });
 
-        //evento para cuando se haga click en el sector opaco se cierre la vista
-        
+        //click en sector opaco cierra vista del carrito
         cartView.addEventListener('click', (e) => {
                 if (e.target.classList.contains('cart')) {
                         cartView.classList.toggle('show');
                 }
         });
 
-        //evento para el boton cerrar, dentro de la vista del carrito
-        const btnCloseCartView = document.querySelector('.cart__sideContainer__title__exit');
+        //click en cabecera de la vista del carrito cierra la vista
+        const btnCloseCartView = document.querySelector('.cart__sideContainer__title');
         btnCloseCartView.addEventListener('click', () => {
                 cartView.classList.toggle('show');
         });
 
-        //evento para boton carrito responsive del nav bar
+        //click en btn carrito de nav responsive abre vista del carrito
         const btnCartViewResponsive = document.querySelector('#btnCartViewResponsive');
         btnCartViewResponsive.addEventListener('click', () => {
                 cartView.classList.toggle('show');

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/glider.min.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,500&display=swap"
+        rel="stylesheet">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/9eb45967b7.js"></script>
+    <title>Comprar</title>
+</head>
+
+<body>
+    <header class="header-form">
+        <h1 class="header-form__logo">SPORTSHOP</h1>
+        <p>Para finalizar tu compra, completa el siguiente formulario</p>
+    </header>
+    <span class="btnBackHome">
+        <i class="fa-solid fa-chevron-left"></i>
+        Volver
+    </span>
+    <div class="buyInformation">
+        <div class="buyInformation__form">
+            <h2>Datos personales</h2>
+            <form action="">
+                <input class="form-input" id="email" type="email" name="email" placeholder="Email">
+                <div class="form-element-multiple">
+                    <input class="form-input" id="name" type="text" name="name" placeholder="Nombre">
+                    <input class="form-input" id="surname" type="text" name="surname" placeholder="Apellido">
+                </div>
+                <div class="form-element-multiple">
+                    <input class="form-input" id="dni" type="number" name="dni" placeholder="DNI">
+                    <input class="form-input" id="phone" type="number" name="phone" placeholder="Telefono">
+                </div>
+                <div class="form-check">
+                    <label for="typeBuy">Tipo de pago</label>
+                    <div>
+                        <input type="Radio" name="typeBuy" value="Efectivo/Transferencia" checked>
+                        Efectivo/Transferencia
+                        <input type="Radio" name="typeBuy" value="En cuotas"> En cuotas
+                        <input type="Radio" name="typeBuy" value="Debito"> Debito
+                    </div>
+                </div>
+
+
+
+            </form>
+        </div>
+        <div class="buyInformation__cartContent">
+            <h2>Resumen de compra</h2>
+            <div class="buyInformation__cartContent__products">
+
+            </div>
+            <div class="buyInformation__cartContent__resume">
+                <p>Total $12312</p>
+            </div>
+        </div>
+    </div>
+
+    <template id="template-CartContent">
+        <div class="buyInformation__cartContent__products__item">
+            <img src="" alt="">
+            <div class="buyInformation__cartContent__products__item__description">
+                <p class="buyInformation__cartContent__products__item__description__name"></p>
+                <p class="buyInformation__cartContent__products__item__description__units"></p>
+            </div>
+            <p class="buyInformation__cartContent__products__item__description__price"></p>
+        </div>
+    </template>
+</body>
+    <script src="./scripts/form.js"></script>
+</html>

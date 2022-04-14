@@ -1,4 +1,4 @@
-header {
+.header {
   width: 100%;
   background-color: #7f00b2;
   font-size: 1rem;
@@ -7,7 +7,7 @@ header {
   top: 0;
   font-family: "Rubik", sans-serif;
 }
-header .navBar {
+.header .navBar {
   height: 50px;
   width: 80%;
   margin: 0 auto;
@@ -15,39 +15,39 @@ header .navBar {
   align-items: center;
   justify-content: space-between;
 }
-header .navBar div {
+.header .navBar div {
   display: flex;
   align-items: center;
 }
-header .navBar__logo {
+.header .navBar__logo {
   color: #fff;
   font-size: 1.3em;
   padding: 0;
   font-weight: bold;
   text-decoration: none;
 }
-header .navBar__menu {
+.header .navBar__menu {
   display: flex;
   list-style: none;
   align-items: center;
   color: #fff;
   font-weight: 500;
 }
-header .navBar__menu li {
+.header .navBar__menu li {
   margin: 0 0.4em;
   position: relative;
 }
-header .navBar__menu li a {
+.header .navBar__menu li a {
   text-decoration: none;
   color: #fff;
   font-size: 1em;
   padding: 1em;
   display: block;
 }
-header .navBar__menu li a:hover, header .navBar__menu li a:focus {
+.header .navBar__menu li a:hover, .header .navBar__menu li a:focus {
   background-color: #a400e6;
 }
-header .navBar__menu li ul {
+.header .navBar__menu li ul {
   left: 0;
   top: 50px;
   padding: 0.3em 0;
@@ -58,28 +58,28 @@ header .navBar__menu li ul {
   background-color: #7f00b2;
   z-index: 50;
 }
-header .navBar__menu li ul li {
+.header .navBar__menu li ul li {
   list-style: none;
   padding: 0;
   border-radius: 0;
   margin: 0;
 }
-header .navBar__menu li ul li a {
+.header .navBar__menu li ul li a {
   font-size: 0.9em;
   font-weight: 400;
   margin: 0;
   padding: 0.7em 1em;
 }
-header .navBar__menu li ul li a:hover, header .navBar__menu li ul li a:focus {
+.header .navBar__menu li ul li a:hover, .header .navBar__menu li ul li a:focus {
   background-color: #a400e6;
 }
-header .navBar__menu li:hover ul {
+.header .navBar__menu li:hover ul {
   display: block;
 }
-header .navBar__menu form {
+.header .navBar__menu form {
   position: relative;
 }
-header .navBar__menu form input {
+.header .navBar__menu form input {
   padding: 6px;
   width: 300px;
   background: transparent;
@@ -88,10 +88,10 @@ header .navBar__menu form input {
   border: 1px solid #d8d8d8;
   font-family: "Signika Negative", sans-serif;
 }
-header .navBar__menu form input:focus {
+.header .navBar__menu form input:focus {
   outline: none;
 }
-header .navBar__menu form span {
+.header .navBar__menu form span {
   position: absolute;
   left: 0px;
   top: 40px;
@@ -102,16 +102,16 @@ header .navBar__menu form span {
   opacity: 0;
   transition: 0.2s all ease-in;
 }
-header .navBar__menu form span p {
+.header .navBar__menu form span p {
   margin: 0;
   padding: 0.6em 0;
   text-align: center;
   font-size: 1em;
 }
-header .navBar__menu form span.show {
+.header .navBar__menu form span.show {
   opacity: 1;
 }
-header .navBar__menu__btnCartMenu {
+.header .navBar__menu__btnCartMenu {
   color: #fff;
   padding: 0.8em 1.1em;
   margin: 0;
@@ -119,15 +119,15 @@ header .navBar__menu__btnCartMenu {
   text-align: center;
   position: relative;
 }
-header .navBar__menu__btnCartMenu i {
+.header .navBar__menu__btnCartMenu i {
   font-size: 1.4em;
   vertical-align: bottom;
   padding: 0;
 }
-header .navBar__menu__btnCartMenu:hover {
+.header .navBar__menu__btnCartMenu:hover {
   background-color: #a400e6;
 }
-header .navBar__menu__btnCartMenu-counter {
+.header .navBar__menu__btnCartMenu-counter {
   position: absolute;
   top: 6px;
   right: 0px;
@@ -139,10 +139,10 @@ header .navBar__menu__btnCartMenu-counter {
   text-align: center;
   padding: 1px;
 }
-header .navBar__menu.show {
+.header .navBar__menu.show {
   top: 50px;
 }
-header .navBar__btnCartResponsive {
+.header .navBar__btnCartResponsive {
   color: #fff;
   padding: 0.9em 1.2em;
   margin: 0;
@@ -152,15 +152,15 @@ header .navBar__btnCartResponsive {
   position: relative;
   display: none;
 }
-header .navBar__btnCartResponsive i {
+.header .navBar__btnCartResponsive i {
   font-size: 1.5em;
   vertical-align: bottom;
   padding: 0;
 }
-header .navBar__btnCartResponsive:hover {
+.header .navBar__btnCartResponsive:hover {
   background-color: #a400e6;
 }
-header .navBar__btnCartResponsive-counter {
+.header .navBar__btnCartResponsive-counter {
   position: absolute;
   top: 6px;
   right: -1px;
@@ -172,7 +172,7 @@ header .navBar__btnCartResponsive-counter {
   text-align: center;
   padding: 1px;
 }
-header .btn__nav {
+.header .btn__nav {
   font-size: 25px;
   color: #fff;
   cursor: pointer;
@@ -916,6 +916,108 @@ header .btn__nav {
     width: 90%;
   }
 }
+.header-form {
+  width: 100%;
+  height: 110px;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Rubik", sans-serif;
+  border-bottom: 1px solid #7f00b2;
+}
+.header-form h1 {
+  font-size: 2.3em;
+  color: #7f00b2;
+  margin: 0;
+  padding: 0.6em 0 0.2em 0;
+  cursor: pointer;
+}
+.header-form p {
+  font-size: 0.9em;
+  padding: 0;
+  margin: 0;
+}
+
+.btnBackHome {
+  font-size: 1.1rem;
+  position: absolute;
+  top: 45px;
+  left: 100px;
+  cursor: pointer;
+  color: #7f00b2;
+  font-family: "Rubik", sans-serif;
+}
+.btnBackHome:hover {
+  font-weight: 500;
+}
+
+.buyInformation {
+  font-size: 1rem;
+  margin: 2em 0;
+  display: grid;
+  grid-template-columns: 50% 30%;
+  gap: 2em;
+  justify-content: center;
+}
+.buyInformation h2 {
+  width: 100%;
+  margin: 0;
+  padding: 0.5em 0;
+  font-size: 1.2em;
+  font-weight: 500;
+  border-bottom: 1px solid #7f00b2;
+  font-family: "Signika Negative", sans-serif;
+}
+.buyInformation__form {
+  padding: 1em 2em;
+  border-radius: 15px;
+  background-color: #fff;
+}
+.buyInformation__form form {
+  margin: 1.5em 0;
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+}
+.buyInformation__form form .form-input {
+  width: 35em;
+  height: 45px;
+  padding: 0;
+  font-size: 1em;
+  outline: none;
+  border: 1px #000 solid;
+  padding-left: 10px;
+}
+.buyInformation__form form .form-element-multiple {
+  width: 36em;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.buyInformation__form form .form-element-multiple input {
+  width: 16.5em;
+}
+.buyInformation__form form .form-check {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1em;
+}
+.buyInformation__form form .form-check label {
+  font-size: 1.2em;
+  margin: 0.3em 0;
+}
+.buyInformation__cartContent {
+  background-color: #fff;
+  padding: 1em 2em;
+  border-radius: 15px;
+}
+
 .footer {
   font-size: 1rem;
   font-family: "Rubik", sans-serif;

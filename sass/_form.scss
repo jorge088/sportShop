@@ -1,0 +1,106 @@
+.header-form {
+    width: 100%;
+    height: 110px;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    border-bottom: 1px solid #7f00b2;
+
+    h1 {
+        font-size: 2.3em;
+        color: #7f00b2;
+        margin: 0;
+        padding: .6em 0 .2em 0;
+        cursor: pointer;
+    }
+
+    p {
+        font-size: .9em;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.btnBackHome {
+    font-size: 1.1rem;
+    position: absolute;
+    top: 45px;
+    left: 100px;
+    cursor: pointer;
+    color: #7f00b2;
+    font-family: 'Rubik', sans-serif;
+
+    &:hover {
+        font-weight: 500;
+    }
+}
+
+.buyInformation {
+    font-size: 1rem;
+    margin: 2em 0;
+    display: grid;
+    grid-template-columns: 50% 30%;
+    gap: 2em;
+    justify-content: center;
+    h2 {
+        width: 100%;
+        margin: 0;
+        padding: .5em 0;
+        font-size: 1.2em;
+        font-weight: 500;
+        border-bottom: 1px solid #7f00b2;
+        font-family: 'Signika Negative', sans-serif;
+    }
+
+    &__form {
+        padding: 1em 2em;
+        border-radius: 15px;
+        form {
+            margin: 1.5em 0;
+            font-family: 'Rubik', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+            width: 100%;
+            .form-input{
+                width: 35em;
+                height: 45px;
+                padding: 0;
+                font-size: 1em;
+                outline: none;
+                border: 1px #000 solid;
+                padding-left: 10px;
+            }
+            .form-element-multiple{
+                width: 36em;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: space-between;
+                input{
+                    width: 16.5em;
+                }
+            }
+            .form-check{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-size: 1em;
+                label{
+                    font-size: 1.2em;
+                    margin: .3em 0;
+                }
+            }
+        }
+        background-color: #fff;
+    }
+
+    &__cartContent {
+        background-color: #fff;
+        padding: 1em 2em;
+        border-radius: 15px;
+    }
+}

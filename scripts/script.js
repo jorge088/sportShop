@@ -41,6 +41,9 @@ const btnFooterPrimeraNacional = document.querySelector('#btnFooterPrimeraNacion
 const btnFooterTodosProductos = document.querySelector('#btnFooterTodosProductos');
 const btnFooterSeleccionArgentina = document.querySelector('#btnFooterSeleccionArgentina');
 
+
+
+
 document.addEventListener('DOMContentLoaded', () => { //Despues de cargarse el DOM
         fetchData();
         checkCartLocalStorage();
@@ -477,3 +480,7 @@ const addEventShowCart = () => {
                 cartView.classList.toggle('show');
         });
 }
+
+btnFinishBuy.addEventListener('click', ()=>{
+        location.href='./form.html';
+})

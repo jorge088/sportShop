@@ -36,7 +36,8 @@
         font-weight: 500;
     }
 }
-.buyFinishToasty{
+
+.buyFinishToasty {
     font-size: 1rem;
     position: absolute;
     top: calc(50vh - 180px);
@@ -52,10 +53,12 @@
     flex-direction: column;
     align-items: center;
     display: none;
-    &.visible{
+
+    &.visible {
         display: block;
     }
-    h2{
+
+    h2 {
         width: 100%;
         text-align: center;
         margin: 0;
@@ -64,13 +67,15 @@
         font-weight: 500;
         border-bottom: 1px #7f00b2 solid;
     }
-    p{
+
+    p {
         margin: .8em 0;
         padding: 0;
         font-size: 1.1em;
         text-align: center;
     }
-    button{
+
+    button {
         background-color: #7f00b2;
         border: none;
         color: #fff;
@@ -80,12 +85,13 @@
         cursor: pointer;
         font-size: 1em;
         transition: .6s ease all;
-        &:hover{
+
+        &:hover {
             background-color: #990fcf;
         }
     }
-
 }
+
 .buyInformation {
     font-size: 1rem;
     margin: 2em 0;
@@ -93,6 +99,7 @@
     grid-template-columns: 50% 30%;
     gap: 2em;
     justify-content: center;
+
     h2 {
         width: 100%;
         margin: 0;
@@ -106,6 +113,7 @@
     &__form {
         padding: 1em 2em;
         border-radius: 15px;
+
         form {
             margin: 1.5em 0;
             font-family: 'Rubik', sans-serif;
@@ -114,8 +122,9 @@
             align-items: center;
             gap: 1em;
             width: 100%;
-            .form-input{
-                width: 35em;
+
+            .form-input {
+                width: 97%;
                 height: 45px;
                 padding: 0;
                 font-size: 1em;
@@ -123,34 +132,56 @@
                 border: 1px #9b9b9b solid;
                 padding-left: 10px;
                 transition: .6s all ease;
-                &.focus{
+
+                &.focus {
                     border: 1px solid #7f00b2;
                 }
-                &.invalid{
+
+                &.invalid {
                     border: 2px solid #ff4719;
                 }
             }
-            .form-element-multiple{
-                width: 36em;
+
+            .form-element-multiple {
+                width: 100%;
                 margin: 0;
                 padding: 0;
                 display: flex;
                 justify-content: space-between;
-                input{
-                    width: 16.5em;
+
+                input {
+                    width: 46%;
                 }
             }
-            .form-check{
+
+            .form-check {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 font-size: 1em;
-                label{
+
+                label {
                     font-size: 1.2em;
                     margin: .3em 0;
                 }
             }
+
+            button {
+                background-color: #7f00b2;
+                border: none;
+                color: #fff;
+                border-radius: 4px;
+                padding: .4em 4em;
+                cursor: pointer;
+                font-size: 1.2em;
+                transition: .6s ease all;
+
+                &:hover {
+                    background-color: #990fcf;
+                }
+            }
         }
+
         background-color: #fff;
     }
 
@@ -159,53 +190,204 @@
         padding: 1em 2em;
         border-radius: 15px;
         font-family: 'Rubik', sans-serif;
-        &__products{
+
+        &__products {
             width: 100%;
             height: 250px;
-            overflow:scroll;
+            overflow: scroll;
             display: flex;
             flex-direction: column;
             gap: .4em;
             margin: .6em 0;
-            &__item{
+
+            &__item {
                 display: flex;
                 justify-content: space-between;
                 padding: .5em .3em;
                 border-bottom: 1px solid #9b9b9b;
-                img{
+
+                img {
                     width: 70px;
                     height: 80px;
                 }
-                &__description{
+
+                &__description {
                     display: flex;
                     flex-direction: column;
                     width: 120px;
-                    &__name{
+
+                    &__name {
                         font-size: .9em;
                         padding: 0;
                         margin: .4em 0;
                     }
-                    &__units{
+
+                    &__units {
                         font-size: 1em;
                         padding: 0;
                         margin: 0;
                         font-family: 'Signika Negative', sans-serif;
                     }
                 }
-                &__price{
+
+                &__price {
                     font-size: .9em;
                     font-family: 'Signika Negative', sans-serif;
                 }
             }
-            
+
         }
-        &__resume{
-            &__total{
+
+        &__resume {
+            &__total {
                 margin: 0;
                 padding: 0;
                 font-size: 1.2em;
                 text-align: center;
             }
+        }
+    }
+}
+
+@media only screen and (max-width:575px) {
+    .header-form {
+        font-size: .9rem;
+    }
+
+    .btnBackHome {
+        font-size: 1rem;
+        top: 86px;
+        left: 20px;
+    }
+
+    .buyInformation {
+        font-size: .8rem;
+        display: grid;
+        grid-template-columns: 90%;
+        justify-content: center;
+
+        &__form {
+            form {
+                .form-input {
+                    width: 96%;
+                }
+
+                .form-element-multiple {
+                    width: 100%;
+
+                    input {
+                        width: 44%;
+                    }
+                }
+            }
+        }
+
+        &__cartContent {
+            display: none;
+        }
+    }
+
+    .buyFinishToasty {
+        font-size: .9rem;
+        top: calc(50vh - 140px);
+        height: 160px;
+
+        button {
+            margin-left: 4em;
+        }
+    }
+}
+
+@media only screen and (min-width:576px) and (max-width:768px) {
+    .header-form {
+        font-size: .9rem;
+    }
+
+    .btnBackHome {
+        font-size: 1rem;
+        top: 86px;
+        left: 20px;
+    }
+
+    .buyInformation {
+        font-size: .8rem;
+        display: grid;
+        grid-template-columns: 90%;
+        justify-content: center;
+
+        &__form {
+            form {
+                .form-input {
+                    width: 96%;
+                }
+
+                .form-element-multiple {
+                    width: 100%;
+
+                    input {
+                        width: 44%;
+                    }
+                }
+            }
+        }
+
+        &__cartContent {
+            display: none;
+        }
+    }
+
+    .buyFinishToasty {
+        font-size: .9rem;
+        top: calc(50vh - 140px);
+        height: 160px;
+
+        button {
+            margin-left: 4em;
+        }
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:992px) {
+    .header-form {
+        font-size: .9rem;
+    }
+
+    .btnBackHome {
+        font-size: 1rem;
+        top: 86px;
+        left: 20px;
+    }
+
+    .buyInformation {
+        font-size: .8rem;
+        display: grid;
+        grid-template-columns: 50% 40%;
+        justify-content: center;
+
+        &__form {
+            form {
+                .form-input {
+                    width: 96%;
+                }
+
+                .form-element-multiple {
+                    width: 100%;
+
+                    input {
+                        width: 44%;
+                    }
+                }
+            }
+        }
+    }
+
+    .buyFinishToasty {
+        font-size: .9rem;
+        top: calc(50vh - 140px);
+        height: 160px;
+
+        button {
+            margin-left: 4em;
         }
     }
 }

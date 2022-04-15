@@ -180,19 +180,19 @@
 }
 
 @media only screen and (max-width: 575px) {
-  header {
+  .header {
     font-size: 0.8rem;
   }
-  header .navBar {
+  .header .navBar {
     width: 100%;
     height: 50px;
   }
-  header .navBar__logo {
+  .header .navBar__logo {
     padding: 0.6em 0;
     margin: 0;
     margin-left: 0.5em;
   }
-  header .navBar__menu {
+  .header .navBar__menu {
     position: fixed;
     width: 100%;
     margin: 0;
@@ -204,67 +204,67 @@
     transition: 0.6s all ease;
     flex-direction: column;
   }
-  header .navBar__menu li {
+  .header .navBar__menu li {
     width: 100%;
     margin: 0.6em 0;
     transition: 0.3s all ease;
   }
-  header .navBar__menu li a {
+  .header .navBar__menu li a {
     padding: 1em 1em;
     font-size: 1em;
     font-weight: bold;
   }
-  header .navBar__menu li ul {
+  .header .navBar__menu li ul {
     top: 40px;
     text-align: center;
     display: none;
     min-width: 100%;
     position: absolute;
   }
-  header .navBar__menu li ul li a {
+  .header .navBar__menu li ul li a {
     font-size: 0.9em;
     margin: 0.3em 0;
     padding: 1em;
   }
-  header .navBar__menu form input {
+  .header .navBar__menu form input {
     font-size: 1.1em;
   }
-  header .navBar__menu .navBar__menu__btnCartMenu {
+  .header .navBar__menu .navBar__menu__btnCartMenu {
     display: none;
   }
-  header .navBar__btnCartResponsive {
+  .header .navBar__btnCartResponsive {
     display: block;
   }
-  header .btn__nav {
+  .header .btn__nav {
     display: block;
     margin-left: 1em;
   }
-  header .btn__nav i {
+  .header .btn__nav i {
     padding: 4px 8px;
     font-size: 1em;
   }
-  header .btn__nav i:hover {
+  .header .btn__nav i:hover {
     outline: 1px solid #fff;
   }
-  header .btn__nav.active i {
+  .header .btn__nav.active i {
     font-weight: bold;
     outline: 1px solid #fff;
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 768px) {
-  header {
+  .header {
     font-size: 0.9rem;
   }
-  header .navBar {
+  .header .navBar {
     width: 100%;
     height: 50px;
   }
-  header .navBar__logo {
+  .header .navBar__logo {
     padding: 0;
     margin: 0;
     margin-left: 0.5em;
   }
-  header .navBar__menu {
+  .header .navBar__menu {
     position: fixed;
     width: 100%;
     height: calc(100vh - 50px);
@@ -276,65 +276,65 @@
     transition: all ease 0.8s;
     flex-direction: column;
   }
-  header .navBar__menu li {
+  .header .navBar__menu li {
     width: 100%;
     margin: 0.6em 0;
   }
-  header .navBar__menu li a {
+  .header .navBar__menu li a {
     padding: 1em;
     font-size: 1em;
     font-weight: bold;
   }
-  header .navBar__menu li ul {
+  .header .navBar__menu li ul {
     top: 40px;
     text-align: center;
     min-width: 100%;
     display: none;
     position: absolute;
   }
-  header .navBar__menu li ul li a {
+  .header .navBar__menu li ul li a {
     font-size: 0.9em;
     margin: 0.3em 0;
     padding: 1em;
   }
-  header .navBar__menu form input {
+  .header .navBar__menu form input {
     font-size: 1.1em;
   }
-  header .navBar__menu .navBar__menu__btnCartMenu {
+  .header .navBar__menu .navBar__menu__btnCartMenu {
     display: none;
   }
-  header .navBar__btnCartResponsive {
+  .header .navBar__btnCartResponsive {
     display: block;
   }
-  header .btn__nav {
+  .header .btn__nav {
     display: block;
     margin-left: 1em;
   }
-  header .btn__nav i {
+  .header .btn__nav i {
     padding: 4px 8px;
   }
-  header .btn__nav i:hover {
+  .header .btn__nav i:hover {
     outline: 1px solid #fff;
   }
-  header .btn__nav.active i {
+  .header .btn__nav.active i {
     font-weight: bold;
     outline: 1px solid #fff;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 992px) {
-  header {
+  .header {
     font-size: 0.9rem;
   }
-  header .navBar {
+  .header .navBar {
     width: 100%;
     height: 50px;
   }
-  header .navBar__logo {
+  .header .navBar__logo {
     padding: 0;
     margin: 0;
     margin-left: 0.5em;
   }
-  header .navBar__menu {
+  .header .navBar__menu {
     position: fixed;
     width: 100%;
     height: calc(100vh - 50px);
@@ -346,47 +346,47 @@
     transition: all ease 0.8s;
     flex-direction: column;
   }
-  header .navBar__menu li {
+  .header .navBar__menu li {
     width: 100%;
     margin: 0.6em 0;
   }
-  header .navBar__menu li a {
+  .header .navBar__menu li a {
     padding: 0.8em 1em;
     font-size: 1.1em;
     font-weight: bold;
   }
-  header .navBar__menu li ul {
+  .header .navBar__menu li ul {
     top: 40px;
     text-align: center;
     min-width: 100%;
     display: none;
     position: absolute;
   }
-  header .navBar__menu li ul li a {
+  .header .navBar__menu li ul li a {
     font-size: 0.9em;
     margin: 0.3em 0;
     padding: 1em;
   }
-  header .navBar__menu form input {
+  .header .navBar__menu form input {
     font-size: 1.1em;
   }
-  header .navBar__menu .navBar__menu__btnCartMenu {
+  .header .navBar__menu .navBar__menu__btnCartMenu {
     display: none;
   }
-  header .navBar__btnCartResponsive {
+  .header .navBar__btnCartResponsive {
     display: block;
   }
-  header .btn__nav {
+  .header .btn__nav {
     display: block;
     margin-left: 1em;
   }
-  header .btn__nav i {
+  .header .btn__nav i {
     padding: 4px 8px;
   }
-  header .btn__nav i:hover {
+  .header .btn__nav i:hover {
     outline: 1px solid #fff;
   }
-  header .btn__nav.active i {
+  .header .btn__nav.active i {
     font-weight: bold;
     outline: 1px solid #fff;
   }
@@ -1034,7 +1034,7 @@
   width: 100%;
 }
 .buyInformation__form form .form-input {
-  width: 35em;
+  width: 97%;
   height: 45px;
   padding: 0;
   font-size: 1em;
@@ -1050,14 +1050,14 @@
   border: 2px solid #ff4719;
 }
 .buyInformation__form form .form-element-multiple {
-  width: 36em;
+  width: 100%;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: space-between;
 }
 .buyInformation__form form .form-element-multiple input {
-  width: 16.5em;
+  width: 46%;
 }
 .buyInformation__form form .form-check {
   display: flex;
@@ -1068,6 +1068,19 @@
 .buyInformation__form form .form-check label {
   font-size: 1.2em;
   margin: 0.3em 0;
+}
+.buyInformation__form form button {
+  background-color: #7f00b2;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.4em 4em;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: 0.6s ease all;
+}
+.buyInformation__form form button:hover {
+  background-color: #990fcf;
 }
 .buyInformation__cartContent {
   background-color: #fff;
@@ -1121,6 +1134,120 @@
   text-align: center;
 }
 
+@media only screen and (max-width: 575px) {
+  .header-form {
+    font-size: 0.9rem;
+  }
+
+  .btnBackHome {
+    font-size: 1rem;
+    top: 86px;
+    left: 20px;
+  }
+
+  .buyInformation {
+    font-size: 0.8rem;
+    display: grid;
+    grid-template-columns: 90%;
+    justify-content: center;
+  }
+  .buyInformation__form form .form-input {
+    width: 96%;
+  }
+  .buyInformation__form form .form-element-multiple {
+    width: 100%;
+  }
+  .buyInformation__form form .form-element-multiple input {
+    width: 44%;
+  }
+  .buyInformation__cartContent {
+    display: none;
+  }
+
+  .buyFinishToasty {
+    font-size: 0.9rem;
+    top: calc(50vh - 140px);
+    height: 160px;
+  }
+  .buyFinishToasty button {
+    margin-left: 4em;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .header-form {
+    font-size: 0.9rem;
+  }
+
+  .btnBackHome {
+    font-size: 1rem;
+    top: 86px;
+    left: 20px;
+  }
+
+  .buyInformation {
+    font-size: 0.8rem;
+    display: grid;
+    grid-template-columns: 90%;
+    justify-content: center;
+  }
+  .buyInformation__form form .form-input {
+    width: 96%;
+  }
+  .buyInformation__form form .form-element-multiple {
+    width: 100%;
+  }
+  .buyInformation__form form .form-element-multiple input {
+    width: 44%;
+  }
+  .buyInformation__cartContent {
+    display: none;
+  }
+
+  .buyFinishToasty {
+    font-size: 0.9rem;
+    top: calc(50vh - 140px);
+    height: 160px;
+  }
+  .buyFinishToasty button {
+    margin-left: 4em;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .header-form {
+    font-size: 0.9rem;
+  }
+
+  .btnBackHome {
+    font-size: 1rem;
+    top: 86px;
+    left: 20px;
+  }
+
+  .buyInformation {
+    font-size: 0.8rem;
+    display: grid;
+    grid-template-columns: 50% 40%;
+    justify-content: center;
+  }
+  .buyInformation__form form .form-input {
+    width: 96%;
+  }
+  .buyInformation__form form .form-element-multiple {
+    width: 100%;
+  }
+  .buyInformation__form form .form-element-multiple input {
+    width: 44%;
+  }
+
+  .buyFinishToasty {
+    font-size: 0.9rem;
+    top: calc(50vh - 140px);
+    height: 160px;
+  }
+  .buyFinishToasty button {
+    margin-left: 4em;
+  }
+}
 .footer {
   font-size: 1rem;
   font-family: "Rubik", sans-serif;

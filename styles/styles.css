@@ -989,8 +989,15 @@
   padding: 0;
   font-size: 1em;
   outline: none;
-  border: 1px #000 solid;
+  border: 1px #9b9b9b solid;
   padding-left: 10px;
+  transition: 0.6s all ease;
+}
+.buyInformation__form form .form-input.focus {
+  border: 1px solid #7f00b2;
+}
+.buyInformation__form form .form-input.invalid {
+  border: 2px solid #ff4719;
 }
 .buyInformation__form form .form-element-multiple {
   width: 36em;

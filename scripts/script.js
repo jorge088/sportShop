@@ -17,6 +17,8 @@ const searchInput = document.querySelector('#searchInput');
 searchInput.value = '';
 const productNotFoundedAlert = document.querySelector('#productNotFoundedAlert');
 
+const mainInformation = document.querySelector('#mainInformation');
+
 const productsInformationTitle = document.querySelector('.productsInformation__title');
 const productsInformationResults = document.querySelector('.productsInformation__results');
 
@@ -306,13 +308,15 @@ const filterProducts = (parameter) => {
 }
 
 //------Evento para Logo de la pagina
-navLogo.addEventListener('click', () => {
+navLogo.addEventListener('click', (e) => {
+        e.preventDefault();
         if (nav__menu.classList.contains('show')) {
                 nav__menu.classList.toggle('show');
                 btn__nav.classList.toggle('active');
         }
         if(cartView.classList.contains('show'))
                 cartView.classList.toggle('show')
+        scrollTo(0,mainInformation.offsetTop - 50);
 })
 
 //-----Eventos para btn de productos en NAV y FOOTER
